@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type ReactElement } from 'react';
 import { Game } from './Game';
 import { Hero } from './Hero';
 import { Library } from './Library';
@@ -11,7 +11,7 @@ import { Theory } from './Theory';
 
 type SectionKey = 'theory' | 'presentation' | 'regions' | 'library' | 'game';
 
-const sectionComponents: Record<SectionKey, JSX.Element> = {
+const sectionComponents: Record<SectionKey, ReactElement> = {
   theory: <Theory />,
   presentation: <Presentation />,
   regions: <Regions />,
