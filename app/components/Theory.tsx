@@ -19,6 +19,14 @@ export function Theory() {
           </ul>
         </div>
         <div className="theory-card card">
+          <h3>Bước 0: Khung chương (Chủ nghĩa duy vật lịch sử – IV. Ý thức xã hội)</h3>
+          <ul>
+            <li>Ý thức xã hội là bộ phận của kiến trúc thượng tầng, phản ánh tồn tại xã hội.</li>
+            <li>Đọc trước: giáo trình 2019 tr.231–247 hoặc 2021 tr.419–447 (khái niệm, tính độc lập tương đối, hình thái, mối quan hệ với tồn tại xã hội).</li>
+            <li>Trục logic: Tồn tại xã hội → Ý thức xã hội → Tác động ngược qua thực tiễn.</li>
+          </ul>
+        </div>
+        <div className="theory-card card">
           <h3>Bước 1: Khung lý thuyết</h3>
           <ul>
             <li>Tồn tại xã hội → Ý thức xã hội; cơ sở hạ tầng → kiến trúc thượng tầng.</li>
@@ -33,6 +41,7 @@ export function Theory() {
             <li>Tính lịch sử – cụ thể: thay đổi theo thời gian, không gian, điều kiện vật chất.</li>
             <li>Đa dạng & kế thừa: tiếp biến, giao thoa, nhưng vẫn giữ đặc trưng vùng.</li>
             <li>Độc lập tương đối: có thể lạc hậu, vượt trước, và tác động ngược trở lại đời sống.</li>
+            <li>Lưu ý giáo trình: lý giải tính giai cấp của ý thức xã hội và vai trò thực tiễn trong cải tạo xã hội.</li>
           </ul>
         </div>
         <div className="theory-card card">
