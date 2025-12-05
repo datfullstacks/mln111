@@ -1,13 +1,13 @@
 'use client';
 
-type NavKey = 'theory' | 'presentation' | 'regions' | 'library' | 'game';
+export type NavKey = 'theory' | 'presentation' | 'regions' | 'library' | 'game' | 'ai-usage' | 'about';
 
 const navLinks: { key: NavKey; label: string }[] = [
-  { key: 'theory', label: 'Lý thuyết' },
-  { key: 'presentation', label: 'Presentation' },
-  { key: 'regions', label: 'Vùng miền' },
-  { key: 'library', label: 'Thư viện' },
-  { key: 'game', label: 'Game dân gian' }
+  { key: 'theory', label: 'Trang chủ' },
+  { key: 'regions', label: 'Khám phá ba miền' },
+  { key: 'game', label: 'Game' },
+  { key: 'ai-usage', label: 'AI Usage' },
+  { key: 'about', label: 'About us' }
 ];
 
 type Props = {

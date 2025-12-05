@@ -9,9 +9,11 @@ import { Presentation } from './Presentation';
 import { Regions } from './Regions';
 import { Theory } from './Theory';
 
+import type { NavKey } from './NavBar';
+
 type SectionKey = 'theory' | 'presentation' | 'regions' | 'library' | 'game';
 
-const sectionComponents: Record<SectionKey, ReactElement> = {
+const sectionComponents: Partial<Record<NavKey, ReactElement>> = {
   theory: <Theory />,
   presentation: <Presentation />,
   regions: <Regions />,
@@ -20,14 +22,14 @@ const sectionComponents: Record<SectionKey, ReactElement> = {
 };
 
 export function Home() {
-  const [section, setSection] = useState<SectionKey>('theory');
+  const [section, setSection] = useState<NavKey>('theory');
 
   return (
     <>
       <NavBar current={section} onNavigate={setSection} />
       <main>
         {section === 'theory' && <Hero onPrimary={() => setSection('theory')} onSecondary={() => setSection('game')} />}
-        {sectionComponents[section]}
+        {sectionComponents[section] ?? null}
       </main>
     </>
   );

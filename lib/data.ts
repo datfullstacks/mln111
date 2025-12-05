@@ -8,6 +8,7 @@ export type LibraryEntry = {
 };
 
 export type RegionCard = {
+  key: RegionKey;
   name: string;
   badge: string;
   badge2: string;
@@ -33,6 +34,7 @@ export const libraryEntries: LibraryEntry[] = [
 
 export const regions: RegionCard[] = [
   {
+    key: 'bac',
     name: 'Miền Bắc',
     badge: 'Khí hậu bốn mùa',
     badge2: 'Đậm đà ngàn năm',
@@ -44,6 +46,7 @@ export const regions: RegionCard[] = [
     ]
   },
   {
+    key: 'trung',
     name: 'Miền Trung',
     badge: 'Dải đất di sản',
     badge2: 'Gió Lào & sóng biển',
@@ -55,6 +58,7 @@ export const regions: RegionCard[] = [
     ]
   },
   {
+    key: 'nam',
     name: 'Miền Nam',
     badge: 'Sông nước',
     badge2: 'Phóng khoáng miệt vườn',
