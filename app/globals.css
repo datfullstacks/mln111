@@ -103,6 +103,24 @@ a {
   transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
+.vn-map-embed #north .province,
+.vn-map-embed #north .hover-province {
+  fill: rgba(200, 60, 60, 0.8) !important;
+  stroke: rgba(209, 69, 58, 0.9) !important;
+}
+
+.vn-map-embed #center .province,
+.vn-map-embed #center .hover-province {
+  fill: rgba(243, 169, 55, 0.8) !important;
+  stroke: rgba(205, 150, 36, 0.9) !important;
+}
+
+.vn-map-embed #south .province,
+.vn-map-embed #south .hover-province {
+  fill: rgba(80, 129, 194, 0.8) !important;
+  stroke: rgba(33, 85, 156, 0.9) !important;
+}
+
 .vn-map-embed .active-region {
   opacity: 1;
   filter: drop-shadow(0 12px 30px rgba(199, 87, 57, 0.35));

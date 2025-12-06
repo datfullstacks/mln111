@@ -69,8 +69,8 @@
 
         </g>
        
-<g class="hover-group" id="center" >
-        <g class="hover-group northcentral " id="northcentral">
+    <g class="hover-group" id="center" >
+        <g>
 
             <!-- north central -->
             <path
@@ -86,7 +86,7 @@
 
         </g>
         
-        <g class="hover-group southcentralcoast " id="southcentralcoast">
+        <g>
 
             <!-- south central-->
             <path
