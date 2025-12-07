@@ -1003,7 +1003,7 @@ h2 {
 .dongson-bg-svg {
   width: 400vmin;
   height: 400vmin;
-  animation: rotateBackground 120s linear infinite;
+  animation: rotateBackground 360s linear infinite;
   transform-origin: center center;
 }
 
