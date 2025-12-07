@@ -1,27 +1,49 @@
 "use client";
-
-import { useState } from "react";
-import { NavBar, type NavKey } from "./NavBar";
-import { InteractiveMap } from "./InteractiveMap";
+import { useEffect, useState } from "react";
 import { DongSonBackground } from "./DongSonBackground";
+import { InteractiveMap } from "./InteractiveMap";
+import { NavBar, type NavKey } from "./NavBar";
+import { Hero } from "./Hero";
+import { Theory } from "./Theory";
+import { Presentation as PresentationOverview } from "./Presentation";
+import { Regions } from "./Regions";
+import { Library } from "./Library";
+import { Game } from "./Game";
+import { AIUsage } from "./AIUsage";
+import { AboutUs } from "./AboutUs";
 
 export function Home() {
-  const [currentPage, setCurrentPage] = useState<NavKey>("theory");
+  const [currentPage, setCurrentPage] = useState<NavKey>("presentation");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState<{
     title: string;
-    cards: { region: string; content: string; images: string[] }[];
+    cards: { region?: string; content?: string; images: string[] }[];
   } | null>(null);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [selectedFeature, setSelectedFeature] = useState(1);
+  const [dropdownLeftOpen, setDropdownLeftOpen] = useState(false);
+  const [dropdownRightOpen, setDropdownRightOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [currentPage]);
+
+  useEffect(() => {
+    if (currentPage !== "presentation") {
+      setModalOpen(false);
+      setCurrentCardIndex(0);
+    }
+  }, [currentPage]);
 
   const slides = [
     {
       id: "slide-1",
-      title: "Mở đầu",
       layout: "title" as const,
       content: {
-        text: "Vì sao cùng một quốc gia nhưng phong tục tập quán giữa các vùng miền lại khác biệt sâu sắc?",
+        textLarge: "Vì sao cùng một quốc gia nhưng phong tục tập quán giữa các vùng miền lại khác biệt sâu sắc?",
+        image: "/images/modau.png",
       },
     },
     {
@@ -31,7 +53,7 @@ export function Home() {
       content: {
         text: "Tồn tại xã hội là khái niệm triết học dùng để chỉ toàn bộ những sinh hoạt vật chất và những điều kiện sinh hoạt vật chất của xã hội trong những giai đoạn lịch sử nhất định",
         image:
-          "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80",
+          "/images/tontaixh.png",
       },
     },
     {
@@ -47,36 +69,32 @@ export function Home() {
             cards: [
               {
                 region: "Miền Bắc",
-                content: "Nông nghiệp lúa nước, nghề thủ công truyền thống",
                 images: [
-                  "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?w=400&q=80",
-                  "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=400&q=80",
-                  "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=400&q=80",
+                  "/images/ptsxmb2.jpg",
+                  "/images/ptsxmb3.jpg",
                 ],
               },
               {
                 region: "Miền Trung",
-                content: "Kết hợp nông nghiệp và đánh bắt hải sản",
                 images: [
-                  "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&q=80",
-                  "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&q=80",
-                  "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=400&q=80",
+                  "/images/mtsxmt.jpg",
+                  "/images/ptsxmt1.jpg",
                 ],
               },
               {
                 region: "Miền Nam",
-                content: "Nông nghiệp đa dạng, buôn bán phát triển",
                 images: [
-                  "https://images.unsplash.com/photo-1580495772338-72a2086b08ce?w=400&q=80",
-                  "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80",
-                  "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80",
+                  "/images/ptsxmNam1.png",
+                  "/images/ptsxmNam2.png",
                 ],
               },
               {
-                region: "Lý thuyết",
                 content:
-                  "Phương thức sản xuất quyết định cách người dân tổ chức đời sống và văn hóa",
-                images: [],
+                  "Phương thức sản xuất là yếu tố cơ bản và trực tiếp quy định sự sinh tồn, phát triển của mỗi con người cũng như của toàn bộ cộng đồng xã hội, quy định trực tiếp phương thức hoạt động vật chất của mỗi xã hội.",
+                images: [
+                  "/images/ptsxlagi1.png",
+                  "/images/ptsxlagi2.png",
+                ],
               },
             ],
           },
@@ -86,36 +104,30 @@ export function Home() {
             cards: [
               {
                 region: "Miền Bắc",
-                content: "Đồng bằng châu thổ sông Hồng, 4 mùa rõ rệt",
                 images: [
-                  "https://images.unsplash.com/photo-1528127269322-539801943592?w=400&q=80",
-                  "https://images.unsplash.com/photo-1540611025311-01df3cef54b5?w=400&q=80",
-                  "https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=400&q=80",
+                  "/images/dktnhcdl1.png",
+                  "/images/dktnhcdl3.png",
                 ],
               },
               {
                 region: "Miền Trung",
-                content: "Dải đất hẹp, khí hậu khắc nghiệt, nhiều bão lũ",
                 images: [
-                  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80",
-                  "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&q=80",
-                  "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=400&q=80",
+                  "/images/dktnhcpngmt1.png",
+                  "/images/dktnhcpngmt2.png",
                 ],
               },
               {
                 region: "Miền Nam",
-                content: "Đồng bằng sông Cửu Long, khí hậu nóng ẩm quanh năm",
                 images: [
-                  "https://images.unsplash.com/photo-1528127269322-539801943592?w=400&q=80",
-                  "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=400&q=80",
-                  "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&q=80",
+                  "/images/dktnhcpngmn.png",
                 ],
               },
               {
-                region: "Lý thuyết",
                 content:
-                  "Điều kiện địa lý và khí hậu ảnh hưởng trực tiếp đến lối sống và tính cách",
-                images: [],
+                  "Điều kiện địa lí tự nhiên với tư cách là yếu tố cơ bản tạo thành tồn tại xã hội – đó là toàn bộ những điều kiện vật chất tự nhiên tạo thành những điều kiện khách quan cho sự sinh tồn và phát triển của cộng đồng người trong lịch sử.",
+                images: [
+                  "/images/dktn.jpg",
+                ],
               },
             ],
           },
@@ -125,36 +137,31 @@ export function Home() {
             cards: [
               {
                 region: "Miền Bắc",
-                content: "Dân số đông đúc, lâu đời, ổn định",
                 images: [
-                  "https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=400&q=80",
-                  "https://images.unsplash.com/photo-1528127269322-539801943592?w=400&q=80",
-                  "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=400&q=80",
+                  "/images/dcmb1.png",
+                  "/images/dcmb2.png",
                 ],
               },
               {
                 region: "Miền Trung",
-                content: "Dân cư phân tán, di cư nhiều",
                 images: [
-                  "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&q=80",
-                  "https://images.unsplash.com/photo-1540611025311-01df3cef54b5?w=400&q=80",
-                  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80",
+                  "/images/dcmt1.png",
+                  "/images/dcmt2.png",
                 ],
               },
               {
                 region: "Miền Nam",
-                content: "Dân cư đa dạng, di cư từ nhiều vùng",
                 images: [
-                  "https://images.unsplash.com/photo-1580495772338-72a2086b08ce?w=400&q=80",
-                  "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80",
-                  "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80",
+                  "/images/dcmn1.png",
+                  "/images/dcmn2.png",
                 ],
               },
               {
-                region: "Lý thuyết",
                 content:
-                  "Quá trình hình thành và di cư tạo nên đặc trưng văn hóa riêng",
-                images: [],
+                  "Dân cư là toàn bộ các phương diện về số lượng, cơ cấu, mật độ, phân bố... dân số tạo thành điều kiện khách quan cho sự sinh tồn và phát triển của xã hội.",
+                images: [
+                  "/images/dclagi.png",
+                ],
               },
             ],
           },
@@ -182,6 +189,8 @@ export function Home() {
         subText:
           "Triết học khẳng định: con người sống như thế nào thì tư duy và văn hóa của họ sẽ như thế ấy.",
       },
+      titleHighlight: "Tồn tại xã hội",
+      titleSuffix: " → Ý thức xã hội",
     },
     {
       id: "slide-34",
@@ -243,7 +252,6 @@ export function Home() {
       title: "Trình độ phản ánh",
       layout: "consciousness-structure" as const,
       content: {
-        mainTitle: "TRÌNH ĐỘ PHẢN ÁNH:",
         rows: [
           {
             left: {
@@ -281,7 +289,6 @@ export function Home() {
       title: "Lĩnh vực phản ánh",
       layout: "fields-list" as const,
       content: {
-        mainTitle: "LĨNH VỰC PHẢN ÁNH:",
         subtitle: "Sự tác động qua lại của các hình thái ý thức xã hội",
         fields: [
           {
@@ -370,7 +377,6 @@ export function Home() {
       subtitle: "",
       layout: "schema-diagram" as const,
       content: {
-        mainTitle: "Sơ đồ` mô`i quan hệ",
         leftBox: {
           title: "TỒN TẠI XÃ HỘI",
           subtitle: "(TTXH)",
@@ -519,28 +525,25 @@ export function Home() {
     },
   ];
 
+  const conclusionMessages: Record<string, string> = {
+    "Trình độ phản ánh":
+      "Trình độ phản ánh thể hiện ở hai cấp độ: tâm lý xã hội (thói quen đời thường) và hệ tư tưởng (quan niệm có hệ thống).",
+    "Lĩnh vực phản ánh":
+      "Các lĩnh vực phản ánh bao gồm: chính trị, pháp quyền, đạo đức, thẩm mỹ, khoa học, tôn giáo, triết học - tạo nên bức tranh toàn diện về ý thức xã hội.",
+  };
+
+  const conclusionText =
+    modalContent?.title && conclusionMessages[modalContent.title]
+      ? conclusionMessages[modalContent.title]
+      : "";
+
   return (
     <>
       <NavBar current={currentPage} onNavigate={setCurrentPage} />
 
-      <main className="presentation-scroll">
-        <DongSonBackground />
+      {renderPageContent()}
 
-        {slides.map((slide) => (
-          <section key={slide.id} className="slide-section">
-            <div className="slide-content-wrapper">
-              <h1 className="slide-title">{slide.title}</h1>
-              {slide.subtitle && (
-                <p className="slide-subtitle">{slide.subtitle}</p>
-              )}
-              <div className="slide-content">{renderSlideContent(slide)}</div>
-            </div>
-          </section>
-        ))}
-      </main>
-
-      {/* Modal with Carousel */}
-      {modalOpen && modalContent && (
+      {currentPage === "presentation" && modalOpen && modalContent && (
         <div
           className="modal-overlay"
           onClick={() => {
@@ -576,33 +579,50 @@ export function Home() {
               </button>
 
               <div className="carousel-track">
-                {modalContent.cards.map((card, idx) => (
-                  <div
-                    key={idx}
-                    className={`carousel-card ${
-                      idx === currentCardIndex
+                {modalContent.cards.map((card, idx) => {
+                  const regionLabel = card.region ?? "";
+                  const description = card.content ?? "";
+                  const altPrefix = regionLabel || modalContent.title;
+
+                  return (
+                    <div
+                      key={idx}
+                      className={`carousel-card ${idx === currentCardIndex
                         ? "active"
                         : idx < currentCardIndex
-                        ? "left"
-                        : "right"
-                    }`}
-                  >
-                    <h3 className="carousel-card-region">{card.region}</h3>
-                    {card.images && card.images.length > 0 && (
-                      <div className="carousel-images">
-                        {card.images.map((img, imgIdx) => (
-                          <img
-                            key={imgIdx}
-                            src={img}
-                            alt={`${card.region} ${imgIdx + 1}`}
-                            className="carousel-image"
-                          />
-                        ))}
-                      </div>
-                    )}
-                    <p className="carousel-card-content">{card.content}</p>
-                  </div>
-                ))}
+                          ? "left"
+                          : "right"
+                        }`}
+                    >
+                      {regionLabel && (
+                        <h3 className="carousel-card-region">{regionLabel}</h3>
+                      )}
+
+                      {card.images && card.images.length > 0 && (
+                        <div
+                          className={`carousel-images${card.images.length === 1
+                            ? " single-image"
+                            : card.images.length === 2
+                              ? " double-image"
+                              : ""}`}
+                        >
+                          {card.images.map((img, imgIdx) => (
+                            <img
+                              key={imgIdx}
+                              src={img}
+                              alt={`${altPrefix} ${imgIdx + 1}`}
+                              className="carousel-image"
+                            />
+                          ))}
+                        </div>
+                      )}
+
+                      {description && (
+                        <p className="carousel-card-content">{description}</p>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
 
               <button
@@ -617,25 +637,116 @@ export function Home() {
               </button>
             </div>
 
-            <div className="carousel-conclusion">
-              <p className="conclusion-text">
-                {modalContent.title === "Phương thức sản xuất" &&
-                  "Phương thức sản xuất đóng vai trò nền tảng, định hình cách con người sống và văn hóa của mỗi vùng miền."}
-                {modalContent.title === "Điều kiện tự nhiên" &&
-                  "Điều kiện địa lý và khí hậu tạo nên tính cách riêng biệt của người dân mỗi vùng."}
-                {modalContent.title === "Dân cư" &&
-                  "Quá trình hình thành và phát triển dân cư tạo nên bản sắc văn hóa đặc trưng của từng vùng miền."}
-                {modalContent.title === "Trình độ phản ánh" &&
-                  "Trình độ phản ánh thể hiện ở hai cấp độ: tâm lý xã hội (thói quen đời thường) và hệ tư tưởng (quan niệm có hệ thống)."}
-                {modalContent.title === "Lĩnh vực phản ánh" &&
-                  "Các lĩnh vực phản ánh bao gồm: chính trị, pháp quyền, đạo đức, thẩm mỹ, khoa học, tôn giáo, triết học - tạo nên bức tranh toàn diện về ý thức xã hội."}
-              </p>
-            </div>
+            {conclusionText && (
+              <div className="carousel-conclusion">
+                <p className="conclusion-text">{conclusionText}</p>
+              </div>
+            )}
           </div>
         </div>
       )}
     </>
   );
+
+  function renderPageContent() {
+    switch (currentPage) {
+      case "theory":
+        return (
+          <main>
+            <Hero
+              onPrimary={() => setCurrentPage("presentation")}
+              onSecondary={() => setCurrentPage("game")}
+            />
+            <Theory />
+            <PresentationOverview />
+          </main>
+        );
+      case "presentation":
+        return (
+          <main className="presentation-scroll">
+            <DongSonBackground />
+
+            {slides.map((slide) => (
+              <section key={slide.id} className="slide-section">
+                <div className="slide-content-wrapper">
+                  <h1 className="slide-title">
+                    {"titleHighlight" in slide ? (
+                      <>
+                        <span className="slide-title-highlight">
+                          {slide.titleHighlight}
+                        </span>
+                        {"titleSuffix" in slide ? slide.titleSuffix : null}
+                      </>
+                    ) : (
+                      slide.title
+                    )}
+                  </h1>
+                  {slide.subtitle && (
+                    <p className="slide-subtitle">{slide.subtitle}</p>
+                  )}
+                  <div className="slide-content">
+                    {renderSlideContent(slide)}
+                  </div>
+                </div>
+              </section>
+            ))}
+          </main>
+        );
+      case "regions":
+        return (
+          <main>
+            <Regions />
+          </main>
+        );
+      case "library":
+        return (
+          <main>
+            <Library />
+          </main>
+        );
+      case "game":
+        return (
+          <main>
+            <Game />
+          </main>
+        );
+      case "about":
+        return (
+          <main>
+            <section className="container section">
+              <div className="section-head">
+                <div>
+                  <h2>Về dự án</h2>
+                  <p className="sub">
+                    Bộ công cụ học nhanh Triết học Mác-Lênin thông qua phong tục ba miền: slide thuyết trình, thư viện, bản đồ và
+                    trò chơi.
+                  </p>
+                </div>
+                <div className="pill pill-ghost">Giới thiệu</div>
+              </div>
+              <div className="card">
+                <p>
+                  Dự án được xây dựng để hỗ trợ sinh viên CQ14 chuẩn bị bài trình bày về ý thức xã hội. Toàn bộ nội dung tập trung
+                  vào trải nghiệm tương tác: xem slide, đọc lý thuyết, khám phá vùng miền và chơi game dân gian.
+                </p>
+                <p>
+                  Phiên bản hiện tại chạy trên Next.js, ưu tiên tốc độ và khả năng mở rộng. Đóng góp thêm nội dung/ý tưởng bằng
+                  cách tạo issue hoặc pull request trên GitHub.
+                </p>
+              </div>
+            </section>
+          </main>
+        );
+      case "ai-usage":
+        return (
+          <main>
+            <AIUsage />
+          </main>
+        );
+      default:
+        return null;
+    }
+  }
 
   function renderSlideContent(slide: (typeof slides)[number]) {
     const { layout, content } = slide;
@@ -663,471 +774,481 @@ export function Home() {
                 }}
               />
             )}
-            <p className="text-large">{content.text}</p>
-          </div>
+            {content.text ? <p className="text-large">{content.text}</p> :  < p className="text-lxl">{content.textLarge}</p>}
+             
+            
+            
+          </div >
         );
 
       case "quote":
-        return (
-          <div className="layout-quote">
-            <blockquote>
-              <p className="quote-text">"{content.quote}"</p>
-              <footer className="quote-author">{content.author}</footer>
-            </blockquote>
-          </div>
-        );
+    return (
+      <div className="layout-quote">
+        <blockquote>
+          <p className="quote-text">"{content.quote}"</p>
+          <footer className="quote-author">{content.author}</footer>
+        </blockquote>
+      </div>
+    );
 
       case "conclusion":
-        return (
-          <div className="layout-conclusion">
-            <p className="conclusion-summary">{content.summary}</p>
-            <div className="key-points">
-              <h3>Điểm chính:</h3>
-              <ul>
-                {content.keyPoints?.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-            </div>
-            <p className="next-steps">{content.nextSteps}</p>
-          </div>
-        );
+    return (
+      <div className="layout-conclusion">
+        <p className="conclusion-summary">{content.summary}</p>
+        <div className="key-points">
+          <h3>Điểm chính:</h3>
+          <ul>
+            {content.keyPoints?.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        </div>
+        <p className="next-steps">{content.nextSteps}</p>
+      </div>
+    );
 
       case "big-title":
-        return (
-          <div className="layout-big-title">
-            <h2 className="big-main-text">{content.mainText}</h2>
-            {content.subText && (
-              <p className="big-sub-text">{content.subText}</p>
-            )}
-          </div>
-        );
+    return (
+      <div className="layout-big-title">
+        <h2 className="big-main-text">{content.mainText}</h2>
+        {content.subText && (
+          <p className="big-sub-text">{content.subText}</p>
+        )}
+      </div>
+    );
 
       case "interactive-map":
-        return <InteractiveMap />;
+    return <InteractiveMap />;
 
       case "highlight":
-        return (
-          <div className="layout-highlight">
-            {content.boxes?.map((box) => (
-              <div
-                key={box.title}
-                className="highlight-box"
-                onClick={() => {
-                  setModalContent({ title: box.title, cards: box.cards });
-                  setModalOpen(true);
-                }}
-                style={{ cursor: "pointer" }}
-              >
-                <div className="highlight-icon">{box.icon}</div>
-                <h4>{box.title}</h4>
-                <p
-                  style={{
-                    fontSize: "0.9rem",
-                    color: "#666",
-                    marginTop: "0.5rem",
-                  }}
-                >
-                  Click để xem chi tiết
-                </p>
-              </div>
-            ))}
+    return (
+      <div className="layout-highlight">
+        {content.boxes?.map((box) => (
+          <div
+            key={box.title}
+            className="highlight-box"
+            onClick={() => {
+              setModalContent({ title: box.title, cards: box.cards });
+              setModalOpen(true);
+            }}
+            style={{ cursor: "pointer" }}
+          >
+            <div className="highlight-icon">{box.icon}</div>
+            <h4>{box.title}</h4>
+            <p
+              style={{
+                fontSize: "0.9rem",
+                color: "#666",
+                marginTop: "0.5rem",
+              }}
+            >
+              Click để xem chi tiết
+            </p>
           </div>
-        );
+        ))}
+      </div>
+    );
 
       case "consciousness-structure":
-        return (
-          <div className="consciousness-structure-layout">
-            <h2 className="consciousness-main-title">{content.mainTitle}</h2>
+    return (
+      <div className="consciousness-structure-layout">
+        <h2 className="consciousness-main-title">{content.mainTitle}</h2>
 
-            {content.rows?.map((row, idx) => (
-              <div key={idx} className="consciousness-row">
-                <div className="consciousness-box consciousness-left">
-                  <h3 className="consciousness-box-title">{row.left.title}</h3>
-                  <p className="consciousness-box-desc">
-                    {row.left.description}
-                  </p>
+        {content.rows?.map((row, idx) => (
+          <div key={idx} className="consciousness-row">
+            <div className="consciousness-box consciousness-left">
+              <h3 className="consciousness-box-title">{row.left.title}</h3>
+              <p className="consciousness-box-desc">
+                {row.left.description}
+              </p>
+            </div>
+
+            <div className="consciousness-arrow">→</div>
+
+            <div
+              className={`consciousness-box consciousness-right ${row.right.highlighted ? "highlighted" : ""
+                }`}
+            >
+              <h3 className="consciousness-box-title">{row.right.title}</h3>
+              <p className="consciousness-box-desc">
+                {row.right.description}
+              </p>
+            </div>
+          </div>
+        ))}
+
+        {content.footer && (
+          <p className="consciousness-footer">{content.footer}</p>
+        )}
+      </div>
+    );
+
+      case "fields-list":
+    return (
+      <div className="fields-list-layout">
+        <h2 className="fields-main-title">{content.mainTitle}</h2>
+        <p className="fields-subtitle">{content.subtitle}</p>
+
+        <ul className="fields-list">
+          {content.fields?.map((field, idx) => (
+            <li key={idx} className="field-item">
+              <span className="field-title">{field.title}</span>
+              <span className="field-description">{field.description}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+
+      case "class-nature":
+    return (
+      <div className="class-nature-layout">
+        <h2 className="class-nature-title">{content.mainTitle}</h2>
+
+        <div className="class-nature-sections">
+          {content.sections?.map((section, idx) => (
+            <div key={idx} className="class-section">
+              <h3 className="class-section-title">{section.title}</h3>
+              <p className="class-section-description">
+                {section.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+
+      case "dialectic-hero":
+    return (
+      <div className="dialectic-hero-layout">
+        <div
+          className="dialectic-hero-background"
+          style={{
+            backgroundImage: `url(${content.image})`,
+          }}
+        >
+          <div className="dialectic-hero-overlay"></div>
+        </div>
+
+        <div className="dialectic-hero-content">
+          <span className="dialectic-label">{content.label}</span>
+
+          <h1 className="dialectic-hero-title">
+            {content.mainTitle}
+            <br />
+            <span className="dialectic-highlight dialectic-highlight-1">
+              {content.titleHighlight1}
+            </span>
+            {" và "}
+            <span className="dialectic-highlight dialectic-highlight-2">
+              {content.titleHighlight2}
+            </span>
+          </h1>
+
+          <blockquote className="dialectic-hero-quote">
+            {content.quote}
+          </blockquote>
+        </div>
+      </div>
+    );
+
+      case "schema-diagram":
+    return (
+      <div className="schema-diagram-layout">
+        <h2 className="schema-main-title">{content.mainTitle}</h2>
+
+        <div className="schema-boxes">
+          <div className="schema-box schema-left">
+            <h3 className="schema-box-title">{content.leftBox.title}</h3>
+            <p className="schema-box-subtitle">
+              {content.leftBox.subtitle}
+            </p>
+            <p className="schema-box-description">
+              {content.leftBox.description}
+            </p>
+          </div>
+
+          <div className="schema-arrows">
+            {content.relationships?.map((rel, idx) => (
+              <div
+                key={idx}
+                className={`schema-arrow schema-arrow-${rel.direction}`}
+              >
+                <div className="arrow-line">
+                  {rel.direction === "right" && (
+                    <span className="arrow-symbol">→</span>
+                  )}
+                  {rel.direction === "left" && (
+                    <span className="arrow-symbol">←</span>
+                  )}
+                  {rel.direction === "both" && (
+                    <span className="arrow-symbol">↻</span>
+                  )}
                 </div>
+                <span className="arrow-label">{rel.label}</span>
+              </div>
+            ))}
+          </div>
 
-                <div className="consciousness-arrow">→</div>
+          <div className="schema-box schema-right">
+            <h3 className="schema-box-title">{content.rightBox.title}</h3>
+            <p className="schema-box-subtitle">
+              {content.rightBox.subtitle}
+            </p>
+            <p className="schema-box-description">
+              {content.rightBox.description}
+            </p>
+          </div>
+        </div>
 
-                <div
-                  className={`consciousness-box consciousness-right ${
-                    row.right.highlighted ? "highlighted" : ""
+      </div>
+    );
+
+      case "interactive-dropdown":
+    return (
+      <div className="interactive-dropdown-layout">
+        <div className="dropdown-buttons-container">
+          {/* Left Button - TRÌNH ĐỘ PHẢN ÁNH */}
+          <div className="dropdown-wrapper dropdown-left">
+            <button
+              className="dropdown-trigger"
+              onClick={() => setDropdownLeftOpen(!dropdownLeftOpen)}
+            >
+              {content.leftButton.title}
+            </button>
+            {dropdownLeftOpen && (
+              <div className="dropdown-menu dropdown-menu-left">
+                {content.leftButton.items?.map((item, idx) => (
+                  <div key={idx} className="dropdown-item-wrapper">
+                    <div className="dropdown-item">{item.title}</div>
+                    <div className="dropdown-tooltip dropdown-tooltip-left">
+                      {item.tooltip}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Right Button - LĨNH VỰC PHẢN ÁNH */}
+          <div className="dropdown-wrapper dropdown-right">
+            <button
+              className="dropdown-trigger"
+              onClick={() => setDropdownRightOpen(!dropdownRightOpen)}
+            >
+              {content.rightButton.title}
+            </button>
+            {dropdownRightOpen && (
+              <div className="dropdown-menu dropdown-menu-right">
+                {content.rightButton.items?.map((item, idx) => (
+                  <div key={idx} className="dropdown-item-wrapper">
+                    <div className="dropdown-item">{item.title}</div>
+                    <div className="dropdown-tooltip dropdown-tooltip-right">
+                      {item.tooltip}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+
+      case "comprehensive-independence":
+    return (
+      <div className="comprehensive-independence-layout">
+        <div className="independence-two-column">
+          {/* Left Column - Feature List */}
+          <div className="independence-sidebar">
+            {content.features?.map((feature) => (
+              <div
+                key={feature.number}
+                className={`sidebar-feature-item ${selectedFeature === parseInt(feature.number)
+                  ? "active"
+                  : ""
                   }`}
-                >
-                  <h3 className="consciousness-box-title">{row.right.title}</h3>
-                  <p className="consciousness-box-desc">
-                    {row.right.description}
-                  </p>
+                onClick={() => setSelectedFeature(parseInt(feature.number))}
+              >
+                <div className="sidebar-feature-number">
+                  {feature.number}
+                </div>
+                <h3 className="sidebar-feature-title">{feature.title}</h3>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Column - Feature Content */}
+          <div className="independence-content-area">
+            {content.features?.map(
+              (feature) =>
+                selectedFeature === parseInt(feature.number) && (
+                  <div
+                    key={feature.number}
+                    className="feature-content-display"
+                  >
+                    <div className="feature-content-header">
+                      <div className="feature-content-number">
+                        {feature.number}
+                      </div>
+                      <h2 className="feature-content-title">
+                        {feature.title}
+                      </h2>
+                    </div>
+
+                    {/* Feature 1: Reasons */}
+                    {feature.reasons && (
+                      <div className="feature-reasons">
+                        {feature.reasons.map((reason, idx) => (
+                          <div key={idx} className="feature-reason-item">
+                            <div className="feature-reason-label">
+                              {reason.label}
+                            </div>
+                            <p className="feature-reason-text">
+                              {reason.text}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Feature 2: Quote + Explanation + Example */}
+                    {feature.quote && !feature.points && (
+                      <div className="feature-forward">
+                        <blockquote className="feature-quote">
+                          {feature.quote}
+                        </blockquote>
+                        <p className="feature-explanation">
+                          {feature.explanation}
+                        </p>
+                        <div className="feature-example">
+                          {feature.example}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Feature 3: Quote + Explanation + Points */}
+                    {feature.points && (
+                      <div className="feature-inheritance">
+                        <blockquote className="feature-quote feature-quote-purple">
+                          {feature.quote}
+                        </blockquote>
+                        <p className="feature-explanation">
+                          {feature.explanation}
+                        </p>
+                        <ul className="feature-points">
+                          {feature.points.map((point, idx) => (
+                            <li key={idx} className="feature-point">
+                              {point}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                )
+            )}
+          </div>
+        </div>
+      </div>
+    );
+
+      case "interaction-layout":
+    return (
+      <div className="interaction-layout">
+        <div className="interaction-main-text">{content.mainText}</div>
+
+        <div className="interaction-feature-box">
+          <h3 className="interaction-feature-title">
+            {content.feature.title}
+          </h3>
+          <p className="interaction-feature-description">
+            {content.feature.description}
+          </p>
+        </div>
+
+        <div className="interaction-examples">
+          <div className="interaction-examples-label">Ví dụ:</div>
+          <div className="interaction-examples-grid">
+            {content.examples?.map((example, idx) => (
+              <div key={idx} className="interaction-example-card">
+                <div className="example-era">{example.era}</div>
+                <div className="example-dominant">{example.dominant}</div>
+                <div className="example-description">
+                  {example.description}
                 </div>
               </div>
             ))}
-
-            {content.footer && (
-              <p className="consciousness-footer">{content.footer}</p>
-            )}
           </div>
-        );
+        </div>
+      </div>
+    );
 
-      case "fields-list":
-        return (
-          <div className="fields-list-layout">
-            <h2 className="fields-main-title">{content.mainTitle}</h2>
-            <p className="fields-subtitle">{content.subtitle}</p>
+      case "action-reaction-layout":
+    return (
+      <div className="action-reaction-layout">
+        <div className="action-reaction-grid">
+          {/* Left Box - Thúc đẩy */}
+          <div className="action-box positive-box">
+            <div className="action-icon-circle positive-icon">
+              {content.leftBox.icon}
+            </div>
+            <h2 className="action-title positive-title">
+              {content.leftBox.title}
+            </h2>
+            <div className="action-subtitle">
+              {content.leftBox.subtitle}
+            </div>
+            <p className="action-description">
+              {content.leftBox.description}
+            </p>
 
-            <ul className="fields-list">
-              {content.fields?.map((field, idx) => (
-                <li key={idx} className="field-item">
-                  <span className="field-title">{field.title}</span>
-                  <span className="field-description">{field.description}</span>
+            <div className="action-highlight positive-highlight">
+              {content.leftBox.highlight}
+            </div>
+
+            <ul className="action-points">
+              {content.leftBox.points.map((point, idx) => (
+                <li key={idx} className="action-point positive-point">
+                  {point}
                 </li>
               ))}
             </ul>
           </div>
-        );
 
-      case "class-nature":
-        return (
-          <div className="class-nature-layout">
-            <h2 className="class-nature-title">{content.mainTitle}</h2>
+          {/* Right Box - Kiềm hãm */}
+          <div className="action-box negative-box">
+            <div className="action-icon-circle negative-icon">
+              {content.rightBox.icon}
+            </div>
+            <h2 className="action-title negative-title">
+              {content.rightBox.title}
+            </h2>
+            <div className="action-subtitle">
+              {content.rightBox.subtitle}
+            </div>
+            <p className="action-description">
+              {content.rightBox.description}
+            </p>
 
-            <div className="class-nature-sections">
-              {content.sections?.map((section, idx) => (
-                <div key={idx} className="class-section">
-                  <h3 className="class-section-title">{section.title}</h3>
-                  <p className="class-section-description">
-                    {section.description}
-                  </p>
-                </div>
+            <div className="action-highlight negative-highlight">
+              {content.rightBox.highlight}
+            </div>
+
+            <ul className="action-points">
+              {content.rightBox.points.map((point, idx) => (
+                <li key={idx} className="action-point negative-point">
+                  {point}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
-        );
-
-      case "dialectic-hero":
-        return (
-          <div className="dialectic-hero-layout">
-            <div
-              className="dialectic-hero-background"
-              style={{
-                backgroundImage: `url(${content.image})`,
-              }}
-            >
-              <div className="dialectic-hero-overlay"></div>
-            </div>
-
-            <div className="dialectic-hero-content">
-              <span className="dialectic-label">{content.label}</span>
-
-              <h1 className="dialectic-hero-title">
-                {content.mainTitle}
-                <br />
-                <span className="dialectic-highlight dialectic-highlight-1">
-                  {content.titleHighlight1}
-                </span>
-                {" và "}
-                <span className="dialectic-highlight dialectic-highlight-2">
-                  {content.titleHighlight2}
-                </span>
-              </h1>
-
-              <blockquote className="dialectic-hero-quote">
-                {content.quote}
-              </blockquote>
-            </div>
-          </div>
-        );
-
-      case "schema-diagram":
-        return (
-          <div className="schema-diagram-layout">
-            <h2 className="schema-main-title">{content.mainTitle}</h2>
-
-            <div className="schema-boxes">
-              <div className="schema-box schema-left">
-                <h3 className="schema-box-title">{content.leftBox.title}</h3>
-                <p className="schema-box-subtitle">
-                  {content.leftBox.subtitle}
-                </p>
-                <p className="schema-box-description">
-                  {content.leftBox.description}
-                </p>
-              </div>
-
-              <div className="schema-arrows">
-                {content.relationships?.map((rel, idx) => (
-                  <div
-                    key={idx}
-                    className={`schema-arrow schema-arrow-${rel.direction}`}
-                  >
-                    <div className="arrow-line">
-                      {rel.direction === "right" && (
-                        <span className="arrow-symbol">→</span>
-                      )}
-                      {rel.direction === "left" && (
-                        <span className="arrow-symbol">←</span>
-                      )}
-                      {rel.direction === "both" && (
-                        <span className="arrow-symbol">↻</span>
-                      )}
-                    </div>
-                    <span className="arrow-label">{rel.label}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="schema-box schema-right">
-                <h3 className="schema-box-title">{content.rightBox.title}</h3>
-                <p className="schema-box-subtitle">
-                  {content.rightBox.subtitle}
-                </p>
-                <p className="schema-box-description">
-                  {content.rightBox.description}
-                </p>
-              </div>
-            </div>
-
-            <p className="schema-footer">{content.footer}</p>
-          </div>
-        );
-
-      case "interactive-dropdown":
-        return (
-          <div className="interactive-dropdown-layout">
-            <div className="dropdown-buttons-container">
-              {/* Left Button - TRÌNH ĐỘ PHẢN ÁNH */}
-              <div className="dropdown-wrapper dropdown-left">
-                <button className="dropdown-trigger">
-                  {content.leftButton.title}
-                </button>
-                <div className="dropdown-menu dropdown-menu-left">
-                  {content.leftButton.items?.map((item, idx) => (
-                    <div key={idx} className="dropdown-item-wrapper">
-                      <div className="dropdown-item">{item.title}</div>
-                      <div className="dropdown-tooltip dropdown-tooltip-left">
-                        {item.tooltip}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right Button - LĨNH VỰC PHẢN ÁNH */}
-              <div className="dropdown-wrapper dropdown-right">
-                <button className="dropdown-trigger">
-                  {content.rightButton.title}
-                </button>
-                <div className="dropdown-menu dropdown-menu-right">
-                  {content.rightButton.items?.map((item, idx) => (
-                    <div key={idx} className="dropdown-item-wrapper">
-                      <div className="dropdown-item">{item.title}</div>
-                      <div className="dropdown-tooltip dropdown-tooltip-right">
-                        {item.tooltip}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-
-      case "comprehensive-independence":
-        return (
-          <div className="comprehensive-independence-layout">
-            <div className="independence-two-column">
-              {/* Left Column - Feature List */}
-              <div className="independence-sidebar">
-                {content.features?.map((feature) => (
-                  <div
-                    key={feature.number}
-                    className={`sidebar-feature-item ${
-                      selectedFeature === parseInt(feature.number)
-                        ? "active"
-                        : ""
-                    }`}
-                    onClick={() => setSelectedFeature(parseInt(feature.number))}
-                  >
-                    <div className="sidebar-feature-number">
-                      {feature.number}
-                    </div>
-                    <h3 className="sidebar-feature-title">{feature.title}</h3>
-                  </div>
-                ))}
-              </div>
-
-              {/* Right Column - Feature Content */}
-              <div className="independence-content-area">
-                {content.features?.map(
-                  (feature) =>
-                    selectedFeature === parseInt(feature.number) && (
-                      <div
-                        key={feature.number}
-                        className="feature-content-display"
-                      >
-                        <div className="feature-content-header">
-                          <div className="feature-content-number">
-                            {feature.number}
-                          </div>
-                          <h2 className="feature-content-title">
-                            {feature.title}
-                          </h2>
-                        </div>
-
-                        {/* Feature 1: Reasons */}
-                        {feature.reasons && (
-                          <div className="feature-reasons">
-                            {feature.reasons.map((reason, idx) => (
-                              <div key={idx} className="feature-reason-item">
-                                <div className="feature-reason-label">
-                                  {reason.label}
-                                </div>
-                                <p className="feature-reason-text">
-                                  {reason.text}
-                                </p>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-
-                        {/* Feature 2: Quote + Explanation + Example */}
-                        {feature.quote && !feature.points && (
-                          <div className="feature-forward">
-                            <blockquote className="feature-quote">
-                              {feature.quote}
-                            </blockquote>
-                            <p className="feature-explanation">
-                              {feature.explanation}
-                            </p>
-                            <div className="feature-example">
-                              {feature.example}
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Feature 3: Quote + Explanation + Points */}
-                        {feature.points && (
-                          <div className="feature-inheritance">
-                            <blockquote className="feature-quote feature-quote-purple">
-                              {feature.quote}
-                            </blockquote>
-                            <p className="feature-explanation">
-                              {feature.explanation}
-                            </p>
-                            <ul className="feature-points">
-                              {feature.points.map((point, idx) => (
-                                <li key={idx} className="feature-point">
-                                  {point}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                    )
-                )}
-              </div>
-            </div>
-          </div>
-        );
-
-      case "interaction-layout":
-        return (
-          <div className="interaction-layout">
-            <div className="interaction-main-text">{content.mainText}</div>
-
-            <div className="interaction-feature-box">
-              <h3 className="interaction-feature-title">
-                {content.feature.title}
-              </h3>
-              <p className="interaction-feature-description">
-                {content.feature.description}
-              </p>
-            </div>
-
-            <div className="interaction-examples">
-              <div className="interaction-examples-label">Ví dụ:</div>
-              <div className="interaction-examples-grid">
-                {content.examples?.map((example, idx) => (
-                  <div key={idx} className="interaction-example-card">
-                    <div className="example-era">{example.era}</div>
-                    <div className="example-dominant">{example.dominant}</div>
-                    <div className="example-description">
-                      {example.description}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        );
-
-      case "action-reaction-layout":
-        return (
-          <div className="action-reaction-layout">
-            <div className="action-reaction-grid">
-              {/* Left Box - Thúc đẩy */}
-              <div className="action-box positive-box">
-                <div className="action-icon-circle positive-icon">
-                  {content.leftBox.icon}
-                </div>
-                <h2 className="action-title positive-title">
-                  {content.leftBox.title}
-                </h2>
-                <div className="action-subtitle">
-                  {content.leftBox.subtitle}
-                </div>
-                <p className="action-description">
-                  {content.leftBox.description}
-                </p>
-
-                <div className="action-highlight positive-highlight">
-                  {content.leftBox.highlight}
-                </div>
-
-                <ul className="action-points">
-                  {content.leftBox.points.map((point, idx) => (
-                    <li key={idx} className="action-point positive-point">
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Right Box - Kiềm hãm */}
-              <div className="action-box negative-box">
-                <div className="action-icon-circle negative-icon">
-                  {content.rightBox.icon}
-                </div>
-                <h2 className="action-title negative-title">
-                  {content.rightBox.title}
-                </h2>
-                <div className="action-subtitle">
-                  {content.rightBox.subtitle}
-                </div>
-                <p className="action-description">
-                  {content.rightBox.description}
-                </p>
-
-                <div className="action-highlight negative-highlight">
-                  {content.rightBox.highlight}
-                </div>
-
-                <ul className="action-points">
-                  {content.rightBox.points.map((point, idx) => (
-                    <li key={idx} className="action-point negative-point">
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        );
+        </div>
+      </div>
+    );
 
       default:
-        return <p>Nội dung slide</p>;
-    }
+    return <p>Nội dung slide</p>;
   }
+}
 }

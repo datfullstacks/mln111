@@ -7,13 +7,19 @@ export type LibraryEntry = {
   tags: string[];
 };
 
+export type RegionHighlight = {
+  title: string;
+  points: string[];
+};
+
 export type RegionCard = {
   key: RegionKey;
   name: string;
+  image?: string;
   badge: string;
   badge2: string;
-  badgeImage: string;
-  highlights: string[];
+  badgeImage?: string;
+  highlights: RegionHighlight[];
 };
 
 export type Rank = { name: string; min: number };
@@ -37,27 +43,66 @@ export const regions: RegionCard[] = [
   {
     key: 'bac',
     name: 'Miền Bắc',
+    image: '/images/mienbacne.jpg',
     badge: 'Khí hậu bốn mùa',
     badge2: 'Đậm đà ngàn năm',
-    badgeImage: 'https://images.unsplash.com/photo-1528127269322-539801943592?w=400&q=80',
+    badgeImage: '/images/mienbacne.jpg',
     highlights: [
-      'Ẩm thực tinh tế: bún chả, phở, cốm làng Vòng.',
-      'Lễ hội: đền Hùng, chùa Hương, hội Lim quan họ.',
-      'Âm nhạc: quan họ, ca trù, chèo cổ.',
-      'Địa hình: núi đá vôi, trung du, đồng bằng sông Hồng.'
+      {
+        title: 'Ẩm thực tinh tế',
+        points: ['Bún chả', 'Phở', 'Cốm làng Vòng']
+      },
+      {
+        title: 'Lễ hội tiêu biểu',
+        points: ['Đền Hùng', 'Chùa Hương', 'Hội Lim quan họ']
+      },
+      {
+        title: 'Âm nhạc truyền thống',
+        points: ['Quan họ', 'Ca trù', 'Chèo cổ']
+      },
+      {
+        title: 'Địa hình',
+        points: ['Núi đá vôi', 'Trung du', 'Đồng bằng sông Hồng']
+      },
+      {
+        title: 'Vì sao “trang trọng – lễ nghi – chỉn chu”?',
+        points: [
+          'Lịch sử định cư lâu đời với cộng đồng làng xã kết chặt tạo quan hệ dày đặc.',
+          'Môi trường đông người đòi hỏi khuôn phép: xưng hô phân vai, cưới hỏi/giỗ chạp chuẩn bị nghi thức, giờ giấc chuẩn chỉnh.'
+        ]
+      },
+      {
+        title: 'Phong tục tiêu biểu',
+        points: [
+          'Xưng hô luôn kèm vai vế (cô, chú, bác, anh, chị) và “dạ/thưa”.',
+          'Nghi lễ gia đình coi trọng trình tự, sính lễ, giờ lành, thể hiện sự chỉn chu.'
+        ]
+      }
     ]
   },
-  {
+  {         
     key: 'trung',
     name: 'Miền Trung',
     badge: 'Dải đất di sản',
     badge2: 'Gió Lào & sóng biển',
-    badgeImage: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&q=80',
+    badgeImage: '/images/mientrungne.jpg',
     highlights: [
-      'Ẩm thực: bún bò Huế, mì Quảng, cao lầu Hội An.',
-      'Di sản: phố cổ Hội An, thánh địa Mỹ Sơn, kinh thành Huế.',
-      'Lễ hội: Festival Huế, đua ghe ngo, cầu ngư miền biển.',
-      'Âm nhạc: hò khoan Lệ Thủy, bài chòi, nhã nhạc cung đình.'
+      {
+        title: 'Ẩm thực',
+        points: ['Bún bò Huế', 'Mì Quảng', 'Cao lầu Hội An']
+      },
+      {
+        title: 'Di sản văn hóa',
+        points: ['Phố cổ Hội An', 'Thánh địa Mỹ Sơn', 'Kinh thành Huế']
+      },
+      {
+        title: 'Lễ hội & biển',
+        points: ['Festival Huế', 'Đua ghe ngo', 'Lễ cầu ngư miền biển']
+      },
+      {
+        title: 'Âm nhạc',
+        points: ['Hò khoan Lệ Thủy', 'Bài chòi', 'Nhã nhạc cung đình']
+      }
     ]
   },
   {
@@ -65,12 +110,24 @@ export const regions: RegionCard[] = [
     name: 'Miền Nam',
     badge: 'Sông nước',
     badge2: 'Phóng khoáng miệt vườn',
-    badgeImage: 'https://images.unsplash.com/photo-1580495772338-72a2086b08ce?w=400&q=80',
+    badgeImage: '/images/miennamne.jpg',
     highlights: [
-      'Ẩm thực: hủ tiếu, bánh xèo, cá kho tộ, lẩu mắm.',
-      'Không gian: chợ nổi Cái Răng, rừng tràm Trà Sư, miệt vườn.',
-      'Âm nhạc: đờn ca tài tử, vọng cổ, cải lương.',
-      'Giao lưu: múa lân, lễ hội Ok Om Bok, bà chúa Xứ núi Sam.'
+      {
+        title: 'Ẩm thực sông nước',
+        points: ['Hủ tiếu', 'Bánh xèo', 'Cá kho tộ', 'Lẩu mắm']
+      },
+      {
+        title: 'Không gian trải nghiệm',
+        points: ['Chợ nổi Cái Răng', 'Rừng tràm Trà Sư', 'Miệt vườn trái cây']
+      },
+      {
+        title: 'Âm nhạc dân gian',
+        points: ['Đờn ca tài tử', 'Vọng cổ', 'Cải lương']
+      },
+      {
+        title: 'Giao lưu văn hóa',
+        points: ['Múa lân', 'Lễ hội Ok Om Bok', 'Miếu Bà Chúa Xứ núi Sam']
+      }
     ]
   }
 ];

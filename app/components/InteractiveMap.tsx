@@ -24,8 +24,90 @@ const regionLabels: Record<RegionKey, string> = {
   nam: 'Miền Nam'
 };
 
+type ContextItem = {
+  label?: string;
+  text: string;
+  emphasis?: boolean;
+};
+
+const regionContextMap: Record<RegionKey, { title: string; items: ContextItem[] } | null> = {
+  bac: {
+    title: 'Vì sao miền Bắc“trang trọng – lễ nghi – chỉn chu”?',
+    items: [
+      {
+        label: 'Điều kiện sống:',
+        text: 'Lịch sử định cư lâu đời, cộng đồng làng xã – họ hàng gắn bó tạo mật độ quan hệ dày.'
+      },
+      {
+        label: 'Quan hệ xã hội:',
+        text: 'Môi trường đông người với nhiều ràng buộc đòi hỏi quy tắc điều hòa ứng xử.'
+      },
+      {
+        label: 'Tâm lý xã hội:',
+        text: 'Trọng “đúng phép”, chú ý vai vế, thể diện, khuôn phép trong mọi dịp.'
+      },
+      {
+        label: 'Phong tục - tập quán:',
+        text: 'Xưng hô phân vai (cô/chú/bác/anh/chị…) với “dạ/thưa”; cưới hỏi, giỗ chạp coi trọng nghi thức và giờ giấc.'
+      },
+      {
+        text: 'Đó là biểu hiện của tâm lý xã hội (ý thức thông thường) nảy sinh từ cộng đồng chặt chẽ và quan hệ xã hội dày đặc.',
+        emphasis: true
+      }
+    ]
+  },
+  trung: {
+    title: 'Vì sao miền Trung “cần cù – tiết kiệm – sáng tạo”?',
+    items: [
+      {
+        label: 'Môi trường tự nhiên – điều kiện sống:',
+        text: 'Dải đất hẹp, nhiều thiên tai (bão, lũ, hạn), rủi ro cao; nhiều nơi phải đa nghề để sinh tồn.'
+      },
+      {
+        label: 'Tâm lý xã hội hình thành:',
+        text: 'Lo xa, tiết kiệm, bền bỉ, làm chắc; linh hoạt vì phải xoay xở.'
+      },
+      {
+        label: 'Phong tục – tập quán:',
+        text: 'Nếp sống giản dị, coi trọng tích lũy, chi tiêu chặt chẽ.'
+      },
+      {
+        text: 'Thói quen chuẩn bị trước mùa bão lũ (tích trữ, gia cố), tinh thần chịu khó.'
+      },
+      {
+        text: 'Minh họa rõ nguyên lý: môi trường khắc nghiệt → tâm lý xã hội cần kiệm và bền bỉ (tính lịch sử – cụ thể).',
+        emphasis: true
+      }
+    ]
+  },
+  nam: {
+    title: 'Vì sao miền Nam “hào sảng – phóng khoáng – thoải mái”?',
+    items: [
+      {
+        label: 'Môi trường tự nhiên & lịch sử dân cư:',
+        text: 'Nhiều nơi đất đai trù phú, khí hậu ổn định hơn; lịch sử khai phá muộn, di dân và cộng cư đa dạng; giao thương sông nước phát triển.'
+      },
+      {
+        label: 'Tâm lý xã hội hình thành:',
+        text: 'Quan hệ xã hội “mở” → cởi mở, dễ hòa nhập; trọng cái tình, thực tế, linh hoạt.'
+      },
+      {
+        label: 'Phong tục - tập quán:',
+        text: 'Giao tiếp thân thiện, dễ bắt chuyện, ít câu nệ hình thức.'
+      },
+      {
+        text: 'Sẵn sàng giúp đỡ nhanh; sinh hoạt cộng đồng thoải mái.'
+      },
+      {
+        text: 'Đây là kết quả của điều kiện sống tương đối thuận lợi + cộng cư đa dạng tạo nên tâm lý xã hội phóng khoáng.',
+        emphasis: true
+      }
+    ]
+  }
+};
+
 export function InteractiveMap() {
-  const [selectedRegion, setSelectedRegion] = useState<RegionKey>('trung');
+  const [selectedRegion, setSelectedRegion] = useState<RegionKey>('bac');
   const [isTransitioning, setIsTransitioning] = useState(false);
   const selectedCard = useMemo(() => regions.find(region => region.key === selectedRegion)!, [selectedRegion]);
   const mapRef = useRef<HTMLDivElement>(null);
@@ -108,6 +190,13 @@ export function InteractiveMap() {
                   : regions.indexOf(region) < selectedIndex
                   ? 'left'
                   : 'right';
+              const highlightSummaries = region.highlights
+                .map(group => {
+                  const detail = group.points.slice(0, 2).join(', ');
+                  return detail ? `${group.title}: ${detail}` : group.title;
+                })
+                .slice(0, 4);
+              const regionContext = regionContextMap[region.key];
 
               return (
                 <div
@@ -124,11 +213,28 @@ export function InteractiveMap() {
                       className="badge-image"
                     />
                   </div>
-                  <ul className="region-highlights">
-                    {region.highlights.map((item, idx) => (
-                      <li key={idx}>{item}</li>
-                    ))}
-                  </ul>
+                  <div className="region-scroll">
+                    {/* <ul className="region-highlights">
+                      {highlightSummaries.map((summary, idx) => (
+                        <li key={idx}>{summary}</li>
+                      ))}
+                    </ul> */}
+
+                    {regionContext && (
+                      <div className="region-context">
+                        <h4>{regionContext.title}</h4>
+                        <ul>
+                          {regionContext.items.map((item, idx) => (
+                            <li key={idx}>
+                              {item.label ? <strong>{item.label}</strong> : null}
+                              {item.label ? ' ' : ''}
+                              {item.emphasis ? <em>{item.text}</em> : item.text}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
                 </div>
               );
             })}

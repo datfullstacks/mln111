@@ -1,13 +1,13 @@
 'use client';
 
-export type NavKey = 'theory' | 'presentation' | 'regions' | 'library' | 'game' | 'ai-usage' | 'about';
+export type NavKey = 'presentation' | 'theory' | 'regions' | 'library' | 'game' | 'ai-usage' | 'about';
 
-const navLinks: { key: NavKey; label: string }[] = [
-  { key: 'theory', label: 'Trang chủ' },
-  { key: 'regions', label: 'Khám phá ba miền' },
-  { key: 'game', label: 'Game' },
-  { key: 'ai-usage', label: 'AI Usage' },
-  { key: 'about', label: 'About us' }
+const navLinks: { key: NavKey; label: string; href?: string }[] = [
+  { key: 'presentation', label: 'Trang chủ', href: '/' },
+  { key: 'regions', label: 'Khám phá ba miền', href: '/#regions' },
+  { key: 'game', label: 'Game', href: '/#game' },
+  { key: 'ai-usage', label: 'AI Usage', href: '/ai-usage' },
+  { key: 'about', label: 'About us', href: '/about' }
 ];
 
 type Props = {
@@ -27,16 +27,22 @@ export function NavBar({ current, onNavigate }: Props) {
           </div>
         </div>
         <div className="links">
-          {navLinks.map(link => (
-            <button
-              key={link.key}
-              className={current === link.key ? 'active' : ''}
-              onClick={() => onNavigate(link.key)}
-              type="button"
-            >
-              {link.label}
-            </button>
-          ))}
+          {navLinks.map(link =>
+            link.href ? (
+              <a key={link.key} className={current === link.key ? 'active' : ''} href={link.href}>
+                {link.label}
+              </a>
+            ) : (
+              <button
+                key={link.key}
+                className={current === link.key ? 'active' : ''}
+                onClick={() => onNavigate(link.key)}
+                type="button"
+              >
+                {link.label}
+              </button>
+            )
+          )}
         </div>
       </nav>
     </header>

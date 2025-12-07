@@ -31,9 +31,17 @@ const wrapperToRegion: Record<WrapperId, RegionKey> = {
 };
 
 export function VietnamMap() {
-  const [selectedRegion, setSelectedRegion] = useState<RegionKey>('nam');
+  const [selectedRegion, setSelectedRegion] = useState<RegionKey>('bac');
   const selectedCard = useMemo(() => regions.find(region => region.key === selectedRegion)!, [selectedRegion]);
   const featured = useMemo(() => selectHighlights(selectedRegion), [selectedRegion]);
+  const highlightSummaries = useMemo(
+    () =>
+      selectedCard.highlights.map(group => {
+        const detail = group.points.slice(0, 2).join(', ');
+        return detail ? `${group.title}: ${detail}` : group.title;
+      }),
+    [selectedCard]
+  );
   const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -117,8 +125,8 @@ export function VietnamMap() {
           <h3>{selectedCard.badge2}</h3>
           <p className="lead">{selectedCard.badge}</p>
           <ul className="map-highlights">
-            {selectedCard.highlights.map(item => (
-              <li key={item}>{item}</li>
+            {highlightSummaries.map((item, idx) => (
+              <li key={`${selectedCard.key}-highlight-${idx}`}>{item}</li>
             ))}
           </ul>
           <div className="map-samples">
