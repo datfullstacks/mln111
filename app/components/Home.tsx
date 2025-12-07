@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import { NavBar, type NavKey } from './NavBar';
 import { InteractiveMap } from './InteractiveMap';
+import { BackgroundSvg } from './BackgroundSvg';
+import { DongSonBackground } from './DongSonBackground';
 
 export function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -222,6 +224,8 @@ export function Home() {
       </div>
 
       <main className="presentation-mode">
+        <BackgroundSvg />
+        <DongSonBackground />
         <div className="slide-container">
           <div className={`slide ${isAnimating ? 'animating' : ''}`}>
             <h1 className="slide-title-animate" key={`title-${currentSlide}`}>{slides[currentSlide].title}</h1>
