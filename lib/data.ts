@@ -12,6 +12,7 @@ export type RegionCard = {
   name: string;
   badge: string;
   badge2: string;
+  badgeImage: string;
   highlights: string[];
 };
 
@@ -38,6 +39,7 @@ export const regions: RegionCard[] = [
     name: 'Miền Bắc',
     badge: 'Khí hậu bốn mùa',
     badge2: 'Đậm đà ngàn năm',
+    badgeImage: 'https://images.unsplash.com/photo-1528127269322-539801943592?w=400&q=80',
     highlights: [
       'Ẩm thực tinh tế: bún chả, phở, cốm làng Vòng.',
       'Lễ hội: đền Hùng, chùa Hương, hội Lim quan họ.',
@@ -50,6 +52,7 @@ export const regions: RegionCard[] = [
     name: 'Miền Trung',
     badge: 'Dải đất di sản',
     badge2: 'Gió Lào & sóng biển',
+    badgeImage: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&q=80',
     highlights: [
       'Ẩm thực: bún bò Huế, mì Quảng, cao lầu Hội An.',
       'Di sản: phố cổ Hội An, thánh địa Mỹ Sơn, kinh thành Huế.',
@@ -62,6 +65,7 @@ export const regions: RegionCard[] = [
     name: 'Miền Nam',
     badge: 'Sông nước',
     badge2: 'Phóng khoáng miệt vườn',
+    badgeImage: 'https://images.unsplash.com/photo-1580495772338-72a2086b08ce?w=400&q=80',
     highlights: [
       'Ẩm thực: hủ tiếu, bánh xèo, cá kho tộ, lẩu mắm.',
       'Không gian: chợ nổi Cái Răng, rừng tràm Trà Sư, miệt vườn.',

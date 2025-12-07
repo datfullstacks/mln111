@@ -118,8 +118,11 @@ export function InteractiveMap() {
                 >
                   <h3 className="region-title">{regionLabels[region.key]}</h3>
                   <div className="region-badges">
-                    <span className="badge-primary">{region.badge2}</span>
-                    <span className="badge-secondary">{region.badge}</span>
+                    <img 
+                      src={region.badgeImage} 
+                      alt={region.name}
+                      className="badge-image"
+                    />
                   </div>
                   <ul className="region-highlights">
                     {region.highlights.map((item, idx) => (
