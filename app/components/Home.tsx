@@ -184,6 +184,61 @@ export function Home() {
       },
     },
     {
+      id: "slide-34",
+      title: "Cấu trúc Ý thức xã hội",
+      subtitle: "Trình độ và Lĩnh vực phản ánh",
+      layout: "interactive-dropdown" as const,
+      content: {
+        leftButton: {
+          title: "TRÌNH ĐỘ PHẢN ÁNH",
+          items: [
+            {
+              title: "Tâm lý xã hội",
+              tooltip:
+                "Cảm xúc, thói quen, tập quán tự phát trong đời sống hằng ngày",
+            },
+            {
+              title: "Hệ tư tưởng",
+              tooltip: "Nhận thức lý luận, hệ thống hóa về tồn tại xã hội",
+            },
+          ],
+        },
+        rightButton: {
+          title: "LĨNH VỰC PHẢN ÁNH",
+          items: [
+            {
+              title: "Ý thức chính trị",
+              tooltip: "Quan hệ quyền lực, nhà nước, đường lối",
+            },
+            {
+              title: "Ý thức pháp quyền",
+              tooltip: "Pháp luật, quyền và nghĩa vụ",
+            },
+            {
+              title: "Ý thức đạo đức",
+              tooltip: "Thiện-ác, chuẩn mực ứng xử",
+            },
+            {
+              title: "Ý thức thẩm mỹ",
+              tooltip: "Cái đẹp, nghệ thuật, thẩm mỹ",
+            },
+            {
+              title: "Ý thức khoa học",
+              tooltip: "Tri thức, quy luật, bằng chứng",
+            },
+            {
+              title: "Ý thức tôn giáo",
+              tooltip: "Niềm tin, giáo lý, nghi lễ",
+            },
+            {
+              title: "Ý thức triết học",
+              tooltip: "Thế giới quan, phương pháp luận",
+            },
+          ],
+        },
+      },
+    },
+    {
       id: "slide-15",
       title: "Trình độ phản ánh",
       layout: "consciousness-structure" as const,
@@ -335,104 +390,54 @@ export function Home() {
       },
     },
     {
-      id: "slide-34",
-      title: "Cấu trúc Ý thức xã hội",
-      subtitle: "Trình độ và Lĩnh vực phản ánh",
-      layout: "interactive-dropdown" as const,
-      content: {
-        leftButton: {
-          title: "TRÌNH ĐỘ PHẢN ÁNH",
-          items: [
-            {
-              title: "Tâm lý xã hội",
-              tooltip:
-                "Cảm xúc, thói quen, tập quán tự phát trong đời sống hằng ngày",
-            },
-            {
-              title: "Hệ tư tưởng",
-              tooltip: "Nhận thức lý luận, hệ thống hóa về tồn tại xã hội",
-            },
-          ],
-        },
-        rightButton: {
-          title: "LĨNH VỰC PHẢN ÁNH",
-          items: [
-            {
-              title: "Ý thức chính trị",
-              tooltip: "Quan hệ quyền lực, nhà nước, đường lối",
-            },
-            {
-              title: "Ý thức pháp quyền",
-              tooltip: "Pháp luật, quyền và nghĩa vụ",
-            },
-            {
-              title: "Ý thức đạo đức",
-              tooltip: "Thiện-ác, chuẩn mực ứng xử",
-            },
-            {
-              title: "Ý thức thẩm mỹ",
-              tooltip: "Cái đẹp, nghệ thuật, thẩm mỹ",
-            },
-            {
-              title: "Ý thức khoa học",
-              tooltip: "Tri thức, quy luật, bằng chứng",
-            },
-            {
-              title: "Ý thức tôn giáo",
-              tooltip: "Niềm tin, giáo lý, nghi lễ",
-            },
-            {
-              title: "Ý thức triết học",
-              tooltip: "Thế giới quan, phương pháp luận",
-            },
-          ],
-        },
-      },
-    },
-    {
       id: "slide-35",
       title: "YTXH có tính độc lập tương đối",
       subtitle: "Tính độc lập tương đối của YTXH thể hiện ở các đặc điểm:",
       layout: "comprehensive-independence" as const,
       content: {
         features: [
-          { 
-            number: "1", 
+          {
+            number: "1",
             title: "YTXH thường lạc hậu hơn so với TTXH",
             reasons: [
               {
                 label: "Một là",
-                text: "YTXH chỉ là sự phản ánh của TTXH. Tồn tại xã hội thay đổi nhanh hơn khả năng phản ánh của ý thức."
+                text: "YTXH chỉ là sự phản ánh của TTXH. Tồn tại xã hội thay đổi nhanh hơn khả năng phản ánh của ý thức.",
               },
               {
                 label: "Hai là",
-                text: "Do sức mạnh của thói quen, truyền thống, tập quán lạc hậu, bảo thủ."
+                text: "Do sức mạnh của thói quen, truyền thống, tập quán lạc hậu, bảo thủ.",
               },
               {
                 label: "Ba là",
-                text: "Những tư tưởng cũ, lạc hậu thường được các lực lượng xã hội phản tiến bộ lưu giữ và truyền bá nhằm chống lại các lực lượng tiến bộ."
-              }
-            ]
+                text: "Những tư tưởng cũ, lạc hậu thường được các lực lượng xã hội phản tiến bộ lưu giữ và truyền bá nhằm chống lại các lực lượng tiến bộ.",
+              },
+            ],
           },
-          { 
-            number: "2", 
+          {
+            number: "2",
             title: "YTXH có tính vượt trước",
-            quote: "Trong những điều kiện nhất định, tư tưởng của con người có thể vượt trước sự phát triển của TTXH, dự báo được tương lai và có tác dụng tổ chức, chỉ đạo hoạt động thực tiễn của con người.",
-            explanation: "Điều này cho thấy vai trò tích cực của ý thức trong việc định hướng và thúc đẩy sự phát triển xã hội.",
-            example: "Ví dụ: Các lý thuyết khoa học tiên tiến có thể dự đoán xu hướng phát triển của xã hội và công nghệ."
+            quote:
+              "Trong những điều kiện nhất định, tư tưởng của con người có thể vượt trước sự phát triển của TTXH, dự báo được tương lai và có tác dụng tổ chức, chỉ đạo hoạt động thực tiễn của con người.",
+            explanation:
+              "Điều này cho thấy vai trò tích cực của ý thức trong việc định hướng và thúc đẩy sự phát triển xã hội.",
+            example:
+              "Ví dụ: Các lý thuyết khoa học tiên tiến có thể dự đoán xu hướng phát triển của xã hội và công nghệ.",
           },
-          { 
-            number: "3", 
+          {
+            number: "3",
             title: "YTXH có tính kế thừa",
-            quote: "Những quan điểm lý luận của mỗi thời đại được tạo ra trên cơ sở kế thừa những tài liệu lý luận của các thời đại trước đó.",
-            explanation: "Tính kế thừa thể hiện sự liên tục trong sự phát triển của ý thức xã hội. Mỗi thời đại không bắt đầu từ con số không mà dựa trên nền tảng tri thức đã được tích lũy.",
+            quote:
+              "Những quan điểm lý luận của mỗi thời đại được tạo ra trên cơ sở kế thừa những tài liệu lý luận của các thời đại trước đó.",
+            explanation:
+              "Tính kế thừa thể hiện sự liên tục trong sự phát triển của ý thức xã hội. Mỗi thời đại không bắt đầu từ con số không mà dựa trên nền tảng tri thức đã được tích lũy.",
             points: [
               "Kế thừa có chọn lọc các giá trị tích cực",
               "Phát triển và bổ sung những nội dung mới",
-              "Loại bỏ những yếu tố lạc hậu"
-            ]
-          }
-        ]
+              "Loại bỏ những yếu tố lạc hậu",
+            ],
+          },
+        ],
       },
     },
     {
@@ -441,29 +446,32 @@ export function Home() {
       subtitle: "",
       layout: "interaction-layout" as const,
       content: {
-        mainText: "Sự tác động qua lại giữa các hình thái ý thức xã hội là nguyên nhân làm cho trong mỗi hình thái ý thức có những mặt, những tính chất không thể giải thích được một cách trực tiếp từ tồn tại xã hội.",
+        mainText:
+          "Sự tác động qua lại giữa các hình thái ý thức xã hội là nguyên nhân làm cho trong mỗi hình thái ý thức có những mặt, những tính chất không thể giải thích được một cách trực tiếp từ tồn tại xã hội.",
         feature: {
           title: "Đặc điểm quan trọng:",
-          description: "Thông thường ở mỗi thời đại, có những hình thái ý thức nào đó nổi lên hàng đầu và tác động mạnh đến các hình thái ý thức khác."
+          description:
+            "Thông thường ở mỗi thời đại, có những hình thái ý thức nào đó nổi lên hàng đầu và tác động mạnh đến các hình thái ý thức khác.",
         },
         examples: [
           {
             era: "Thời Trung cổ châu Âu",
             dominant: "Tôn giáo",
-            description: "là hình thái ý thức chi phối"
+            description: "là hình thái ý thức chi phối",
           },
           {
             era: "Thời hiện đại",
             dominant: "Khoa học",
-            description: "có vai trò ngày càng quan trọng"
-          }
-        ]
+            description: "có vai trò ngày càng quan trọng",
+          },
+        ],
       },
     },
     {
       id: "slide-37",
       title: "YTXH tác động trở lại TTXH",
-      subtitle: "Đây là một trong những biểu hiện quan trọng nhất của tính độc lập tương đối của YTXH",
+      subtitle:
+        "Đây là một trong những biểu hiện quan trọng nhất của tính độc lập tương đối của YTXH",
       layout: "action-reaction-layout" as const,
       content: {
         leftBox: {
@@ -474,9 +482,9 @@ export function Home() {
           points: [
             "Khuyến khích đổi mới, sáng tạo",
             "Thúc đẩy tiên bộ khoa học kỹ thuật",
-            "Nâng cao nhận thức xã hội"
+            "Nâng cao nhận thức xã hội",
           ],
-          highlight: "Thúc đẩy XH phát triển"
+          highlight: "Thúc đẩy XH phát triển",
         },
         rightBox: {
           icon: "↓",
@@ -486,10 +494,10 @@ export function Home() {
           points: [
             "Bảo thủ, chống đối đổi mới",
             "Duy trì hủ tục, tập quán lạc hậu",
-            "Cản trở tiến bộ xã hội"
+            "Cản trở tiến bộ xã hội",
           ],
-          highlight: "Ngăn cản sự phát triển của XH"
-        }
+          highlight: "Ngăn cản sự phát triển của XH",
+        },
       },
     },
     {
@@ -932,12 +940,18 @@ export function Home() {
               {/* Left Column - Feature List */}
               <div className="independence-sidebar">
                 {content.features?.map((feature) => (
-                  <div 
-                    key={feature.number} 
-                    className={`sidebar-feature-item ${selectedFeature === parseInt(feature.number) ? 'active' : ''}`}
+                  <div
+                    key={feature.number}
+                    className={`sidebar-feature-item ${
+                      selectedFeature === parseInt(feature.number)
+                        ? "active"
+                        : ""
+                    }`}
                     onClick={() => setSelectedFeature(parseInt(feature.number))}
                   >
-                    <div className="sidebar-feature-number">{feature.number}</div>
+                    <div className="sidebar-feature-number">
+                      {feature.number}
+                    </div>
                     <h3 className="sidebar-feature-title">{feature.title}</h3>
                   </div>
                 ))}
@@ -945,50 +959,74 @@ export function Home() {
 
               {/* Right Column - Feature Content */}
               <div className="independence-content-area">
-                {content.features?.map((feature) => (
-                  selectedFeature === parseInt(feature.number) && (
-                    <div key={feature.number} className="feature-content-display">
-                      <div className="feature-content-header">
-                        <div className="feature-content-number">{feature.number}</div>
-                        <h2 className="feature-content-title">{feature.title}</h2>
-                      </div>
+                {content.features?.map(
+                  (feature) =>
+                    selectedFeature === parseInt(feature.number) && (
+                      <div
+                        key={feature.number}
+                        className="feature-content-display"
+                      >
+                        <div className="feature-content-header">
+                          <div className="feature-content-number">
+                            {feature.number}
+                          </div>
+                          <h2 className="feature-content-title">
+                            {feature.title}
+                          </h2>
+                        </div>
 
-                      {/* Feature 1: Reasons */}
-                      {feature.reasons && (
-                        <div className="feature-reasons">
-                          {feature.reasons.map((reason, idx) => (
-                            <div key={idx} className="feature-reason-item">
-                              <div className="feature-reason-label">{reason.label}</div>
-                              <p className="feature-reason-text">{reason.text}</p>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                      
-                      {/* Feature 2: Quote + Explanation + Example */}
-                      {feature.quote && !feature.points && (
-                        <div className="feature-forward">
-                          <blockquote className="feature-quote">{feature.quote}</blockquote>
-                          <p className="feature-explanation">{feature.explanation}</p>
-                          <div className="feature-example">{feature.example}</div>
-                        </div>
-                      )}
-                      
-                      {/* Feature 3: Quote + Explanation + Points */}
-                      {feature.points && (
-                        <div className="feature-inheritance">
-                          <blockquote className="feature-quote feature-quote-purple">{feature.quote}</blockquote>
-                          <p className="feature-explanation">{feature.explanation}</p>
-                          <ul className="feature-points">
-                            {feature.points.map((point, idx) => (
-                              <li key={idx} className="feature-point">{point}</li>
+                        {/* Feature 1: Reasons */}
+                        {feature.reasons && (
+                          <div className="feature-reasons">
+                            {feature.reasons.map((reason, idx) => (
+                              <div key={idx} className="feature-reason-item">
+                                <div className="feature-reason-label">
+                                  {reason.label}
+                                </div>
+                                <p className="feature-reason-text">
+                                  {reason.text}
+                                </p>
+                              </div>
                             ))}
-                          </ul>
-                        </div>
-                      )}
-                    </div>
-                  )
-                ))}
+                          </div>
+                        )}
+
+                        {/* Feature 2: Quote + Explanation + Example */}
+                        {feature.quote && !feature.points && (
+                          <div className="feature-forward">
+                            <blockquote className="feature-quote">
+                              {feature.quote}
+                            </blockquote>
+                            <p className="feature-explanation">
+                              {feature.explanation}
+                            </p>
+                            <div className="feature-example">
+                              {feature.example}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Feature 3: Quote + Explanation + Points */}
+                        {feature.points && (
+                          <div className="feature-inheritance">
+                            <blockquote className="feature-quote feature-quote-purple">
+                              {feature.quote}
+                            </blockquote>
+                            <p className="feature-explanation">
+                              {feature.explanation}
+                            </p>
+                            <ul className="feature-points">
+                              {feature.points.map((point, idx) => (
+                                <li key={idx} className="feature-point">
+                                  {point}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    )
+                )}
               </div>
             </div>
           </div>
@@ -997,13 +1035,15 @@ export function Home() {
       case "interaction-layout":
         return (
           <div className="interaction-layout">
-            <div className="interaction-main-text">
-              {content.mainText}
-            </div>
-            
+            <div className="interaction-main-text">{content.mainText}</div>
+
             <div className="interaction-feature-box">
-              <h3 className="interaction-feature-title">{content.feature.title}</h3>
-              <p className="interaction-feature-description">{content.feature.description}</p>
+              <h3 className="interaction-feature-title">
+                {content.feature.title}
+              </h3>
+              <p className="interaction-feature-description">
+                {content.feature.description}
+              </p>
             </div>
 
             <div className="interaction-examples">
@@ -1013,7 +1053,9 @@ export function Home() {
                   <div key={idx} className="interaction-example-card">
                     <div className="example-era">{example.era}</div>
                     <div className="example-dominant">{example.dominant}</div>
-                    <div className="example-description">{example.description}</div>
+                    <div className="example-description">
+                      {example.description}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -1030,14 +1072,20 @@ export function Home() {
                 <div className="action-icon-circle positive-icon">
                   {content.leftBox.icon}
                 </div>
-                <h2 className="action-title positive-title">{content.leftBox.title}</h2>
-                <div className="action-subtitle">{content.leftBox.subtitle}</div>
-                <p className="action-description">{content.leftBox.description}</p>
-                
+                <h2 className="action-title positive-title">
+                  {content.leftBox.title}
+                </h2>
+                <div className="action-subtitle">
+                  {content.leftBox.subtitle}
+                </div>
+                <p className="action-description">
+                  {content.leftBox.description}
+                </p>
+
                 <div className="action-highlight positive-highlight">
                   {content.leftBox.highlight}
                 </div>
-                
+
                 <ul className="action-points">
                   {content.leftBox.points.map((point, idx) => (
                     <li key={idx} className="action-point positive-point">
@@ -1052,14 +1100,20 @@ export function Home() {
                 <div className="action-icon-circle negative-icon">
                   {content.rightBox.icon}
                 </div>
-                <h2 className="action-title negative-title">{content.rightBox.title}</h2>
-                <div className="action-subtitle">{content.rightBox.subtitle}</div>
-                <p className="action-description">{content.rightBox.description}</p>
-                
+                <h2 className="action-title negative-title">
+                  {content.rightBox.title}
+                </h2>
+                <div className="action-subtitle">
+                  {content.rightBox.subtitle}
+                </div>
+                <p className="action-description">
+                  {content.rightBox.description}
+                </p>
+
                 <div className="action-highlight negative-highlight">
                   {content.rightBox.highlight}
                 </div>
-                
+
                 <ul className="action-points">
                   {content.rightBox.points.map((point, idx) => (
                     <li key={idx} className="action-point negative-point">
