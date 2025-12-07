@@ -43,7 +43,7 @@
 
         </g>
 
-      <g>
+        <g>
             <!-- red river delta -->
         </g>
             <path
@@ -431,11 +431,11 @@
                 transform="translate(7.51 6.89)" stroke-width="1" fill="#FFFFFF" fill-opacity="1"
                 stroke="#fff" stroke-opacity="1" class="province" role="menuitem" aria-label=""></path>
   
-  </g>
+    </g>
 
         
         <g class="hover-group" id="south">
- <g >
+        <g >
 
             <!-- south east -->
             <path
@@ -497,15 +497,13 @@
         </g>
    
     <g transform="translate(0,0) scale(1)" id="VNCity">
-        <text id="text1" class="vn_city_title" transform="translate(175.93 167.04) scale(1.01 1)">Ha
-            Noi</text>
+        <text id="text1" class="vn_city_title" transform="translate(175.93 130.04) scale(1.01 1)">Miền Bắc
+            </text>
         <polygon id="city1" class="vn_capital"
             points="206.72 131.89 209.05 136.61 214.26 137.36 210.49 141.03 211.38 146.22 206.72 143.77 202.07 146.22 202.96 141.03 199.19 137.36 204.39 136.61 206.72 131.89"></polygon>
         <circle id="city2" class="vn_city" cx="343.75" cy="432" r="4.38"></circle>
-        <text id="text2" class="vn_city_title" transform="translate(300.43 452.79) scale(1.01 1)">Da
-            Nang</text>
-        <text id="text3" class="vn_city_title" transform="translate(194.93 747.04) scale(1.01 1)">Ho
-            Chi Minh City</text>
+        <text id="text2" class="vn_city_title" transform="translate(300.43 452.79) scale(1.01 1)">Miền Trung</text>
+        <text id="text3" class="vn_city_title" transform="translate(194.93 747.04) scale(1.01 1)">Miền Nam</text>
         <circle id="city3" class="vn_city" cx="259.11" cy="722.2" r="4.38"></circle>
 
 
