@@ -1,3 +1,5 @@
+'use client';
+
 import { regions } from '@/lib/data';
 import { VietnamMap } from './VietnamMap';
 import { SvgViewer } from './SvgViewer';
@@ -15,6 +17,8 @@ export function Regions() {
           </div>
           <div className="pill pill-ghost">Khơi gợi tò mò</div>
         </div>
+
+        {/* Region Cards Section */}
         <div className="regions">
           {regions.map(region => (
             <div key={region.key} className="region-card card">
