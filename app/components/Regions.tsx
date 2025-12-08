@@ -8,14 +8,13 @@ export function Regions() {
   return (
     <>
       <VietnamMap />
-      <SvgViewer />
+      {/* <SvgViewer /> */}
       <section id="regions" className="container section">
         <div className="section-head">
           <div>
             <h2>Vùng miền & điểm nhấn</h2>
             <p className="sub">Chất liệu văn hóa đặc trưng và gợi ý trải nghiệm cho từng miền.</p>
           </div>
-          <div className="pill pill-ghost">Khơi gợi tò mò</div>
         </div>
 
         {/* Region Cards Section */}

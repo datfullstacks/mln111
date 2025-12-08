@@ -1,135 +1,667 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import { ranks } from '@/lib/data';
+import { useEffect, useState } from 'react';
+import { gameQuestions, type Question } from '@/lib/data';
+import './game.css';
 
-type CellState = 'empty' | 'hit' | 'miss';
+type Team = 'A' | 'B';
+type PotType = 'question' | 'bonus' | 'penalty' | 'opened';
 
-const initialCells = (): CellState[] => Array.from({ length: 9 }, () => 'empty');
-
-function directionHint(selected: number, target: number): string {
-  const rowSel = Math.floor(selected / 3);
-  const colSel = selected % 3;
-  const rowTar = Math.floor(target / 3);
-  const colTar = target % 3;
-  const vertical = rowTar < rowSel ? 'Bắc' : rowTar > rowSel ? 'Nam' : '';
-  const horizontal = colTar < colSel ? 'Tây' : colTar > colSel ? 'Đông' : '';
-  return [vertical, horizontal].filter(Boolean).join(' - ') || 'Đã sát bên!';
-}
-
-function computeRank(winCount: number) {
-  let current = ranks[0];
-  for (const r of ranks) {
-    if (winCount >= r.min) current = r;
-  }
-  const next = ranks.find(r => r.min > current.min);
-  const progress = next ? Math.min(100, Math.max(0, ((winCount - current.min) / (next.min - current.min)) * 100)) : 100;
-  return { current, next, progress };
+interface Pot {
+  id: number;
+  type: PotType;
+  question?: Question;
+  opened: boolean;
+  openedBy?: Team;
+  displayNumber: number;
 }
 
 export function Game() {
-  const [hiddenPot, setHiddenPot] = useState(() => Math.floor(Math.random() * 9));
-  const [attempts, setAttempts] = useState(3);
-  const [wins, setWins] = useState(0);
-  const [cells, setCells] = useState<CellState[]>(initialCells);
-  const [status, setStatus] = useState('Bịt mắt! Hãy chọn ô và đập niêu.');
-  const [hint, setHint] = useState('Gợi ý hướng sẽ xuất hiện sau mỗi cú đập.');
+  const [gameStarted, setGameStarted] = useState(false);
+  const [currentTeam, setCurrentTeam] = useState<Team>('A');
+  const [scoreA, setScoreA] = useState(0);
+  const [scoreB, setScoreB] = useState(0);
+  const [pots, setPots] = useState<Pot[]>([]);
+  const [selectedPot, setSelectedPot] = useState<Pot | null>(null);
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+  const [showResult, setShowResult] = useState(false);
+  const [timer, setTimer] = useState(10);
+  const [timerActive, setTimerActive] = useState(false);
+  const [canTransfer, setCanTransfer] = useState(false);
+  const [isTransferring, setIsTransferring] = useState(false);
+  const [originalTeam, setOriginalTeam] = useState<Team | null>(null);
+  const [gameOver, setGameOver] = useState(false);
+  const [victorySoundPlayed, setVictorySoundPlayed] = useState(false);
+  const [questionLocked, setQuestionLocked] = useState(true);
+  const [showUnlockPrompt, setShowUnlockPrompt] = useState(false);
+  const [showPasswordPrompt, setShowPasswordPrompt] = useState(false);
+  const [passwordInput, setPasswordInput] = useState('');
+  const [passwordError, setPasswordError] = useState(false);
 
-  const { current, next, progress } = useMemo(() => computeRank(wins), [wins]);
+  // Mật khẩu để bắt đầu trò chơi
+  const gamePassword = '2025Phenomenon';
 
-  const resetGame = (shuffle: boolean) => {
-    setAttempts(3);
-    setCells(initialCells());
-    setStatus('Bịt mắt! Hãy chọn ô và đập niêu.');
-    setHint('Gợi ý hướng sẽ xuất hiện sau mỗi cú đập.');
-    if (shuffle) setHiddenPot(Math.floor(Math.random() * 9));
+  // Initialize game
+  const initializeGame = () => {
+    const shuffledQuestions = [...gameQuestions].sort(() => Math.random() - 0.5);
+    
+    // Generate random display numbers 1-12
+    const numbers = Array.from({ length: 12 }, (_, i) => i + 1).sort(() => Math.random() - 0.5);
+    
+    const newPots: Pot[] = [];
+    
+    // 8 question pots
+    for (let i = 0; i < 8; i++) {
+      newPots.push({
+        id: i,
+        type: 'question',
+        question: shuffledQuestions[i],
+        opened: false,
+        displayNumber: numbers[i]
+      });
+    }
+    
+    // 2 special pots
+    newPots.push({ id: 8, type: 'bonus', opened: false, displayNumber: numbers[8] });
+    newPots.push({ id: 9, type: 'penalty', opened: false, displayNumber: numbers[9] });
+    
+    // Add 2 empty slots to make 12
+    newPots.push({ id: 10, type: 'opened', opened: true, displayNumber: numbers[10] });
+    newPots.push({ id: 11, type: 'opened', opened: true, displayNumber: numbers[11] });
+    
+    // Shuffle all pots
+    const shuffled = newPots.sort(() => Math.random() - 0.5);
+    setPots(shuffled);
+    
+    // Random starting team
+    setCurrentTeam(Math.random() > 0.5 ? 'A' : 'B');
+    setScoreA(0);
+    setScoreB(0);
+    setGameStarted(true);
+    setGameOver(false);
+    setVictorySoundPlayed(false);
   };
 
-  const endRound = (success: boolean, index?: number) => {
-    if (success) {
-      setStatus('Chuẩn! Bạn đã đập trúng niêu.');
-      setWins(prev => prev + 1);
+  // Sound effects
+  const playTickSound = () => {
+    const audioContext = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.value = 800;
+    oscillator.type = 'sine';
+    gainNode.gain.value = 0.3;
+    
+    oscillator.start();
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+    oscillator.stop(audioContext.currentTime + 0.1);
+  };
+
+  const playUrgentSound = () => {
+    const audioContext = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.frequency.value = 1200;
+    oscillator.type = 'square';
+    gainNode.gain.value = 0.4;
+    
+    oscillator.start();
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.15);
+    oscillator.stop(audioContext.currentTime + 0.15);
+  };
+
+  const playCorrectSound = () => {
+    const audioContext = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.type = 'sine';
+    gainNode.gain.value = 0.3;
+    
+    // Play ascending notes
+    oscillator.frequency.setValueAtTime(523, audioContext.currentTime); // C5
+    oscillator.frequency.setValueAtTime(659, audioContext.currentTime + 0.1); // E5
+    oscillator.frequency.setValueAtTime(784, audioContext.currentTime + 0.2); // G5
+    
+    oscillator.start();
+    oscillator.stop(audioContext.currentTime + 0.3);
+  };
+
+  const playWrongSound = () => {
+    const audioContext = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    
+    oscillator.type = 'sawtooth';
+    oscillator.frequency.value = 200;
+    gainNode.gain.value = 0.3;
+    
+    oscillator.start();
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+    oscillator.stop(audioContext.currentTime + 0.3);
+  };
+
+  const playBonusSound = () => {
+    const audioContext = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+    
+    // Play fanfare
+    [523, 659, 784, 1047].forEach((freq, i) => {
+      const osc = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      osc.connect(gain);
+      gain.connect(audioContext.destination);
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      gain.gain.value = 0.2;
+      osc.start(audioContext.currentTime + i * 0.1);
+      osc.stop(audioContext.currentTime + i * 0.1 + 0.15);
+    });
+  };
+
+  const playVictorySound = () => {
+    const audioContext = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
+    
+    // Epic victory fanfare - nhạc chiến thắng hoành tráng
+    const notes = [
+      { freq: 392, time: 0 },      // G4
+      { freq: 523, time: 0.15 },   // C5
+      { freq: 659, time: 0.3 },    // E5
+      { freq: 784, time: 0.45 },   // G5
+      { freq: 1047, time: 0.6 },   // C6
+      { freq: 784, time: 0.75 },   // G5
+      { freq: 1047, time: 0.9 },   // C6
+      { freq: 1319, time: 1.05 },  // E6
+      { freq: 1568, time: 1.2 },   // G6 - final note
+    ];
+    
+    notes.forEach(({ freq, time }) => {
+      const osc = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      osc.connect(gain);
+      gain.connect(audioContext.destination);
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+      gain.gain.value = 0.25;
+      gain.gain.setValueAtTime(0.25, audioContext.currentTime + time);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + time + 0.2);
+      osc.start(audioContext.currentTime + time);
+      osc.stop(audioContext.currentTime + time + 0.25);
+    });
+  };
+
+  // Timer countdown
+  useEffect(() => {
+    if (timerActive && timer > 0) {
+      const interval = setInterval(() => {
+        setTimer(prev => prev - 1);
+        
+        // Play sounds based on time remaining
+        if (timer <= 5) {
+          playUrgentSound();
+        } else if (timer <= 10) {
+          playTickSound();
+        }
+      }, 1000);
+      return () => clearInterval(interval);
+    } else if (timer === 0 && timerActive) {
+      handleTimeout();
+    }
+  }, [timer, timerActive]);
+
+  const handleTimeout = () => {
+    setTimerActive(false);
+    playWrongSound();
+    
+    if (selectedPot?.type === 'question') {
+      if (!isTransferring) {
+        // First team ran out of time - transfer to other team
+        setCanTransfer(true);
+        setOriginalTeam(currentTeam);
+      } else {
+        // Second team also ran out of time - move to next question
+        setShowResult(true);
+        setTimeout(() => {
+          resetQuestion();
+          setCurrentTeam(originalTeam === 'A' ? 'B' : 'A');
+          checkGameEnd();
+        }, 2000);
+      }
+    }
+  };
+
+  const handlePotClick = (pot: Pot) => {
+    if (!gameStarted || pot.opened || selectedPot || gameOver) return;
+    
+    setSelectedPot(pot);
+    setPots(prev => prev.map(p => p.id === pot.id ? { ...p, opened: true, openedBy: currentTeam } : p));
+    
+    if (pot.type === 'question') {
+      // Khóa câu hỏi và hiện prompt mở khóa
+      setQuestionLocked(true);
+      setShowUnlockPrompt(true);
+    } else if (pot.type === 'bonus') {
+      handleSpecialPot(10);
+    } else if (pot.type === 'penalty') {
+      handleSpecialPot(-10);
+    }
+  };
+
+  const handleUnlockQuestion = () => {
+    setQuestionLocked(false);
+    setShowUnlockPrompt(false);
+    setTimer(10);
+    setTimerActive(true);
+  };
+
+  const handleSpecialPot = (points: number) => {
+    if (points > 0) {
+      playBonusSound();
     } else {
-      setStatus('Hết lượt! Niêu đã lộ vị trí.');
-      setCells(prev =>
-        prev.map((cell, idx) => {
-          if (idx === hiddenPot) return 'hit';
-          if (idx === index) return 'miss';
-          return cell;
-        })
-      );
+      playWrongSound();
+    }
+    
+    if (currentTeam === 'A') {
+      setScoreA(prev => Math.max(0, prev + points));
+    } else {
+      setScoreB(prev => Math.max(0, prev + points));
+    }
+    
+    setTimeout(() => {
+      setSelectedPot(null);
+      switchTeam();
+      checkGameEnd();
+    }, 2000);
+  };
+
+  const handleAnswerSelect = (answerIndex: number) => {
+    if (!timerActive || showResult) return;
+    setSelectedAnswer(answerIndex);
+  };
+
+  const handleSubmitAnswer = () => {
+    if (selectedAnswer === null || !selectedPot?.question) return;
+    
+    setTimerActive(false);
+    setShowResult(true);
+    
+    const isCorrect = selectedAnswer === selectedPot.question.correctAnswer;
+    
+    if (isCorrect) {
+      playCorrectSound();
+      if (currentTeam === 'A') {
+        setScoreA(prev => prev + 10);
+      } else {
+        setScoreB(prev => prev + 10);
+      }
+    } else {
+      playWrongSound();
+    }
+    
+    setTimeout(() => {
+      resetQuestion();
+      switchTeam();
+      checkGameEnd();
+    }, 3000);
+  };
+
+  const resetQuestion = () => {
+    setSelectedPot(null);
+    setSelectedAnswer(null);
+    setShowResult(false);
+    setCanTransfer(false);
+    setIsTransferring(false);
+    setOriginalTeam(null);
+    setTimer(15);
+  };
+
+  const handleTransferQuestion = () => {
+    setCanTransfer(false);
+    setIsTransferring(true);
+    setSelectedAnswer(null);
+    switchTeam();
+    setTimer(15);
+    setTimerActive(true);
+  };
+
+  const switchTeam = () => {
+    setCurrentTeam(prev => prev === 'A' ? 'B' : 'A');
+  };
+
+  const checkGameEnd = () => {
+    const openedCount = pots.filter(p => p.opened).length;
+    if (openedCount >= 10) { // 8 questions + 2 special
+      setGameOver(true);
     }
   };
 
-  const handleSwing = (index: number) => {
-    if (attempts <= 0) return;
-    if (cells[index] !== 'empty') return;
+  if (!gameStarted) {
+    return (
+      <section id="game" className="container section">
+        <div className="section-head">
+          <div>
+            <h2>Game Đập Niêu - Thi Đấu Trí Tuệ</h2>
+            <p className="sub">
+              2 đội thi đấu với 12 niêu: 8 câu hỏi về Triết học Mác-Lênin + 2 niêu đặc biệt (+10đ/-10đ)
+            </p>
+          </div>
+          <div className="pill pill-ghost">Đập niêu</div>
+        </div>
+        
+        <div className="game-rules card">
+          <h3>📜 Luật chơi</h3>
+          <ul>
+            <li>🎯 <strong>12 niêu</strong>: 8 câu hỏi (10 điểm) + 2 niêu xú (+10đ/-10đ) + 2 niêu trống</li>
+            <li>⏱️ <strong>10 giây</strong> suy nghĩ cho mỗi câu hỏi</li>
+            <li>✅ Trả lời đúng: <strong>+10 điểm</strong></li>
+            <li>❌ Trả lời sai: Câu hỏi chuyển sang đội kia, đội kia đúng được <strong>+5 điểm</strong></li>
+            <li>🏆 Đội nhiều điểm hơn thắng cuộc!</li>
+          </ul>
+          
+          <button className="btn primary btn-large" onClick={() => setShowPasswordPrompt(true)}>
+            🎮 Bắt đầu trò chơi
+          </button>
+        </div>
 
-    const isHit = index === hiddenPot;
-    setAttempts(prev => prev - 1);
+        {/* Password Modal */}
+        {showPasswordPrompt && (
+          <div className="password-overlay">
+            <div className="password-modal">
+              <div className="password-icon">🔐</div>
+              <h3>Nhập mật khẩu để bắt đầu</h3>
+              <p>Vui lòng nhập mật khẩu được cung cấp bởi người điều khiển</p>
+              <input
+                type="password"
+                className={`password-input ${passwordError ? 'error' : ''}`}
+                placeholder="Nhập mật khẩu..."
+                value={passwordInput}
+                onChange={(e) => {
+                  setPasswordInput(e.target.value);
+                  setPasswordError(false);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    if (passwordInput === gamePassword) {
+                      setShowPasswordPrompt(false);
+                      setPasswordInput('');
+                      initializeGame();
+                    } else {
+                      setPasswordError(true);
+                    }
+                  }
+                }}
+                autoFocus
+              />
+              {passwordError && <p className="password-error-msg">❌ Mật khẩu không đúng!</p>}
+              <div className="password-buttons">
+                <button
+                  className="btn secondary"
+                  onClick={() => {
+                    setShowPasswordPrompt(false);
+                    setPasswordInput('');
+                    setPasswordError(false);
+                  }}
+                >
+                  Hủy
+                </button>
+                <button
+                  className="btn primary"
+                  onClick={() => {
+                    if (passwordInput === gamePassword) {
+                      setShowPasswordPrompt(false);
+                      setPasswordInput('');
+                      initializeGame();
+                    } else {
+                      setPasswordError(true);
+                    }
+                  }}
+                >
+                  🔓 Xác nhận
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
+    );
+  }
 
-    if (isHit) {
-      setCells(prev => prev.map((cell, idx) => (idx === index ? 'hit' : cell)));
-      endRound(true);
-      return;
+  if (gameOver) {
+    const winner = scoreA > scoreB ? 'A' : scoreB > scoreA ? 'B' : null;
+    
+    // Play victory sound only once when game ends with a winner
+    if (winner && !victorySoundPlayed) {
+      setVictorySoundPlayed(true);
+      setTimeout(() => playVictorySound(), 300);
     }
-
-    const hintText = directionHint(index, hiddenPot);
-    setCells(prev => prev.map((cell, idx) => (idx === index ? 'miss' : cell)));
-    setHint(`Gợi ý: Niêu ở hướng ${hintText}.`);
-    setStatus(attempts - 1 > 0 ? 'Sai vị trí, thử lại!' : 'Hết lượt rồi.');
-
-    if (attempts - 1 === 0) {
-      endRound(false, index);
-    }
-  };
+    
+    return (
+      <section id="game" className="container section">
+        <div className="section-head">
+          <div>
+            <h2>🎉 Kết thúc trò chơi!</h2>
+          </div>
+        </div>
+        
+        <div className="game-over card">
+          {/* Hiệu ứng confetti cho người chiến thắng */}
+          {winner && (
+            <div className="victory-celebration">
+              <div className="confetti-rain">
+                {[...Array(20)].map((_, i) => (
+                  <span key={i} className="confetti-piece" style={{ animationDelay: `${i * 0.1}s`, left: `${Math.random() * 100}%` }}>🎊</span>
+                ))}
+              </div>
+              <div className="crown-container">
+                <span className="crown">👑</span>
+              </div>
+              <h2 className="victory-title">🏆 Đội {winner} Vô Địch! 🏆</h2>
+              <p className="victory-subtitle">Xin chúc mừng nhà vua mới!</p>
+            </div>
+          )}
+          
+          <div className="final-scores">
+            <div className={`team-score ${winner === 'A' ? 'winner king' : ''}`}>
+              {winner === 'A' && <div className="king-crown">👑</div>}
+              <h3>Đội A</h3>
+              <div className="score-number">{scoreA}</div>
+              {winner === 'A' && <div className="winner-badge">🎖️ Nhà Vua!</div>}
+            </div>
+            <div className={`team-score ${winner === 'B' ? 'winner king' : ''}`}>
+              {winner === 'B' && <div className="king-crown">👑</div>}
+              <h3>Đội B</h3>
+              <div className="score-number">{scoreB}</div>
+              {winner === 'B' && <div className="winner-badge">🎖️ Nhà Vua!</div>}
+            </div>
+          </div>
+          
+          {!winner && <p className="draw-message">🤝 Hòa! Cả hai đội đều xuất sắc!</p>}
+          
+          <button className="btn primary btn-large" onClick={initializeGame}>
+            🔄 Chơi lại
+          </button>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="game" className="container section">
       <div className="section-head">
         <div>
-          <h2>Game dân gian online: Đập niêu ba miền</h2>
-          <p className="sub">
-            Trò chơi đập niêu hiện đại: tìm đúng vị trí niêu đất chỉ bằng cảm nhận phương hướng và số lượt hạn chế.
-          </p>
+          <h2>Game Đập Niêu - Thi Đấu Trí Tuệ</h2>
+          <p className="sub">Lượt của <strong>Đội {currentTeam}</strong></p>
         </div>
         <div className="pill pill-ghost">Đập niêu</div>
       </div>
-      <div className="game card">
-        <div className="info">
-          <div className="score">
-            <span>Lượt: {attempts}</span>
-            <span>Thắng: {wins}</span>
+
+      <div className="game-container">
+        {/* Scoreboard */}
+        <div className="scoreboard">
+          <div className={`team-panel ${currentTeam === 'A' ? 'active' : ''}`}>
+            <h3>Đội A</h3>
+            <div className="score-display">{scoreA}</div>
           </div>
-          <div className="rank-box">
-            <div className="rank-title">Cấp bậc: {current.name}</div>
-            <div className="rank-progress">
-              <div className="rank-progress-bar" style={{ width: `${progress}%` }} />
-            </div>
-            <p className="rank-note">{next ? `Cần ${next.min - wins} trận thắng để lên "${next.name}".` : 'Bạn đã đạt đỉnh Huyền thoại!'}</p>
-          </div>
-          <div className="status">{status}</div>
-          <p className="hint">{hint}</p>
-          <div className="cta">
-            <button className="btn primary" onClick={() => resetGame(false)}>
-              Chơi lại
-            </button>
-            <button className="btn ghost" onClick={() => resetGame(true)}>
-              Đổi vị trí niêu
-            </button>
+          <div className={`team-panel ${currentTeam === 'B' ? 'active' : ''}`}>
+            <h3>Đội B</h3>
+            <div className="score-display">{scoreB}</div>
           </div>
         </div>
-        <div className="board">
-          {cells.map((cell, idx) => (
+
+        {/* Pots Board */}
+        <div className="pots-board">
+          {pots.map((pot) => (
             <button
-              key={idx}
-              className={`cell ${cell === 'hit' ? 'hit' : cell === 'miss' ? 'miss' : ''}`}
-              onClick={() => handleSwing(idx)}
+              key={pot.id}
+              className={`pot ${pot.opened ? 'opened' : ''} ${pot.openedBy ? `opened-by-${pot.openedBy}` : ''}`}
+              onClick={() => handlePotClick(pot)}
+              disabled={pot.opened || !!selectedPot}
             >
-              {idx + 1}
+              {!pot.opened && (
+                <div className="pot-content">
+                  <span className="pot-icon">🏺</span>
+                  <span className="pot-number">{pot.displayNumber}</span>
+                </div>
+              )}
+              {pot.opened && pot.type === 'question' && <span className="pot-result">❓</span>}
+              {pot.opened && pot.type === 'bonus' && <span className="pot-result">💰+10</span>}
+              {pot.opened && pot.type === 'penalty' && <span className="pot-result">💔-10</span>}
+              {pot.opened && pot.type === 'opened' && <span className="pot-result">🌟</span>}
             </button>
           ))}
         </div>
+
+        {/* Question Modal */}
+        {selectedPot && selectedPot.type === 'question' && selectedPot.question && (
+          <div className="question-modal">
+            <div className="question-header">
+              <h3>Câu hỏi #{selectedPot.question.id}</h3>
+              {!questionLocked && (
+                <div className={`timer ${timer <= 3 ? 'urgent' : ''}`}>
+                  ⏱️ {timer}s
+                </div>
+              )}
+            </div>
+
+            {/* Prompt mở khóa câu hỏi */}
+            {showUnlockPrompt && (
+              <div className="unlock-prompt">
+                <div className="locked-icon">🔒</div>
+                <h3>Câu hỏi đã sẵn sàng!</h3>
+                <p>Đội {currentTeam} hãy chuẩn bị. Bấm nút bên dưới để mở khóa câu hỏi và bắt đầu đếm giờ.</p>
+                <button className="btn primary btn-unlock" onClick={handleUnlockQuestion}>
+                  🔓 Mở khóa & Bắt đầu
+                </button>
+              </div>
+            )}
+
+            {/* Nội dung câu hỏi - chỉ hiện khi đã mở khóa */}
+            {!questionLocked && (
+              <>
+                <p className="question-text">{selectedPot.question.question}</p>
+            
+                <div className="options">
+                  {selectedPot.question.options.map((option, idx) => (
+                    <button
+                      key={idx}
+                      className={`option ${selectedAnswer === idx ? 'selected' : ''} ${
+                        showResult
+                          ? idx === selectedPot.question!.correctAnswer
+                            ? 'correct'
+                            : selectedAnswer === idx
+                            ? 'incorrect'
+                            : ''
+                          : ''
+                      }`}
+                      onClick={() => handleAnswerSelect(idx)}
+                      disabled={showResult}
+                    >
+                      <span className="option-label">{String.fromCharCode(65 + idx)}.</span>
+                      <span className="option-text">{option}</span>
+                    </button>
+                  ))}
+                </div>
+
+                {showResult && (
+                  <div className={`result-message ${selectedAnswer === selectedPot.question.correctAnswer ? 'correct' : 'incorrect'}`}>
+                    {selectedAnswer === selectedPot.question.correctAnswer ? '✅ Đúng! +10 điểm' : '❌ Sai!'}
+                  </div>
+                )}
+
+                {/* Hiển thị khi hết giờ - chuyển câu hỏi sang đội khác */}
+                {canTransfer && !showResult && (
+                  <div className="timeout-transfer">
+                    <div className="timeout-message">
+                      ⏰ Đội {currentTeam} đã hết thời gian!
+                    </div>
+                    <button className="btn primary btn-transfer" onClick={handleTransferQuestion}>
+                      🔄 Chuyển sang Đội {currentTeam === 'A' ? 'B' : 'A'} trả lời
+                    </button>
+                  </div>
+                )}
+
+                {/* Hiển thị khi đang là đội thứ 2 trả lời */}
+                {isTransferring && !showResult && !canTransfer && (
+                  <div className="transfer-notice">
+                    🔄 Đội {currentTeam} đang trả lời câu hỏi chuyển từ Đội {originalTeam}
+                  </div>
+                )}
+
+                {!showResult && !canTransfer && selectedAnswer !== null && (
+                  <button className="btn primary btn-submit" onClick={handleSubmitAnswer}>
+                    ✅ Xác nhận đáp án
+                  </button>
+                )}
+              </>
+            )}
+          </div>
+        )}
+
+        {/* Special Pot Message */}
+        {selectedPot && (selectedPot.type === 'bonus' || selectedPot.type === 'penalty') && (
+          <div className={`special-pot-overlay ${selectedPot.type === 'bonus' ? 'bonus-flash' : 'penalty-flash'}`}>
+            <div className="special-pot-message">
+              <div className="special-content">
+                {selectedPot.type === 'bonus' && (
+                  <>
+                    <div className="confetti-container">
+                      <span className="confetti">🎊</span>
+                      <span className="confetti">✨</span>
+                      <span className="confetti">🎉</span>
+                      <span className="confetti">⭐</span>
+                      <span className="confetti">🌟</span>
+                    </div>
+                    <span className="special-icon bonus-icon">🎁</span>
+                    <h3 className="bonus-title">🎊 XÚ TÚI MÈ! 🎊</h3>
+                    <p className="lucky-text">Thật là may mắn!</p>
+                    <div className="bonus-points">+10 ĐIỂM</div>
+                    <p className="team-congrats">Chúc mừng Đội {currentTeam}! 🎉</p>
+                  </>
+                )}
+                {selectedPot.type === 'penalty' && (
+                  <>
+                    <span className="special-icon penalty-icon">💔</span>
+                    <h3 className="penalty-title">Ôi không! Niêu đen đủi!</h3>
+                    <div className="penalty-points">-10 ĐIỂM</div>
+                    <p>Đội {currentTeam} bị trừ điểm!</p>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
