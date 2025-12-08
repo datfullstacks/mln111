@@ -3,9 +3,10 @@
 import { useEffect, useState } from 'react';
 import { gameQuestions, type Question } from '@/lib/data';
 import './game.css';
+import Image from 'next/image';
 
 type Team = 'A' | 'B';
-type PotType = 'question' | 'bonus' | 'penalty' | 'opened';
+type PotType = 'question' | 'bonus' | 'penalty' | 'empty';
 
 interface Pot {
   id: number;
@@ -60,15 +61,13 @@ export function Game() {
         displayNumber: numbers[i]
       });
     }
-    
-    // 2 special pots
+    // 1 bonus pot
     newPots.push({ id: 8, type: 'bonus', opened: false, displayNumber: numbers[8] });
+    // 1 penalty pot
     newPots.push({ id: 9, type: 'penalty', opened: false, displayNumber: numbers[9] });
-    
-    // Add 2 empty slots to make 12
-    newPots.push({ id: 10, type: 'opened', opened: true, displayNumber: numbers[10] });
-    newPots.push({ id: 11, type: 'opened', opened: true, displayNumber: numbers[11] });
-    
+    // 2 empty pots (niêu trống hình phạt)
+    newPots.push({ id: 10, type: 'empty', opened: false, displayNumber: numbers[10] });
+    newPots.push({ id: 11, type: 'empty', opened: false, displayNumber: numbers[11] });
     // Shuffle all pots
     const shuffled = newPots.sort(() => Math.random() - 0.5);
     setPots(shuffled);
@@ -207,7 +206,6 @@ export function Game() {
     if (timerActive && timer > 0) {
       const interval = setInterval(() => {
         setTimer(prev => prev - 1);
-        
         // Play sounds based on time remaining
         if (timer <= 5) {
           playUrgentSound();
@@ -244,10 +242,8 @@ export function Game() {
 
   const handlePotClick = (pot: Pot) => {
     if (!gameStarted || pot.opened || selectedPot || gameOver) return;
-    
     setSelectedPot(pot);
     setPots(prev => prev.map(p => p.id === pot.id ? { ...p, opened: true, openedBy: currentTeam } : p));
-    
     if (pot.type === 'question') {
       // Khóa câu hỏi và hiện prompt mở khóa
       setQuestionLocked(true);
@@ -256,6 +252,13 @@ export function Game() {
       handleSpecialPot(10);
     } else if (pot.type === 'penalty') {
       handleSpecialPot(-10);
+    } else if (pot.type === 'empty') {
+      // Niêu trống: hình phạt, chuyển lượt cho đội đối thủ
+      setTimeout(() => {
+        setSelectedPot(null);
+        switchTeam();
+        checkGameEnd();
+      }, 2000);
     }
   };
 
@@ -301,20 +304,44 @@ export function Game() {
     
     if (isCorrect) {
       playCorrectSound();
+      // Đội đầu tiên trả lời đúng: +10 điểm
+      // Đội thứ hai (sau khi đội đầu sai) trả lời đúng: +5 điểm
+      const points = isTransferring ? 5 : 10;
       if (currentTeam === 'A') {
-        setScoreA(prev => prev + 10);
+        setScoreA(prev => prev + points);
       } else {
-        setScoreB(prev => prev + 10);
+        setScoreB(prev => prev + points);
       }
+      
+      // Kết thúc câu hỏi
+      setTimeout(() => {
+        resetQuestion();
+        switchTeam();
+        checkGameEnd();
+      }, 3000);
     } else {
       playWrongSound();
+      
+      if (!isTransferring) {
+        // Đội đầu tiên sai -> chuyển câu hỏi sang đội khác
+        setTimeout(() => {
+          setShowResult(false);
+          setSelectedAnswer(null);
+          setIsTransferring(true);
+          setOriginalTeam(currentTeam);
+          switchTeam();
+          setTimer(10);
+          setTimerActive(true);
+        }, 2000);
+      } else {
+        // Đội thứ hai cũng sai -> kết thúc câu hỏi, không ai được điểm
+        setTimeout(() => {
+          resetQuestion();
+          setCurrentTeam(originalTeam === 'A' ? 'B' : 'A');
+          checkGameEnd();
+        }, 2000);
+      }
     }
-    
-    setTimeout(() => {
-      resetQuestion();
-      switchTeam();
-      checkGameEnd();
-    }, 3000);
   };
 
   const resetQuestion = () => {
@@ -531,14 +558,30 @@ export function Game() {
             >
               {!pot.opened && (
                 <div className="pot-content">
-                  <span className="pot-icon">🏺</span>
+                  <span className="pot-icon">
+                    <Image src="/images/nieu.png" alt="Pot Icon" width={50} height={50} />
+                  </span>
                   <span className="pot-number">{pot.displayNumber}</span>
                 </div>
               )}
               {pot.opened && pot.type === 'question' && <span className="pot-result">❓</span>}
               {pot.opened && pot.type === 'bonus' && <span className="pot-result">💰+10</span>}
               {pot.opened && pot.type === 'penalty' && <span className="pot-result">💔-10</span>}
-              {pot.opened && pot.type === 'opened' && <span className="pot-result">🌟</span>}
+              {pot.opened && pot.type === 'empty' && <span className="pot-result">🚫 Niêu trống</span>}
+                            {/* Overlay cho niêu trống hình phạt */}
+                            {selectedPot && selectedPot.type === 'empty' && (
+                              <div className="special-pot-overlay empty-pot-flash">
+                                <div className="special-pot-message">
+                                  <div className="special-content" style={{textAlign: 'center'}}>
+                                    <span className="special-icon empty-icon" style={{fontSize: '3rem', display: 'block', marginBottom: '12px'}}>🚫</span>
+                                    <h2 style={{fontSize: '2.2rem', margin: 0}}>Niêu trống!</h2>
+                                    <p>Đội {currentTeam} mất lượt. Đội {currentTeam === 'A' ? 'B' : 'A'} được chọn tiếp!</p>
+                                  </div>
+                                </div>
+                              </div>
+                            )}
+                    {/* Overlay cho niêu trống */}
+                    {/* Không còn overlay niêu trống */}
             </button>
           ))}
         </div>
@@ -573,30 +616,36 @@ export function Game() {
                 <p className="question-text">{selectedPot.question.question}</p>
             
                 <div className="options">
-                  {selectedPot.question.options.map((option, idx) => (
-                    <button
-                      key={idx}
-                      className={`option ${selectedAnswer === idx ? 'selected' : ''} ${
-                        showResult
-                          ? idx === selectedPot.question!.correctAnswer
-                            ? 'correct'
-                            : selectedAnswer === idx
-                            ? 'incorrect'
-                            : ''
-                          : ''
-                      }`}
-                      onClick={() => handleAnswerSelect(idx)}
-                      disabled={showResult}
-                    >
-                      <span className="option-label">{String.fromCharCode(65 + idx)}.</span>
-                      <span className="option-text">{option}</span>
-                    </button>
-                  ))}
+                  {selectedPot.question.options.map((option, idx) => {
+                    const isCorrectAnswer = idx === selectedPot.question!.correctAnswer;
+                    const isSelectedAnswer = selectedAnswer === idx;
+                    const answeredCorrectly = selectedAnswer === selectedPot.question!.correctAnswer;
+                    // Chỉ hiện đáp án đúng khi: trả lời đúng HOẶC cả hai đội đều sai (isTransferring && sai)
+                    const showCorrectAnswer = showResult && isCorrectAnswer && (answeredCorrectly || (isTransferring && !answeredCorrectly));
+                    const showIncorrectAnswer = showResult && isSelectedAnswer && !answeredCorrectly;
+                    
+                    return (
+                      <button
+                        key={idx}
+                        className={`option ${isSelectedAnswer ? 'selected' : ''} ${
+                          showCorrectAnswer ? 'correct' : showIncorrectAnswer ? 'incorrect' : ''
+                        }`}
+                        onClick={() => handleAnswerSelect(idx)}
+                        disabled={showResult}
+                      >
+                        <span className="option-label">{String.fromCharCode(65 + idx)}.</span>
+                        <span className="option-text">{option}</span>
+                      </button>
+                    );
+                  })}
                 </div>
 
                 {showResult && (
                   <div className={`result-message ${selectedAnswer === selectedPot.question.correctAnswer ? 'correct' : 'incorrect'}`}>
-                    {selectedAnswer === selectedPot.question.correctAnswer ? '✅ Đúng! +10 điểm' : '❌ Sai!'}
+                    {selectedAnswer === selectedPot.question.correctAnswer 
+                      ? (isTransferring ? '✅ Đúng! +5 điểm' : '✅ Đúng! +10 điểm')
+                      : (isTransferring ? '❌ Cả hai đội đều sai!' : '❌ Sai! Chuyển sang đội khác...')
+                    }
                   </div>
                 )}
 
@@ -615,7 +664,7 @@ export function Game() {
                 {/* Hiển thị khi đang là đội thứ 2 trả lời */}
                 {isTransferring && !showResult && !canTransfer && (
                   <div className="transfer-notice">
-                    🔄 Đội {currentTeam} đang trả lời câu hỏi chuyển từ Đội {originalTeam}
+                    🔄 Đội {currentTeam} có cơ hội trả lời! (Đúng +5 điểm)
                   </div>
                 )}
 

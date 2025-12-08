@@ -251,12 +251,7 @@ export function AIUsage() {
   return (
     <section className="container section ai-usage">
       <header className="card ai-usage-hero">
-        <span className="ai-usage-badge">Phụ lục minh bạch</span>
         <h2>AI Usage Documentation</h2>
-        <p>
-          Tài liệu ghi rõ cách nhóm sử dụng công cụ trí tuệ nhân tạo trong dự án “Ba miền Việt Nam”: AI hỗ trợ tra cứu, trích dẫn,
-          soạn nháp và dàn trang; nội dung cuối cùng luôn được đối chiếu với nguồn chính thống trước khi công bố.
-        </p>
       </header>
 
       <div className="card ai-usage-goal">
