@@ -110,7 +110,7 @@ export function AboutUs() {
       <div className="about-footer">
         <div className="about-footer-logo">Phenomenon</div>
         <p>Website hướng tới học tập, đối thoại và tôn trọng khác biệt văn hóa.</p>
-        <p className="about-copyright">© 2024 Phenomenon Team | Triết học Mác – Lênin</p>
+        <p className="about-copyright">© 2025 Phenomenon Team | Triết học Mác – Lênin</p>
       </div>
     </section>
   );
