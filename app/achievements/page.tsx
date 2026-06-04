@@ -28,17 +28,24 @@ export default function AchievementsPage() {
   return (
     <>
       <NavBar current="achievements" />
-      <main className="container section page-section">
-        <div className="section-head">
-          <span className="eyebrow">Thành tựu & Đoàn kết</span>
-          <h1>Phát triển vùng dân tộc thiểu số và miền núi</h1>
-          <p>
-            Thành tựu phát triển không chỉ nằm ở những con số hạ tầng, mà còn ở cơ hội học tập,
-            chăm sóc sức khỏe, sinh kế và niềm tin vào khối đại đoàn kết toàn dân tộc.
-          </p>
-        </div>
+      <main className="container section page-section achievements-page">
+        <section className="achievement-hero-panel">
+          <div className="section-head">
+            <span className="eyebrow">Thành tựu & Đoàn kết</span>
+            <h1>Phát triển vùng dân tộc thiểu số và miền núi</h1>
+            <p>
+              Thành tựu phát triển không chỉ nằm ở những con số hạ tầng, mà còn ở cơ hội học tập,
+              chăm sóc sức khỏe, sinh kế và niềm tin vào khối đại đoàn kết toàn dân tộc.
+            </p>
+          </div>
+          <div className="achievement-hero-stat" aria-label="5 nhóm thành tựu">
+            <strong>5</strong>
+            <span>nhóm thành tựu</span>
+            <p>Hạ tầng, giáo dục, y tế - an sinh, kinh tế - giảm nghèo và văn hóa.</p>
+          </div>
+        </section>
 
-        <section className="metric-grid" aria-label="Số liệu thành tựu">
+        <section className="metric-grid achievement-metric-rail" aria-label="Số liệu thành tựu">
           {achievementMetrics.map(metric => (
             <article key={metric.label} className="metric-card">
               <strong>{metric.value}</strong>
@@ -49,14 +56,15 @@ export default function AchievementsPage() {
           ))}
         </section>
 
-        <section className="section-block">
+        <section className="section-block achievement-showcase">
           <div className="section-head compact">
             <span className="eyebrow">Các lĩnh vực nổi bật</span>
             <h2>Đổi thay trong đời sống đồng bào</h2>
           </div>
-          <div className="card-grid">
-            {achievementAreas.map(area => (
-              <article key={area.title} className="info-card">
+          <div className="achievement-area-grid">
+            {achievementAreas.map((area, index) => (
+              <article key={area.title} className="info-card achievement-area-card">
+                <div className="achievement-area-index">{String(index + 1).padStart(2, '0')}</div>
                 <span className="eyebrow">{area.eyebrow}</span>
                 <h3>{area.title}</h3>
                 <p>{area.body}</p>
@@ -71,7 +79,7 @@ export default function AchievementsPage() {
           </div>
         </section>
 
-        <section className="section-block split-panel">
+        <section className="section-block split-panel action-panel">
           <div>
             <span className="eyebrow">Phê phán chia rẽ</span>
             <h2>Không kỳ thị, không tiếp tay định kiến</h2>
@@ -91,7 +99,7 @@ export default function AchievementsPage() {
           </div>
         </section>
 
-        <section className="section-block callout">
+        <section className="section-block callout solidarity-callout">
           <div>
             <span className="eyebrow">Lời kêu gọi</span>
             <h2>54 dân tộc - 1 đại gia đình Việt Nam</h2>

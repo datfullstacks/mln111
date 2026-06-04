@@ -9,8 +9,12 @@ import {
   vietnamCharacteristics
 } from '@/lib/data';
 import { Hero } from './Hero';
+import { HienSlideExplorer } from './HienSlideExplorer';
+import { LinhSlideExplorer } from './LinhSlideExplorer';
 import { NavBar } from './NavBar';
+import { NationFactorExplorer } from './NationFactorExplorer';
 import { SlideDeckControls } from './SlideDeckControls';
+import { TienSlideExplorer } from './TienSlideExplorer';
 import { TimelineCarousel } from './TimelineCarousel';
 import { dongSonDrumMarkup } from './dongSonDrumMarkup';
 
@@ -167,6 +171,101 @@ const visualImages = {
     alt: 'Slide tổng quan năm mặt chính sách dân tộc trong tài liệu nhóm',
     label: '5 mặt chính sách'
   },
+  thoPolicyOverview: {
+    src: '/images/mln131/tho/policy-overview.png',
+    alt: 'Slide tổng quan chính sách dân tộc theo năm mặt chính trị, kinh tế, văn hóa, xã hội, an ninh - quốc phòng',
+    label: '5 mặt chính sách'
+  },
+  thoPoliticalElection: {
+    src: '/images/mln131/tho/political-election.jpg',
+    alt: 'Poster toàn dân bầu cử với nhiều thành phần nhân dân và đồng bào dân tộc thiểu số',
+    label: 'Bầu cử'
+  },
+  thoPoliticalParticipation: {
+    src: '/images/mln131/tho/political-participation.jpg',
+    alt: 'Đồng bào dân tộc thiểu số tham gia sự kiện chính trị và cầm cờ Việt Nam',
+    label: 'Tham gia chính trị'
+  },
+  thoEconomyLivelihood: {
+    src: '/images/mln131/tho/economy-livelihood.jpg',
+    alt: 'Các mô hình sinh kế, vay vốn, sản xuất và dệt thủ công ở vùng dân tộc thiểu số',
+    label: 'Sinh kế'
+  },
+  thoEconomyLocalProducts: {
+    src: '/images/mln131/tho/economy-local-products.png',
+    alt: 'Mô hình phát triển cây ăn quả, chăn nuôi, tín dụng và sản phẩm địa phương vùng dân tộc',
+    label: 'Kinh tế địa phương'
+  },
+  thoSocialCommunityProduction: {
+    src: '/images/mln131/tho/social-community-production.png',
+    alt: 'Người dân vùng dân tộc sơ chế nông sản trong sinh hoạt cộng đồng',
+    label: 'Đời sống cộng đồng'
+  },
+  thoCultureUnity: {
+    src: '/images/mln131/tho/culture-unity.jpg',
+    alt: 'Người dân trong trang phục nhiều dân tộc tham gia hoạt động văn hóa cộng đồng',
+    label: 'Văn hóa thống nhất'
+  },
+  thoSecurityDefense: {
+    src: '/images/mln131/tho/security-defense.png',
+    alt: 'Không gian trưng bày về quốc phòng, an ninh và truyền thống bảo vệ Tổ quốc',
+    label: 'Bảo vệ Tổ quốc'
+  },
+  thoUnityHoChiMinh: {
+    src: '/images/mln131/tho/unity-ho-chi-minh.jpg',
+    alt: 'Chủ tịch Hồ Chí Minh chụp ảnh cùng đồng bào các dân tộc',
+    label: 'Đoàn kết dân tộc'
+  },
+  tienInfrastructureRoad: {
+    src: '/images/mln131/tien/infrastructure-road.jpg',
+    alt: 'Người dân cùng làm đường giao thông ở vùng dân tộc thiểu số và miền núi',
+    label: 'Đường giao thông'
+  },
+  tienInfrastructureElectricity: {
+    src: '/images/mln131/tien/infrastructure-electricity.jpg',
+    alt: 'Công nhân điện lực kiểm tra điện lưới tại hộ gia đình vùng dân tộc thiểu số',
+    label: 'Điện lưới'
+  },
+  tienCleanWater: {
+    src: '/images/mln131/tien/infrastructure-clean-water.png',
+    alt: 'Người dân vùng dân tộc thiểu số sử dụng bồn nước sạch phục vụ sinh hoạt',
+    label: 'Nước sạch'
+  },
+  tienEducationClassroom: {
+    src: '/images/mln131/tien/education-classroom.gif',
+    alt: 'Học sinh dân tộc thiểu số học tập trong lớp học',
+    label: 'Lớp học'
+  },
+  tienHealthStation: {
+    src: '/images/mln131/tien/health-station.jpg',
+    alt: 'Trạm y tế xã Sơn Điền phục vụ chăm sóc sức khỏe ban đầu',
+    label: 'Trạm y tế'
+  },
+  tienHealthCheckup: {
+    src: '/images/mln131/tien/health-checkup.jpg',
+    alt: 'Nhân viên y tế khám sức khỏe cho người dân vùng dân tộc thiểu số',
+    label: 'Khám sức khỏe'
+  },
+  tienEconomyTea: {
+    src: '/images/mln131/tien/economy-tea.jpg',
+    alt: 'Cán bộ và người dân kiểm tra vùng trồng chè ở miền núi',
+    label: 'Sinh kế chè'
+  },
+  tienEconomyTerraces: {
+    src: '/images/mln131/tien/economy-terraces.jpg',
+    alt: 'Ruộng bậc thang và cảnh quan sản xuất ở vùng miền núi',
+    label: 'Sản xuất vùng cao'
+  },
+  tienCultureCostume: {
+    src: '/images/mln131/tien/culture-costume.jpg',
+    alt: 'Các cô gái trong trang phục truyền thống dân tộc',
+    label: 'Trang phục'
+  },
+  tienCultureFestival: {
+    src: '/images/mln131/tien/culture-festival.jpg',
+    alt: 'Người dân biểu diễn múa truyền thống trong sinh hoạt văn hóa cộng đồng',
+    label: 'Lễ hội'
+  },
   docCommunity: {
     src: '/images/mln131/image26.jpg',
     alt: 'Cộng đồng các dân tộc đoàn kết trong tài liệu nhóm',
@@ -314,6 +413,36 @@ const visualImages = {
     license: 'CC BY-SA 2.0',
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Inside_a_H'Mong_house,_Vietnam.jpg"
   },
+  daoThiToc: {
+    src: '/images/mln131/dao/thi-toc.jpg',
+    alt: 'Minh hoa cong dong thi toc thoi so khai trong hang da',
+    label: 'Thi toc'
+  },
+  daoBoLac: {
+    src: '/images/mln131/dao/bo-lac.jpg',
+    alt: 'Minh hoa cong dong bo lac sinh hoat quanh lua',
+    label: 'Bo lac'
+  },
+  daoBoToc: {
+    src: '/images/mln131/dao/bo-toc.jpg',
+    alt: 'Minh hoa doan nguoi bo toc cung di chuyen trong rung',
+    label: 'Bo toc'
+  },
+  daoDanToc: {
+    src: '/images/mln131/dao/dan-toc.jpg',
+    alt: 'Minh hoa cong dong dan toc Viet Nam doan ket',
+    label: 'Dan toc'
+  },
+  daoPhuongTay: {
+    src: '/images/mln131/dao/phuong-tay.jpg',
+    alt: 'Minh hoa nen san xuat cong nghiep va chu nghia tu ban phuong Tay',
+    label: 'Phuong Tay'
+  },
+  daoPhuongDong: {
+    src: '/images/mln131/dao/phuong-dong.jpg',
+    alt: 'Minh hoa khong gian van hoa cong dong phuong Dong',
+    label: 'Phuong Dong'
+  },
   commonsDanMoi: {
     src: '/images/mln131/external/danMoi.jpg',
     alt: 'Phụ nữ Hmong chơi đàn môi ở Việt Nam',
@@ -356,13 +485,13 @@ const daoEastWestCards: InfoCard[] = [
     eyebrow: 'Phương Tây',
     title: 'Hình thành gắn với chủ nghĩa tư bản',
     body: 'Ở phương Tây, dân tộc thường xuất hiện khi phương thức sản xuất tư bản chủ nghĩa xác lập và thay thế quan hệ phong kiến.',
-    points: ['Nhấn mạnh biến đổi kinh tế - xã hội', 'Gắn với thị trường và nhà nước hiện đại', 'Quan hệ phong kiến dần bị thay thế']
+    points: ['Gắn với sự xác lập của phương thức sản xuất tư bản chủ nghĩa  ', 'Xuất hiện khi quan hệ sản xuất phong kiến bị thay thế', 'Nhấn mạnh yếu tố kinh tế – xã hội hiện đại']
   },
   {
     eyebrow: 'Phương Đông',
     title: 'Hình thành trên nền văn hóa - tâm lý cộng đồng',
-    body: 'Ở phương Đông, dân tộc thường hình thành trên cơ sở văn hóa, tâm lý dân tộc đã phát triển tương đối chín muồi.',
-    points: ['Lịch sử cộng đồng lâu dài', 'Kinh tế có phát triển nhưng còn phân tán', 'Yếu tố văn hóa và tinh thần nổi bật']
+    body: 'Ở phương Đông, dân tộc thường hình thành trên cơ sở văn hóa, tâm lý dân tộc đã phát triển tương đối chín muồi; cộng đồng kinh tế tuy đã đạt đến một mức độ nhất định nhưng nhìn chung còn kém phát triển và phân tán.',
+    points: ['Gắn với nền văn hóa và tâm lý dân tộc phát triển tương đối chín muồi', 'Cộng đồng kinh tế có phát triển nhưng thường còn phân tán', 'Nhấn mạnh yếu tố văn hóa, tâm lý cộng đồng và lịch sử lâu dài']
   }
 ];
 
@@ -370,61 +499,62 @@ const daoNationFeatureCards: InfoCard[] = [
   {
     eyebrow: 'Nation',
     title: 'Chung sinh hoạt kinh tế',
-    body: 'Các thành viên cùng tham gia đời sống sản xuất, trao đổi, phân công lao động và phát triển kinh tế chung.',
-    points: ['Tạo lợi ích chung', 'Liên kết các vùng, nhóm xã hội', 'Là nền tảng vật chất của cộng đồng']
+    body: 'Cùng tham gia vào đời sống sản xuất, trao đổi, phát triển kinh tế.',
+    points: ['Sản xuất', 'Trao đổi', 'Phát triển kinh tế']
   },
   {
     eyebrow: 'Nation',
     title: 'Lãnh thổ ổn định',
-    body: 'Dân tộc theo nghĩa quốc gia có không gian sinh tồn, phát triển và bảo vệ cộng đồng tương đối ổn định.',
-    points: ['Không gian chung của quốc gia', 'Gắn với chủ quyền', 'Tạo điều kiện tổ chức đời sống xã hội']
+    body: 'Có không gian sinh tồn và phát triển chung.',
+    points: ['Không gian chung', 'Ổn định', 'Không bị chia cắt']
   },
   {
     eyebrow: 'Nation',
     title: 'Nhà nước quản lý',
-    body: 'Cộng đồng quốc gia dân tộc có thiết chế chính trị đại diện, tổ chức và quản lý đời sống chung.',
-    points: ['Có quyền lực công', 'Có pháp luật', 'Bảo đảm trật tự và lợi ích chung']
+    body: 'Có thiết chế chính trị đại diện và quản lý cộng đồng.',
+    points: ['Nhà nước độc lập', 'Quản lý xã hội', 'Đại diện cộng đồng']
   },
   {
     eyebrow: 'Nation',
     title: 'Ngôn ngữ chung',
-    body: 'Ngôn ngữ chung là công cụ giao tiếp quan trọng, giúp cộng đồng trao đổi, học tập và tổ chức xã hội.',
-    points: ['Tạo khả năng giao tiếp rộng', 'Hỗ trợ giáo dục và quản lý', 'Không phủ nhận ngôn ngữ riêng của tộc người']
+    body: 'Có công cụ giao tiếp chung trong xã hội.',
+    points: ['Giao tiếp', 'Học tập', 'Tổ chức đời sống chung']
   },
   {
     eyebrow: 'Nation',
     title: 'Văn hóa - tâm lý chung',
-    body: 'Cộng đồng quốc gia có truyền thống, lối sống, tình cảm và bản sắc chung được hình thành trong lịch sử.',
-    points: ['Tạo ý thức cùng thuộc về', 'Gắn với ký ức lịch sử', 'Bồi đắp tinh thần đoàn kết quốc gia']
+    body: 'Có bản sắc, truyền thống, lối sống và tình cảm cộng đồng.',
+    points: ['Bản sắc', 'Truyền thống', 'Tình cảm cộng đồng']
   }
 ];
 
-const daoNationSlides: HomeSlide[] = daoNationFeatureCards.map((card, index) => ({
+const daoNationSlides: HomeSlide[] = [{
   member: 'Đào',
-  eyebrow: `Khái niệm 4.${index + 1}/6`,
-  title: `Quốc gia dân tộc: ${card.title}`,
-  subtitle: card.body,
-  items: [card]
-}));
+  eyebrow: 'Khái niệm 4/6',
+  title: 'Dân tộc - quốc gia dân tộc',
+  subtitle:
+    'Theo nghĩa thứ nhất, dân tộc, hay quốc gia dân tộc - nation, là một cộng đồng chính trị - xã hội ổn định với các đặc trưng chung về kinh tế, lãnh thổ, nhà nước, ngôn ngữ và văn hóa.',
+  items: daoNationFeatureCards
+}];
 
 const daoEthnicFeatureCards: InfoCard[] = [
   {
     eyebrow: 'Ethnic group',
-    title: 'Ngôn ngữ riêng',
-    body: 'Tộc người thường có tiếng nói, chữ viết hoặc cách giao tiếp riêng, thể hiện lịch sử và bản sắc cộng đồng.',
-    points: ['Là dấu hiệu nhận diện quan trọng', 'Cần được tôn trọng', 'Góp phần làm giàu đời sống văn hóa']
+    title: 'Ngôn ngữ',
+    body: 'Có tiếng nói, chữ viết hoặc cách giao tiếp riêng.',
+    points: ['Tiếng nói', 'Chữ viết', 'Cách giao tiếp riêng']
   },
   {
     eyebrow: 'Ethnic group',
-    title: 'Văn hóa riêng',
-    body: 'Mỗi tộc người có phong tục, lễ hội, trang phục, tín ngưỡng, nghệ thuật và tri thức dân gian riêng.',
-    points: ['Không có văn hóa cao - thấp', 'Khác biệt là giá trị', 'Bảo tồn gắn với phát triển']
+    title: 'Văn hóa',
+    body: 'Có phong tục, tập quán, trang phục, lễ hội, tín ngưỡng, nghệ thuật riêng.',
+    points: ['Phong tục', 'Trang phục - lễ hội', 'Tín ngưỡng - nghệ thuật']
   },
   {
     eyebrow: 'Ethnic group',
     title: 'Ý thức tự giác tộc người',
-    body: 'Các thành viên tự nhận mình thuộc về cộng đồng tộc người đó và có ý thức giữ gìn bản sắc riêng.',
-    points: ['Tạo sự gắn bó nội bộ', 'Nuôi dưỡng tự hào văn hóa', 'Cùng tham gia cộng đồng Việt Nam thống nhất']
+    body: 'Các thành viên tự nhận mình thuộc về cộng đồng tộc người đó.',
+    points: ['Tự nhận thuộc về cộng đồng', 'Gắn bó nội bộ', 'Giữ gìn bản sắc riêng']
   }
 ];
 
@@ -488,50 +618,102 @@ const vietnamMoreCharacteristics: InfoCard[] = [
 const partyStrategyCards: InfoCard[] = [
   partyViewpoints[0],
   {
-    eyebrow: 'Lâu dài',
-    title: 'Không phải nhiệm vụ nhất thời',
-    body: 'Công tác dân tộc gắn với phát triển bền vững, niềm tin của nhân dân và sự ổn định của đất nước.',
-    points: ['Cần chính sách liên tục', 'Cần theo dõi đời sống thực tế', 'Cần phối hợp nhiều lĩnh vực']
+    eyebrow: 'Tính chiến lược',
+    title: 'Cơ bản, lâu dài',
+    body: 'Việt Nam là quốc gia đa tộc người; việc thu hẹp chênh lệch về trình độ phát triển, mức sống và dân trí cần thời gian, nguồn lực và một tiến trình lịch sử lâu dài.',
+    points: [
+      'Xu hướng phát triển quan hệ dân tộc diễn ra lâu dài',
+      'Đại đoàn kết dân tộc là nguồn lực và động lực chủ yếu',
+      'Cần chính sách bền bỉ qua nhiều giai đoạn cách mạng'
+    ]
   },
   {
-    eyebrow: 'Cấp bách',
-    title: 'Giải quyết khó khăn hiện nay',
-    body: 'Chênh lệch phát triển, thiếu hạ tầng và nguy cơ bị lợi dụng để chia rẽ là các vấn đề cần xử lý kịp thời.',
-    points: ['Ưu tiên vùng khó khăn', 'Không để định kiến lan rộng', 'Bảo vệ khối đại đoàn kết']
+    eyebrow: 'Tính cấp bách',
+    title: 'Yêu cầu hiện nay',
+    body: 'Khoảng cách phát triển, nguy cơ bất ổn an sinh và âm mưu lợi dụng vấn đề dân tộc đòi hỏi công tác dân tộc phải được giải quyết kịp thời.',
+    points: [
+      'Ổn định đời sống vùng miền núi, biên giới và vùng khó khăn',
+      'Củng cố niềm tin của đồng bào',
+      'Ngăn chặn kích động ly khai, kỳ thị và chia rẽ dân tộc'
+    ]
   }
 ];
 
 const partyEqualityCards: InfoCard[] = [
   partyViewpoints[1],
   {
-    eyebrow: 'Bình đẳng',
-    title: 'Bình đẳng về quyền và cơ hội',
-    body: 'Bình đẳng dân tộc không chỉ là quyền trên văn bản, mà còn là cơ hội học tập, sinh kế và tham gia đời sống xã hội.',
-    points: ['Tôn trọng quyền của mọi dân tộc', 'Thu hẹp khoảng cách phát triển', 'Không phân biệt đối xử']
+    eyebrow: 'Bình đẳng dân tộc',
+    title: 'Cơ sở pháp lý và đạo lý',
+    body: 'Mọi dân tộc, không phân biệt đa số hay thiểu số, đều có vị thế chính trị ngang nhau, quyền lợi và nghĩa vụ ngang nhau trước pháp luật.',
+    points: [
+      'Có quyền tham gia hệ thống chính trị, quản lý nhà nước và xã hội',
+      'Hiến pháp và pháp luật bảo vệ quyền bình đẳng',
+      'Nghiêm cấm kỳ thị, chia rẽ tộc người'
+    ]
   },
   {
-    eyebrow: 'Tương trợ',
-    title: 'Giúp nhau cùng phát triển',
-    body: 'Tương trợ là cách biến tinh thần đoàn kết thành hành động cụ thể trong chính sách, cộng đồng và môi trường học tập.',
-    points: ['Hỗ trợ vùng khó khăn', 'Chia sẻ nguồn lực', 'Cùng nâng cao năng lực tự phát triển']
+    eyebrow: 'Đoàn kết - tương trợ',
+    title: 'Sức mạnh và hành động thực tiễn',
+    body: 'Đoàn kết tạo sức mạnh tổng hợp; tương trợ biến bình đẳng pháp lý thành bình đẳng thực tế trong đời sống.',
+    points: [
+      'Đoàn kết dựa trên liên minh công nhân - nông dân - trí thức',
+      'Chia sẻ nguồn lực, kỹ thuật và tri thức cho vùng khó khăn',
+      'Phát huy tự lực của đồng bào dân tộc thiểu số'
+    ]
   }
 ];
 
 const partyDevelopmentCards: InfoCard[] = [
   partyViewpoints[2],
   {
-    eyebrow: 'Toàn diện',
-    title: 'Không chỉ phát triển kinh tế',
-    body: 'Phát triển vùng dân tộc và miền núi cần đồng thời chú ý chính trị, kinh tế, văn hóa, xã hội, môi trường và an ninh - quốc phòng.',
-    points: ['Hạ tầng và sinh kế', 'Giáo dục và y tế', 'Văn hóa và an ninh cơ sở']
+    eyebrow: 'Kinh tế',
+    title: 'Hạ tầng và sinh kế bền vững',
+    body: 'Ưu tiên nguồn vốn và huy động nguồn lực xã hội để đầu tư giao thông, điện, thủy lợi, trường học, trạm y tế và hạ tầng số.',
+    points: [
+      'Phát triển lâm nghiệp bền vững, cây công nghiệp và cây dược liệu',
+      'Thúc đẩy chăn nuôi đại gia súc và du lịch sinh thái',
+      'Giảm nghèo nhanh và bền vững dựa trên tiềm năng địa phương'
+    ]
   },
   {
-    eyebrow: 'Cơ sở',
-    title: 'Phát huy vai trò cộng đồng',
-    body: 'Chính sách hiệu quả khi người dân địa phương, già làng, trưởng bản, người có uy tín và chính quyền cơ sở cùng tham gia.',
-    points: ['Lắng nghe nhu cầu thực tế', 'Tôn trọng tri thức bản địa', 'Tăng niềm tin chính sách']
+    eyebrow: 'Chính trị - xã hội',
+    title: 'Cơ sở vững, đời sống nâng lên',
+    body: 'Củng cố hệ thống chính trị cơ sở, đào tạo cán bộ dân tộc thiểu số, đồng thời nâng cao giáo dục, y tế và bảo tồn bản sắc văn hóa.',
+    points: [
+      'Gắn phát triển kinh tế - xã hội với quốc phòng - an ninh',
+      'Nâng cao chất lượng trường dân tộc nội trú, bán trú và y tế cơ sở',
+      'Bảo tồn tiếng nói, chữ viết, trang phục, lễ hội và xóa bỏ hủ tục lạc hậu'
+    ]
   }
 ];
+
+const policyCorePoints: Record<string, string[]> = {
+  politics: [
+    'Bầu cử, ứng cử, góp ý và giám sát chính quyền',
+    'Lắng nghe nhu cầu của người dân địa phương',
+    'Chống kỳ thị, chia rẽ và lợi dụng khó khăn để gây mất đoàn kết'
+  ],
+  economy: [
+    'Đường, điện, nước sạch, đất sản xuất và hạ tầng thiết yếu',
+    'Vốn vay, kỹ thuật, thị trường tiêu thụ và sản phẩm địa phương',
+    'Sinh kế phù hợp để giảm nghèo bền vững, không phụ thuộc trợ cấp'
+  ],
+  culture: [
+    'Giữ tiếng nói, chữ viết, lễ hội, trang phục và nghệ thuật truyền thống',
+    'Chọn lọc giá trị tốt đẹp, loại bỏ hủ tục lạc hậu',
+    'Gắn bảo tồn văn hóa với du lịch cộng đồng và sinh kế'
+  ],
+  society: [
+    'Giáo dục, y tế, giảm nghèo, nhà ở và nước sạch',
+    'Bình đẳng giới, bảo vệ phụ nữ và trẻ em',
+    'Nâng cao nguồn nhân lực và đời sống vật chất, tinh thần'
+  ],
+  security: [
+    'Ổn định chính trị, trật tự an toàn xã hội ở cơ sở',
+    'Bảo đảm an ninh biên giới và địa bàn chiến lược',
+    'Phối hợp chính quyền, biên phòng, công an, già làng và người có uy tín'
+  ]
+};
 
 function policySlide(pillar: (typeof policyPillars)[number], index: number): HomeSlide {
   return {
@@ -544,7 +726,7 @@ function policySlide(pillar: (typeof policyPillars)[number], index: number): Hom
         eyebrow: 'Mục tiêu',
         title: 'Trọng tâm chính sách',
         body: pillar.summary,
-        points: ['Bảo đảm bình đẳng thực chất', 'Gắn hỗ trợ với tự lực phát triển', 'Phù hợp từng địa bàn và cộng đồng'],
+        points: policyCorePoints[pillar.id] ?? ['Bảo đảm bình đẳng thực chất', 'Gắn hỗ trợ với tự lực phát triển', 'Phù hợp từng địa bàn và cộng đồng'],
         sourceIds: pillar.sourceIds
       },
       {
@@ -564,35 +746,44 @@ const achievementDetailCards: InfoCard[][] = [
     {
       eyebrow: 'Ý nghĩa',
       title: 'Hạ tầng mở đường cho kết nối',
-      body: 'Khi đường, điện, nước, trường học, trạm y tế và viễn thông được cải thiện, người dân tiếp cận dịch vụ công và thị trường thuận lợi hơn.',
-      points: ['Giảm cách biệt vùng sâu, vùng xa', 'Tạo điều kiện phát triển sinh kế', 'Tăng khả năng tiếp cận thông tin']
+      body: 'Khi giao thông, điện, nước và viễn thông được cải thiện, vùng khó khăn kết nối tốt hơn với trung tâm kinh tế, giáo dục, y tế và hành chính.',
+      points: ['Đi lại và giao thương thuận lợi hơn', 'Mở thêm cơ hội dịch vụ công, giáo dục, y tế', 'Tạo nền cho du lịch cộng đồng và sinh kế']
     }
   ],
   [
     achievementAreas[1],
     {
       eyebrow: 'Ý nghĩa',
-      title: 'Đầu tư vào con người',
-      body: 'Giáo dục, y tế và an sinh xã hội giúp đồng bào có điều kiện học tập, chăm sóc sức khỏe và nâng cao chất lượng cuộc sống.',
-      points: ['Trường lớp và nội trú/bán trú', 'Y tế cơ sở gần dân hơn', 'Không để ai bị bỏ lại phía sau']
+      title: 'Trao cơ hội học tập bình đẳng',
+      body: 'Giáo dục giúp nâng cao dân trí, mở rộng cơ hội nghề nghiệp và đào tạo nguồn nhân lực tại chỗ cho vùng dân tộc thiểu số và miền núi.',
+      points: ['Trẻ em vùng sâu, vùng xa có điều kiện đến trường', 'Trường nội trú, bán trú hỗ trợ học tập và sinh hoạt', 'Tri thức trở thành nền tảng phát triển bền vững']
     }
   ],
   [
     achievementAreas[2],
     {
       eyebrow: 'Ý nghĩa',
-      title: 'Trao cơ hội để tự lực',
-      body: 'Giảm nghèo bền vững không chỉ là hỗ trợ trước mắt, mà là tạo điều kiện để người dân có kỹ năng, vốn, thị trường và mô hình sản xuất phù hợp.',
-      points: ['Đào tạo nghề', 'Phát triển sản phẩm bản địa', 'Gắn sinh kế với lợi thế địa phương']
+      title: 'Không để ai bị bỏ lại phía sau',
+      body: 'Y tế và an sinh xã hội giúp người dân vùng khó khăn tiếp cận chăm sóc sức khỏe ban đầu, bảo hiểm y tế và các chương trình hỗ trợ thiết yếu.',
+      points: ['Trạm y tế cơ sở gần dân hơn', 'Quan tâm bà mẹ, trẻ em, hộ nghèo và người khó khăn', 'Củng cố niềm tin vào chính sách xã hội nhân văn']
     }
   ],
   [
     achievementAreas[3],
     {
       eyebrow: 'Ý nghĩa',
+      title: 'Trao cơ hội để tự lực',
+      body: 'Giảm nghèo bền vững không chỉ là hỗ trợ vật chất, mà còn là quá trình trao cơ hội để người dân chủ động phát triển kinh tế và ổn định đời sống.',
+      points: ['Khai thác điều kiện tự nhiên và văn hóa bản địa', 'Đa dạng sinh kế, nâng thu nhập', 'Giảm phụ thuộc vào hỗ trợ ngắn hạn']
+    }
+  ],
+  [
+    achievementAreas[4],
+    {
+      eyebrow: 'Ý nghĩa',
       title: 'Bản sắc cũng là nguồn lực',
-      body: 'Bảo tồn văn hóa, lễ hội, nghệ thuật dân gian, nghề thủ công và du lịch cộng đồng giúp giữ bản sắc đồng thời tạo sinh kế.',
-      points: ['Tôn vinh nghệ nhân', 'Truyền dạy cho thế hệ trẻ', 'Giao lưu trong cộng đồng Việt Nam thống nhất']
+      body: 'Bảo tồn văn hóa là cách khẳng định bình đẳng, tôn trọng và đoàn kết giữa các dân tộc trong cộng đồng Việt Nam thống nhất.',
+      points: ['Giữ gìn giá trị truyền thống tốt đẹp', 'Tạo niềm tự hào cho thế hệ trẻ', 'Gắn văn hóa với du lịch cộng đồng và sinh kế']
     }
   ]
 ];
@@ -644,7 +835,7 @@ const homeSlides: HomeSlide[] = [
     eyebrow: 'Khái niệm 5/6',
     title: 'Dân tộc theo nghĩa tộc người',
     subtitle:
-      'Theo nghĩa ethnic group, dân tộc là cộng đồng người có bản sắc ngôn ngữ, văn hóa và ý thức tự giác tộc người riêng.',
+      'Theo nghĩa thứ hai, dân tộc - tộc người - ethnies là cộng đồng người có những đặc trưng về ngôn ngữ, văn hóa và ý thức tự giác tộc người.',
     items: daoEthnicFeatureCards
   },
   {
@@ -690,9 +881,9 @@ const homeSlides: HomeSlide[] = [
   {
     member: 'Hiển',
     eyebrow: 'Quan điểm 1/3',
-    title: 'Vấn đề dân tộc là chiến lược cơ bản, lâu dài và cấp bách',
+    title: 'Vấn đề dân tộc và đoàn kết dân tộc là chiến lược lâu dài, đồng thời cấp bách',
     subtitle:
-      'Quan điểm này đặt công tác dân tộc trong nhiệm vụ phát triển đất nước, ổn định xã hội và củng cố niềm tin của nhân dân.',
+      'Quan điểm này đặt vấn đề dân tộc trong tầm nhìn chiến lược lâu dài, đồng thời nhấn mạnh yêu cầu xử lý kịp thời các vấn đề an sinh, quốc phòng - an ninh hiện nay.',
     items: partyStrategyCards
   },
   {
@@ -700,7 +891,7 @@ const homeSlides: HomeSlide[] = [
     eyebrow: 'Quan điểm 2/3',
     title: 'Bình đẳng, đoàn kết, tương trợ, giúp nhau cùng phát triển',
     subtitle:
-      'Trọng tâm của quan điểm dân tộc là bảo đảm quyền, tôn trọng bản sắc và tạo điều kiện để các dân tộc cùng vươn lên.',
+      'Bình đẳng, đoàn kết và tương trợ có quan hệ biện chứng: bình đẳng là nền tảng, đoàn kết là sức mạnh, tương trợ là hành động để cùng phát triển.',
     items: partyEqualityCards
   },
   {
@@ -708,13 +899,13 @@ const homeSlides: HomeSlide[] = [
     eyebrow: 'Quan điểm 3/3',
     title: 'Phát triển toàn diện vùng dân tộc và miền núi',
     subtitle:
-      'Phát triển không chỉ là tăng trưởng kinh tế, mà còn là nâng cao đời sống chính trị, văn hóa, xã hội và bảo đảm an ninh - quốc phòng.',
+      'Phát triển vùng dân tộc và miền núi phải đồng bộ trên kinh tế, chính trị, quốc phòng - an ninh, văn hóa và xã hội.',
     items: partyDevelopmentCards
   },
   ...policyPillars.map(policySlide),
   {
     member: 'Tiên',
-    eyebrow: 'Thành tựu 1/4',
+    eyebrow: 'Thành tựu 1/5',
     title: 'Hạ tầng làm thay đổi diện mạo vùng khó khăn',
     subtitle:
       'Đường giao thông, điện, nước, trường học, trạm y tế và viễn thông được đầu tư giúp vùng dân tộc thiểu số kết nối tốt hơn.',
@@ -722,27 +913,35 @@ const homeSlides: HomeSlide[] = [
   },
   {
     member: 'Tiên',
-    eyebrow: 'Thành tựu 2/4',
-    title: 'Giáo dục, y tế và an sinh xã hội được mở rộng',
+    eyebrow: 'Thành tựu 2/5',
+    title: 'Giáo dục có nhiều chuyển biến tích cực',
     subtitle:
-      'Các chính sách xã hội giúp người dân vùng sâu, vùng xa tiếp cận quyền học tập, chăm sóc sức khỏe và dịch vụ thiết yếu.',
+      'Mạng lưới trường lớp, trường dân tộc nội trú và bán trú giúp trẻ em dân tộc thiểu số có thêm điều kiện học tập.',
     items: achievementDetailCards[1]
   },
   {
     member: 'Tiên',
-    eyebrow: 'Thành tựu 3/4',
-    title: 'Sinh kế và giảm nghèo gắn với tự lực phát triển',
+    eyebrow: 'Thành tựu 3/5',
+    title: 'Y tế và an sinh xã hội được quan tâm',
     subtitle:
-      'Các mô hình sản xuất, vay vốn, đào tạo nghề và phát triển sản phẩm địa phương giúp đồng bào chủ động vươn lên.',
+      'Trạm y tế, bảo hiểm, tiêm chủng, chăm sóc bà mẹ - trẻ em và hỗ trợ hộ khó khăn giúp người dân tiếp cận dịch vụ thiết yếu hơn.',
     items: achievementDetailCards[2]
   },
   {
     member: 'Tiên',
-    eyebrow: 'Thành tựu 4/4',
+    eyebrow: 'Thành tựu 4/5',
+    title: 'Sinh kế và giảm nghèo gắn với tự lực phát triển',
+    subtitle:
+      'Các mô hình sản xuất, vay vốn, đào tạo nghề và phát triển sản phẩm địa phương giúp đồng bào chủ động vươn lên.',
+    items: achievementDetailCards[3]
+  },
+  {
+    member: 'Tiên',
+    eyebrow: 'Thành tựu 5/5',
     title: 'Bảo tồn bản sắc văn hóa gắn với phát triển',
     subtitle:
       'Bản sắc văn hóa các dân tộc không chỉ cần được gìn giữ, mà còn có thể trở thành nguồn lực cho sinh kế và giao lưu cộng đồng.',
-    items: achievementDetailCards[3]
+    items: achievementDetailCards[4]
   },
   {
     member: 'Tiên',
@@ -760,7 +959,7 @@ const homeSlides: HomeSlide[] = [
       'Tinh thần đoàn kết không dừng ở khẩu hiệu; nó bắt đầu từ lời nói tôn trọng, thái độ lắng nghe và sự giúp đỡ chân thành.',
     items: actionCallCards
   }
-];
+].slice(1);
 
 const slideControlItems = homeSlides.map(slide => ({
   member: slide.member,
@@ -768,7 +967,7 @@ const slideControlItems = homeSlides.map(slide => ({
   title: slide.title
 }));
 
-const slideVisuals: SlideVisual[] = [
+const slideVisuals: SlideVisual[] = ([
   {
     variant: 'gallery',
     title: 'Mở bài bằng hình ảnh cộng đồng',
@@ -787,19 +986,16 @@ const slideVisuals: SlideVisual[] = [
     caption: 'So sánh ngắn giữa nền tảng kinh tế - xã hội và nền tảng văn hóa - tâm lý cộng đồng.',
     chips: ['Phương Tây', 'Phương Đông']
   },
-  ...daoNationFeatureCards.map(
-    (card, index): SlideVisual => ({
-      variant: 'statement',
-      title: 'Nation',
-      caption: card.title,
-      chips: [card.title],
-      activeNode: index
-    })
-  ),
+  {
+    variant: 'statement',
+    title: 'Nation',
+    caption: 'Quốc gia dân tộc là cộng đồng chính trị - xã hội thống nhất, nơi các thành viên cùng chung sống, lao động, sáng tạo và bảo vệ Tổ quốc.',
+    chips: daoNationFeatureCards.map(card => card.title)
+  },
   {
     variant: 'gallery',
     title: 'Ethnic group',
-    caption: 'Tộc người được nhận diện qua ngôn ngữ, văn hóa và ý thức tự giác cộng đồng.',
+    caption: 'Mỗi tộc người có bản sắc riêng, góp phần làm nên sự phong phú của văn hóa Việt Nam.',
     chips: ['Ngôn ngữ', 'Văn hóa', 'Ý thức tộc người']
   },
   {
@@ -834,21 +1030,21 @@ const slideVisuals: SlideVisual[] = [
   },
   {
     variant: 'statement',
-    title: 'Chiến lược cơ bản, lâu dài',
-    caption: 'Công tác dân tộc gắn với ổn định xã hội, niềm tin nhân dân và phát triển bền vững.',
-    chips: ['Lâu dài', 'Cấp bách', 'Niềm tin']
+    title: 'Chiến lược lâu dài, cấp bách hiện nay',
+    caption: 'Vấn đề dân tộc phải được nhìn trong tiến trình lâu dài, đồng thời xử lý kịp thời các nguy cơ an sinh và chia rẽ.',
+    chips: ['Lâu dài', 'Cấp bách', 'Đoàn kết']
   },
   {
     variant: 'gallery',
     title: 'Bình đẳng và tương trợ',
-    caption: 'Tinh thần đoàn kết cần đi vào quyền, cơ hội và hành động hỗ trợ cụ thể.',
-    chips: ['Quyền', 'Cơ hội', 'Tương trợ']
+    caption: 'Bình đẳng là nền tảng, đoàn kết là sức mạnh, tương trợ là hành động thực tiễn để cùng phát triển.',
+    chips: ['Bình đẳng', 'Đoàn kết', 'Tương trợ']
   },
   {
     variant: 'image',
     title: 'Phát triển toàn diện',
-    caption: 'Kinh tế, văn hóa, xã hội, môi trường và an ninh phải được đặt trong một chỉnh thể.',
-    chips: ['Kinh tế', 'Văn hóa', 'Xã hội', 'An ninh']
+    caption: 'Kinh tế, chính trị, quốc phòng - an ninh, văn hóa và xã hội phải được đặt trong một chỉnh thể.',
+    chips: ['Kinh tế', 'Chính trị', 'Văn hóa - xã hội', 'QP-AN']
   },
   {
     variant: 'policy',
@@ -888,9 +1084,15 @@ const slideVisuals: SlideVisual[] = [
   },
   {
     variant: 'gallery',
-    title: 'Giáo dục - y tế',
-    caption: 'Đầu tư vào con người là trọng tâm của phát triển vùng dân tộc thiểu số và miền núi.',
-    chips: ['Đến trường', 'Trạm y tế', 'Chăm sóc']
+    title: 'Giáo dục',
+    caption: 'Trường lớp, nội trú và bán trú mở rộng cơ hội học tập cho trẻ em vùng dân tộc thiểu số.',
+    chips: ['Đến trường', 'Nội trú', 'Nguồn nhân lực']
+  },
+  {
+    variant: 'gallery',
+    title: 'Y tế - an sinh',
+    caption: 'Trạm y tế, bảo hiểm và chăm sóc sức khỏe ban đầu giúp chính sách xã hội gần dân hơn.',
+    chips: ['Trạm y tế', 'Khám chữa bệnh', 'An sinh']
   },
   {
     variant: 'gallery',
@@ -916,13 +1118,13 @@ const slideVisuals: SlideVisual[] = [
     caption: 'Một lời nói tôn trọng, một thái độ lắng nghe và một sự giúp đỡ chân thành đều có giá trị.',
     chips: ['Tôn trọng', 'Lắng nghe', 'Tương trợ']
   }
-];
+] satisfies SlideVisual[]).slice(1);
 
 const slideImageGroups: VisualImage[][] = [
   [visualImages.commonsEthnicDistribution, visualImages.docCommunity],
-  [visualImages.commonsDongSonDrum, visualImages.commonsMaiChauRiceField, visualImages.commonsEthnicDistribution, visualImages.docCommunity],
-  [visualImages.commonsIronFoundry, visualImages.commonsDinhBangCommunalHouse],
-  ...daoNationFeatureCards.map(() => [visualImages.unityMap]),
+  [visualImages.daoThiToc, visualImages.daoBoLac, visualImages.daoBoToc, visualImages.daoDanToc],
+  [visualImages.daoPhuongTay, visualImages.daoPhuongDong],
+  [visualImages.unityMap],
   [visualImages.commonsHmongDress, visualImages.commonsHmongBatik, visualImages.ethnicPortraits],
   [visualImages.docUnity, visualImages.docGirls],
   [visualImages.commonsBlackHmongWomen, visualImages.bridge],
@@ -931,19 +1133,20 @@ const slideImageGroups: VisualImage[][] = [
   [visualImages.docViewpointSlide, visualImages.docMeeting],
   [visualImages.docEconomyEvidence],
   [visualImages.docEconomySlide],
-  [visualImages.docPolicyOverview],
-  [visualImages.docElectionPoster],
-  [visualImages.docTea, visualImages.docFruit, visualImages.docLivestock],
-  [visualImages.docDance, visualImages.docMuseum, visualImages.commonsChamLion],
-  [visualImages.docClassroom, visualImages.docHealth, visualImages.docCleanWater],
-  [visualImages.docSecurity],
-  [visualImages.commonsMuCangChai, visualImages.docRoad, visualImages.docRailWork],
-  [visualImages.docClinic, visualImages.docMedicalVisit],
-  [visualImages.docLivelihood, visualImages.docCleanWaterHome, visualImages.mountainValley],
-  [visualImages.commonsDanMoi, visualImages.seaFestival],
+  [visualImages.thoPolicyOverview],
+  [visualImages.thoPoliticalElection, visualImages.thoPoliticalParticipation],
+  [visualImages.thoEconomyLivelihood, visualImages.thoEconomyLocalProducts],
+  [visualImages.thoCultureUnity, visualImages.thoUnityHoChiMinh],
+  [visualImages.thoSocialCommunityProduction, visualImages.docClassroom, visualImages.docHealth],
+  [visualImages.thoSecurityDefense],
+  [visualImages.tienInfrastructureRoad, visualImages.tienInfrastructureElectricity, visualImages.tienCleanWater],
+  [visualImages.tienEducationClassroom, visualImages.docSchoolRoad],
+  [visualImages.tienHealthStation, visualImages.tienHealthCheckup],
+  [visualImages.tienEconomyTea, visualImages.tienEconomyTerraces],
+  [visualImages.tienCultureCostume, visualImages.tienCultureFestival],
   [visualImages.terraces, visualImages.festival],
   [visualImages.docSchoolRoad, visualImages.populationMap]
-];
+].slice(1);
 
 const visibleSlideVisuals: SlideVisual[] = slideVisuals.map((visual, index) => {
   const images = slideImageGroups[index] ?? [];
@@ -966,10 +1169,13 @@ function SlideVisualPanel({ visual }: { visual: SlideVisual }) {
   const images = visual.images ?? (visual.image ? [visual.image] : []);
 
   if (visual.variant === 'timeline') {
+    const timelineAlt =
+      'Dòng thời gian thể hiện quá trình phát triển của cộng đồng người từ thị tộc, bộ lạc, bộ tộc đến dân tộc.';
+
     return (
       <aside className="slide-visual timeline" data-timeline-active="0">
         {images.length ? (
-          <div className="timeline-backdrop-stack" aria-hidden="true">
+          <div className="timeline-backdrop-stack" role="img" aria-label={timelineAlt}>
             {images.map((image, index) => (
               <img
                 key={image.src}
@@ -1035,6 +1241,43 @@ function SlideVisualPanel({ visual }: { visual: SlideVisual }) {
   }
 
   if (visual.variant === 'gallery') {
+    const isEthnicIdentityVisual = visual.title === 'Ethnic group';
+
+    if (isEthnicIdentityVisual) {
+      const identityPillars = [
+        { index: '01', title: 'Ngôn ngữ riêng' },
+        { index: '02', title: 'Văn hóa riêng' },
+        { index: '03', title: 'Ý thức tự giác' }
+      ];
+
+      return (
+        <aside className="slide-visual gallery ethnic-identity-visual">
+          <div className="ethnic-identity-grid">
+            {images.slice(0, 3).map((image, index) => (
+              <figure key={image.src} className={`ethnic-image image-${index + 1}`}>
+                <img src={image.src} alt={image.alt} />
+                <figcaption>{image.label}</figcaption>
+              </figure>
+            ))}
+            <div className="ethnic-identity-core">
+              <span>Ethnic group</span>
+              <strong>Tộc người</strong>
+              <small>Bản sắc riêng trong cộng đồng Việt Nam thống nhất</small>
+            </div>
+            <div className="ethnic-pillar-list">
+              {identityPillars.map(pillar => (
+                <div key={pillar.index} className="ethnic-pillar">
+                  <span>{pillar.index}</span>
+                  <strong>{pillar.title}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+          <VisualCredits images={images} />
+        </aside>
+      );
+    }
+
     return (
       <aside className="slide-visual gallery">
         <div className={`visual-gallery-grid count-${Math.min(images.length, 3)}`}>
@@ -1076,13 +1319,34 @@ function SlideVisualPanel({ visual }: { visual: SlideVisual }) {
 
   if (visual.variant === 'statement') {
     const isNationStatement = visual.title === 'Nation';
+    const isEconomyNationStatement = isNationStatement && visual.activeNode === 0;
 
     return (
-      <aside className={`slide-visual statement ${isNationStatement ? 'nation-structure-visual' : ''}`}>
+      <aside
+        className={`slide-visual statement ${isNationStatement ? 'nation-structure-visual' : ''} ${
+          isEconomyNationStatement ? 'nation-economy-visual' : ''
+        }`}
+      >
         {visual.image ? <img className="visual-backdrop" src={visual.image.src} alt={visual.image.alt} /> : null}
         <div className="visual-overlay" />
         <VisualCredits images={images} />
-        {isNationStatement ? (
+        {isEconomyNationStatement ? (
+          <div className="economy-flow">
+            <div className="economy-flow-core">
+              <span>01</span>
+              <strong>Chung sinh hoạt kinh tế</strong>
+              <p>Sản xuất, trao đổi và phân công lao động tạo nền tảng vật chất chung của quốc gia dân tộc.</p>
+            </div>
+            <div className="economy-flow-grid">
+              {['Sản xuất', 'Trao đổi', 'Phân công', 'Phát triển'].map((item, index) => (
+                <div className="economy-flow-node" key={item}>
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <strong>{item}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : isNationStatement ? (
           <div className="nation-structure">
             <div className="nation-core">
               <span>Nation</span>
@@ -1212,7 +1476,7 @@ function getDaoSlideClass(slide: HomeSlide) {
     return 'dao-slide dao-slide-3';
   }
 
-  if (slide.eyebrow.startsWith('Khái niệm 4.')) {
+  if (slide.eyebrow === 'Khái niệm 4/6' || slide.eyebrow.startsWith('Khái niệm 4.')) {
     return 'dao-slide dao-slide-4';
   }
 
@@ -1225,6 +1489,54 @@ function getDaoSlideClass(slide: HomeSlide) {
   }
 
   return '';
+}
+
+function getLinhSlideKind(slide: HomeSlide) {
+  if (slide.eyebrow === 'Mác - Lênin 1/4') {
+    return 'trends' as const;
+  }
+
+  if (slide.eyebrow === 'Mác - Lênin 2/4') {
+    return 'principles' as const;
+  }
+
+  if (slide.member === 'Linh') {
+    return 'vietnam' as const;
+  }
+
+  return null;
+}
+
+function getHienSlideKind(slide: HomeSlide) {
+  if (slide.eyebrow === 'Quan điểm 1/3') {
+    return 'strategy' as const;
+  }
+
+  if (slide.eyebrow === 'Quan điểm 2/3') {
+    return 'equality' as const;
+  }
+
+  if (slide.eyebrow === 'Quan điểm 3/3') {
+    return 'development' as const;
+  }
+
+  return null;
+}
+
+function getTienSlideKind(slide: HomeSlide) {
+  if (slide.member !== 'Tiên') {
+    return null;
+  }
+
+  if (slide.eyebrow.startsWith('Thành tựu')) {
+    return 'achievement' as const;
+  }
+
+  if (slide.eyebrow.startsWith('Hành động')) {
+    return 'action' as const;
+  }
+
+  return null;
 }
 
 export function Home() {
@@ -1245,8 +1557,11 @@ export function Home() {
               className={[
                 'slide-section',
                 getDaoSlideClass(slide),
+                slide.member === 'Linh' ? 'linh-slide' : '',
+                slide.member === 'Hiển' ? 'hien-slide' : '',
+                slide.member === 'Tiên' ? 'tien-slide' : '',
                 slide.eyebrow === 'Khái niệm 1/6' ? 'concept-open-slide' : '',
-                slide.eyebrow.startsWith('Khái niệm 4.') ? 'nation-slide' : ''
+                slide.eyebrow === 'Khái niệm 4/6' || slide.eyebrow.startsWith('Khái niệm 4.') ? 'nation-slide' : ''
               ]
                 .filter(Boolean)
                 .join(' ')}
@@ -1262,8 +1577,20 @@ export function Home() {
                     <h2 id={`home-slide-title-${index}`}>{slide.title}</h2>
                     <p>{slide.subtitle}</p>
                   </div>
-                  <SlideVisualPanel visual={visibleSlideVisuals[index]} />
-                  <SlideCards items={slide.items} />
+                  {slide.eyebrow === 'Khái niệm 4/6' ? (
+                    <NationFactorExplorer image={visibleSlideVisuals[index]?.image} items={slide.items} />
+                  ) : getLinhSlideKind(slide) ? (
+                    <LinhSlideExplorer kind={getLinhSlideKind(slide)!} visual={visibleSlideVisuals[index]} items={slide.items} />
+                  ) : getHienSlideKind(slide) ? (
+                    <HienSlideExplorer kind={getHienSlideKind(slide)!} visual={visibleSlideVisuals[index]} items={slide.items} />
+                  ) : getTienSlideKind(slide) ? (
+                    <TienSlideExplorer kind={getTienSlideKind(slide)!} visual={visibleSlideVisuals[index]} items={slide.items} />
+                  ) : (
+                    <>
+                      <SlideVisualPanel visual={visibleSlideVisuals[index]} />
+                      <SlideCards items={slide.items} />
+                    </>
+                  )}
                 </div>
               </div>
             </article>

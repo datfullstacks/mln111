@@ -1,0 +1,107 @@
+"use client";
+
+import { useState } from 'react';
+
+type InfoCard = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  points: string[];
+};
+
+type VisualImage = {
+  src: string;
+  alt: string;
+  label: string;
+};
+
+type SlideVisual = {
+  title: string;
+  caption: string;
+  image?: VisualImage;
+  images?: VisualImage[];
+  chips?: string[];
+};
+
+type HienSlideKind = 'strategy' | 'equality' | 'development';
+
+type HienSlideExplorerProps = {
+  kind: HienSlideKind;
+  items: InfoCard[];
+  visual?: SlideVisual;
+};
+
+const kindLabels: Record<HienSlideKind, string> = {
+  strategy: 'Quan điểm chiến lược',
+  equality: 'Quan điểm bình đẳng',
+  development: 'Phát triển toàn diện'
+};
+
+export function HienSlideExplorer({ kind, items, visual }: HienSlideExplorerProps) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeItem = items[activeIndex] ?? items[0];
+  const images = visual?.images ?? (visual?.image ? [visual.image] : []);
+
+  return (
+    <>
+      <aside className={`slide-visual hien-explorer-visual hien-${kind}-visual`}>
+        <div className="hien-media">
+          {images.slice(0, 2).map((image, index) => (
+            <img key={image.src} src={image.src} alt="" data-image-index={index} />
+          ))}
+          <div className="hien-visual-overlay" />
+          <div className="hien-visual-copy">
+            <span>{kindLabels[kind]}</span>
+            <strong>{visual?.title}</strong>
+            <p>{visual?.caption}</p>
+          </div>
+        </div>
+        <div className="hien-selector" aria-label={`Chọn nội dung ${kindLabels[kind]}`}>
+          {items.map((item, index) => (
+            <button
+              className={index === activeIndex ? 'active' : ''}
+              key={item.title}
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              aria-pressed={index === activeIndex}
+            >
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <strong>{shortenTitle(item.title, kind)}</strong>
+            </button>
+          ))}
+        </div>
+      </aside>
+      <div className="hien-detail-panel" aria-live="polite">
+        <span className="eyebrow">{activeItem.eyebrow}</span>
+        <h3>{activeItem.title}</h3>
+        <p>{activeItem.body}</p>
+        <ul>
+          {activeItem.points.map(point => (
+            <li key={point}>{point}</li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+}
+
+function shortenTitle(title: string, kind: HienSlideKind) {
+  if (kind === 'strategy') {
+    return title
+      .replace('Vấn đề dân tộc và đoàn kết dân tộc là chiến lược cơ bản, lâu dài, đồng thời cấp bách', 'Tổng quan')
+      .replace('Cơ bản, lâu dài', 'Lâu dài')
+      .replace('Yêu cầu hiện nay', 'Cấp bách');
+  }
+
+  if (kind === 'equality') {
+    return title
+      .replace('Bình đẳng, đoàn kết, tương trợ, giúp nhau cùng phát triển', 'Bình đẳng - đoàn kết')
+      .replace('Cơ sở pháp lý và đạo lý', 'Bình đẳng')
+      .replace('Sức mạnh và hành động thực tiễn', 'Đoàn kết - tương trợ');
+  }
+
+  return title
+    .replace('Phát triển toàn diện vùng dân tộc và miền núi', 'Phát triển toàn diện')
+    .replace('Hạ tầng và sinh kế bền vững', 'Kinh tế - hạ tầng')
+    .replace('Cơ sở vững, đời sống nâng lên', 'Chính trị - xã hội');
+}

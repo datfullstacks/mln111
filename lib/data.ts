@@ -71,10 +71,34 @@ export const sourceRefs: SourceRef[] = [
     url: 'https://baochinhphu.vn/xac-dinh-15-tinh-vung-dan-toc-thieu-so-12-tinh-mien-nui-102260415142233166.htm'
   },
   {
+    id: 'baochinhphu2024dtts',
+    title: 'Đời sống người dân vùng dân tộc thiểu số và miền núi không ngừng cải thiện',
+    publisher: 'Báo Chính phủ',
+    url: 'https://baochinhphu.vn/doi-song-nguoi-dan-vung-dan-toc-thieu-so-va-mien-nui-khong-ngung-cai-thien-102241230092327057.htm'
+  },
+  {
     id: 'bvhttdl2021',
     title: 'Nghệ thuật Xòe Thái được UNESCO ghi danh vào Danh sách di sản văn hóa phi vật thể đại diện của nhân loại',
     publisher: 'Bộ Văn hóa, Thể thao và Du lịch',
     url: 'https://bvhttdl.gov.vn/nghe-thuat-xoe-thai-duoc-unesco-ghi-danh-vao-danh-sach-di-san-van-hoa-phi-vat-the-dai-dien-cua-nhan-loai-20211215183109208.htm'
+  },
+  {
+    id: 'election2026',
+    title: 'Bầu cử 2026: sáng suốt lựa chọn những đại diện tiêu biểu, thực sự đại diện cho ý chí, nguyện vọng của nhân dân',
+    publisher: 'Xây dựng Chính sách - Cổng TTĐT Chính phủ',
+    url: 'https://xaydungchinhsach.chinhphu.vn/bau-cu-2026-sang-suot-lua-chon-nhung-dai-dien-tieu-bieu-thuc-su-dai-dien-cho-y-chi-nguyen-vong-cua-nhan-dan-119260314113515953.htm'
+  },
+  {
+    id: 'baochinhphu1719',
+    title: 'Phê duyệt Chương trình mục tiêu quốc gia phát triển kinh tế - xã hội vùng đồng bào dân tộc thiểu số và miền núi',
+    publisher: 'Báo Chính phủ',
+    url: 'https://baochinhphu.vn/phe-duyet-chuong-trinh-mtqg-phat-trien-kinh-te-xa-hoi-vung-dong-bao-dan-toc-thieu-so-va-mien-nui-102302202.htm'
+  },
+  {
+    id: 'tt04dtnt',
+    title: 'Thông tư 04/2023/TT-BGDĐT về quy chế tổ chức và hoạt động của trường phổ thông dân tộc nội trú',
+    publisher: 'Cổng Thông tin điện tử Chính phủ',
+    url: 'https://chinhphu.vn/?docid=207528&pageid=27160'
   }
 ];
 
@@ -165,64 +189,96 @@ export const vietnamCharacteristics: InfoCard[] = [
 export const partyViewpoints: InfoCard[] = [
   {
     eyebrow: 'Quan điểm 1',
-    title: 'Vấn đề dân tộc là chiến lược cơ bản, lâu dài và cấp bách',
-    body: 'Công tác dân tộc không phải nhiệm vụ nhất thời. Đây là vấn đề chiến lược gắn với phát triển, an sinh, quốc phòng - an ninh và niềm tin của nhân dân.',
-    points: ['Ổn định xã hội', 'Bảo vệ địa bàn chiến lược', 'Không để khó khăn bị lợi dụng để chia rẽ']
+    title: 'Vấn đề dân tộc và đoàn kết dân tộc là chiến lược cơ bản, lâu dài, đồng thời cấp bách',
+    body: 'Quan điểm này xem vấn đề dân tộc là một hệ thống quan hệ xã hội vận động khách quan: vừa cần tầm nhìn xuyên suốt, vừa đòi hỏi xử lý kịp thời trong thực tiễn hiện nay.',
+    points: [
+      'Có cơ sở lý luận trong sự phát triển lâu dài của quan hệ dân tộc',
+      'Xuất phát từ thực tiễn Việt Nam đa tộc người và chênh lệch phát triển',
+      'Gắn trực tiếp với đại đoàn kết, an sinh xã hội và quốc phòng - an ninh'
+    ]
   },
   {
     eyebrow: 'Quan điểm 2',
     title: 'Bình đẳng, đoàn kết, tương trợ, giúp nhau cùng phát triển',
-    body: 'Mọi dân tộc trong đại gia đình Việt Nam đều bình đẳng; đoàn kết và tương trợ là phương thức để cùng vượt qua chênh lệch phát triển.',
-    points: ['Bình đẳng về quyền', 'Tôn trọng bản sắc', 'Hỗ trợ vùng khó khăn phát triển']
+    body: 'Quan điểm này xác lập quan hệ giữa các tộc người trong một quốc gia thống nhất: bình đẳng là nền tảng, đoàn kết là sức mạnh, tương trợ là hành động để cùng phát triển.',
+    points: [
+      'Dựa trên nguyên tắc của Cương lĩnh dân tộc Mác - Lênin',
+      'Các dân tộc có quyền lợi và nghĩa vụ ngang nhau',
+      'Chống kỳ thị, chia rẽ, dân tộc lớn và dân tộc hẹp hòi'
+    ]
   },
   {
     eyebrow: 'Quan điểm 3',
     title: 'Phát triển toàn diện vùng dân tộc và miền núi',
-    body: 'Phát triển vùng dân tộc thiểu số cần đồng bộ về kinh tế, chính trị, văn hóa, xã hội, môi trường và an ninh - quốc phòng.',
-    points: ['Hạ tầng thiết yếu', 'Giáo dục - y tế', 'Bảo tồn văn hóa gắn với sinh kế']
+    body: 'Chính sách dân tộc phải tác động đồng bộ lên kinh tế, chính trị, quốc phòng - an ninh, văn hóa và xã hội tại vùng đồng bào dân tộc thiểu số và miền núi.',
+    points: [
+      'Phát triển kinh tế gắn với hạ tầng và sinh kế',
+      'Củng cố hệ thống chính trị cơ sở và bảo vệ biên giới',
+      'Nâng cao giáo dục, y tế, văn hóa và đời sống xã hội'
+    ]
   }
 ];
 
 export const policyPillars: PolicyPillar[] = [
   {
     id: 'politics',
-    title: 'Chính trị: quyền làm chủ và tiếng nói cộng đồng',
-    summary: 'Bảo đảm mọi dân tộc đều là thành viên bình đẳng, có quyền tham gia quản lý đất nước và giám sát đời sống chính trị.',
-    plain: 'Bình đẳng chính trị không chỉ nằm trên văn bản; điều quan trọng là tiếng nói của đồng bào được lắng nghe khi xây dựng chính sách tại địa phương.',
-    examples: ['Tăng đại diện và tiếng nói của đồng bào trong cơ quan dân cử', 'Phát huy vai trò già làng, trưởng bản, người có uy tín', 'Chống mọi hành vi lợi dụng khó khăn để kích động chia rẽ'],
-    sourceIds: ['nq88']
+    title: 'Chính trị: bình đẳng trong quyền làm chủ và tham gia quản lý đất nước',
+    summary: 'Mọi dân tộc, dù đông người hay ít người, đều là thành viên bình đẳng trong cộng đồng Việt Nam và có quyền tham gia đời sống chính trị.',
+    plain: 'Bình đẳng chính trị không chỉ là quyền trên giấy tờ; điều quan trọng là đồng bào dân tộc thiểu số có cơ hội thực sự để tiếng nói của mình được lắng nghe khi địa phương xây dựng đường, trường học, trạm y tế hoặc chính sách cộng đồng.',
+    examples: [
+      'Đồng bào có quyền bầu cử, ứng cử, góp ý, giám sát chính quyền và tham gia xây dựng đất nước.',
+      'Bầu cử Quốc hội khóa XVI và HĐND các cấp nhiệm kỳ 2026-2031 có cơ cấu ứng cử viên đại biểu Quốc hội là người dân tộc thiểu số chiếm 21,76%.',
+      'Chống kỳ thị, chia rẽ dân tộc và không để khó khăn kinh tế hoặc khác biệt văn hóa bị lợi dụng để gây mất đoàn kết.'
+    ],
+    sourceIds: ['election2026', 'nq88']
   },
   {
     id: 'economy',
-    title: 'Kinh tế: ưu tiên phát triển và giảm nghèo bền vững',
-    summary: 'Đầu tư hạ tầng, sinh kế, vốn, kỹ thuật, thị trường và dịch vụ công để vùng khó khăn tự phát triển.',
-    plain: 'Tương trợ trong kinh tế không chỉ là hỗ trợ tiền, mà là tạo điều kiện để đồng bào có đường, điện, nước, đất sản xuất, kỹ năng và đầu ra ổn định.',
-    examples: ['Chương trình MTQG 1719 giai đoạn 2021-2030', 'Phát triển sản xuất theo chuỗi giá trị', 'Khai thác thế mạnh nông - lâm nghiệp, du lịch cộng đồng'],
-    sourceIds: ['qd1719', 'bdttg2025']
+    title: 'Kinh tế: ưu tiên phát triển vùng dân tộc và miền núi, thu hẹp khoảng cách',
+    summary: 'Chính sách dân tộc tập trung phát triển kinh tế - xã hội ở miền núi, vùng đồng bào dân tộc thiểu số, nơi còn khó khăn về giao thông, việc làm, thu nhập, hạ tầng và dịch vụ công.',
+    plain: 'Tương trợ trong kinh tế không chỉ là hỗ trợ tiền, mà là tạo điều kiện để đồng bào tự phát triển: có đường đi lại, điện, nước sạch, đất sản xuất, vốn vay, kỹ thuật, thị trường tiêu thụ, du lịch cộng đồng và sản phẩm nông - lâm nghiệp phù hợp địa phương.',
+    examples: [
+      'Chương trình mục tiêu quốc gia 1719 phát triển kinh tế - xã hội vùng dân tộc thiểu số và miền núi giai đoạn 2021-2030, giai đoạn I 2021-2025.',
+      'Chương trình hướng tới khai thác tiềm năng địa phương, bảo đảm an sinh, giảm nghèo bền vững và thu hẹp khoảng cách mức sống.',
+      'Các mô hình sinh kế như nuôi hươu ở Trà My và hỗ trợ bò sinh sản ở Đăk Rve giúp hộ dân tộc thiểu số tăng khả năng tự lực.'
+    ],
+    sourceIds: ['qd1719', 'baochinhphu1719', 'bdttg2025']
   },
   {
     id: 'culture',
-    title: 'Văn hóa: giữ bản sắc, làm giàu văn hóa Việt Nam',
-    summary: 'Tôn trọng tiếng nói, chữ viết, lễ hội, trang phục, tri thức dân gian và nghệ thuật truyền thống của từng dân tộc.',
-    plain: 'Không có văn hóa dân tộc nào cao hơn hay thấp hơn. Mỗi bản sắc riêng đều góp phần làm phong phú văn hóa Việt Nam thống nhất.',
-    examples: ['Bảo tồn và truyền dạy nghệ thuật, lễ hội, nghề thủ công', 'Xòe Thái được UNESCO ghi danh năm 2021', 'Gắn bảo tồn văn hóa với du lịch cộng đồng'],
+    title: 'Văn hóa: giữ gìn bản sắc riêng, làm giàu văn hóa Việt Nam thống nhất',
+    summary: 'Chính sách văn hóa hướng tới xây dựng nền văn hóa Việt Nam tiên tiến, đậm đà bản sắc dân tộc và thống nhất trong đa dạng.',
+    plain: 'Bình đẳng văn hóa nghĩa là không xem văn hóa của dân tộc nào cao hơn hay thấp hơn. Giữ gìn văn hóa dân tộc là chọn lọc giá trị tốt đẹp, loại bỏ hủ tục lạc hậu và biến văn hóa thành nguồn lực phát triển.',
+    examples: [
+      'Giữ gìn tiếng nói, chữ viết, lễ hội, trang phục, nhạc cụ, phong tục, tri thức dân gian và nghệ thuật truyền thống.',
+      'Nghệ thuật Xòe Thái được UNESCO ghi danh ngày 15/12/2021 trong Danh sách Di sản văn hóa phi vật thể đại diện của nhân loại.',
+      'Bảo tồn văn hóa gắn với truyền dạy trong gia đình, đội văn nghệ, trường học, tôn vinh nghệ nhân và phát triển du lịch cộng đồng.'
+    ],
     sourceIds: ['bvhttdl2021', 'nq88']
   },
   {
     id: 'society',
-    title: 'Xã hội: an sinh, giáo dục, y tế và cơ hội phát triển',
-    summary: 'Bảo đảm người dân vùng sâu, vùng xa có điều kiện thực hiện quyền học tập, chăm sóc sức khỏe và phát triển năng lực.',
-    plain: 'Công bằng xã hội đòi hỏi hỗ trợ đặc thù: đường đến trường, trường nội trú, trạm y tế, bảo hiểm, nước sạch, nhà ở và bình đẳng giới.',
-    examples: ['Dự án phát triển giáo dục và nguồn nhân lực', 'Chăm sóc sức khỏe, phòng chống suy dinh dưỡng trẻ em', 'Dự án 8 về bình đẳng giới, phụ nữ và trẻ em'],
-    sourceIds: ['qd1719', 'bdttg2025']
+    title: 'Xã hội: bảo đảm an sinh, giáo dục, y tế và cơ hội phát triển',
+    summary: 'Chính sách xã hội bảo đảm an sinh trong vùng đồng bào dân tộc thiểu số, từ giáo dục, y tế, giảm nghèo đến nhà ở, nước sạch, bình đẳng giới và bảo vệ phụ nữ, trẻ em.',
+    plain: 'Bình đẳng xã hội không chỉ là mọi người đều có quyền đi học, khám bệnh và làm việc; người dân vùng sâu, vùng xa cũng cần có điều kiện thực tế để thực hiện các quyền đó.',
+    examples: [
+      'Chương trình 1719 có các nội dung về giáo dục - đào tạo, nâng cao chất lượng nguồn nhân lực, chăm sóc sức khỏe và phòng chống suy dinh dưỡng trẻ em.',
+      'Thông tư 04/2023/TT-BGDĐT quy định tổ chức và hoạt động của trường phổ thông dân tộc nội trú.',
+      'Dự án 8 trong Chương trình 1719 thúc đẩy bình đẳng giới và giải quyết vấn đề cấp thiết đối với phụ nữ, trẻ em vùng dân tộc thiểu số và miền núi.'
+    ],
+    sourceIds: ['qd1719', 'baochinhphu1719', 'tt04dtnt']
   },
   {
     id: 'security',
-    title: 'An ninh - quốc phòng: dân yên, biên giới vững',
-    summary: 'Ổn định vùng dân tộc, củng cố hệ thống chính trị cơ sở, bảo vệ an ninh biên giới và trật tự an toàn xã hội.',
-    plain: 'Khi đời sống ổn định, người dân có niềm tin và không bị phân biệt đối xử, các luận điệu chia rẽ khó có thể tác động.',
-    examples: ['Giữ vững an ninh chính trị ở địa bàn chiến lược', 'Phối hợp chính quyền, biên phòng, công an và người có uy tín', 'Tuyên truyền pháp luật, bảo vệ đường biên, cột mốc'],
-    sourceIds: ['nq88', 'qd1719']
+    title: 'An ninh - quốc phòng: ổn định vùng dân tộc, bảo vệ Tổ quốc từ cơ sở',
+    summary: 'Chính sách dân tộc gắn với tăng cường sức mạnh bảo vệ Tổ quốc, ổn định chính trị, trật tự an toàn xã hội và an ninh biên giới.',
+    plain: 'An ninh - quốc phòng ở vùng dân tộc không chỉ là chuyện quân sự. Khi người dân có đời sống ổn định, có việc làm, có niềm tin vào chính quyền và không bị phân biệt đối xử, các âm mưu chia rẽ khó tác động.',
+    examples: [
+      'Nhiều vùng đồng bào dân tộc thiểu số nằm ở miền núi, biên giới, vùng sâu, vùng xa và có vị trí chiến lược về quốc phòng, an ninh.',
+      'Chương trình 1719 đặt mục tiêu xây dựng hệ thống chính trị cơ sở vững mạnh, giữ vững an ninh chính trị, trật tự an toàn xã hội và an ninh biên giới.',
+      'Chính quyền địa phương, biên phòng, công an xã, già làng, trưởng bản và người có uy tín phối hợp tuyên truyền pháp luật, bảo vệ đường biên, cột mốc.'
+    ],
+    sourceIds: ['nq88', 'qd1719', 'baochinhphu1719']
   }
 ];
 
@@ -231,55 +287,74 @@ export const achievementMetrics: Metric[] = [
     value: '98,4%',
     label: 'xã có đường ô tô đến trung tâm',
     detail: 'Hạ tầng giao thông giúp người dân tiếp cận giáo dục, y tế, thị trường và dịch vụ công thuận lợi hơn.',
-    sourceIds: ['bdttg2025']
+    sourceIds: ['baochinhphu2024dtts']
   },
   {
     value: '96,7%',
     label: 'hộ dân tộc thiểu số dùng điện lưới',
     detail: 'Điện lưới mở rộng cơ hội học tập, sản xuất, kết nối thông tin và cải thiện đời sống.',
-    sourceIds: ['bdttg2025']
+    sourceIds: ['baochinhphu2024dtts']
   },
   {
     value: '100%',
     label: 'xã có hạ tầng viễn thông',
     detail: 'Kết nối số giúp thu hẹp khoảng cách tiếp cận thông tin giữa vùng khó khăn và trung tâm.',
-    sourceIds: ['bdttg2025']
+    sourceIds: ['baochinhphu2024dtts']
+  },
+  {
+    value: '100%',
+    label: 'xã có trường lớp mầm non, tiểu học, THCS',
+    detail: 'Mạng lưới trường lớp giúp trẻ em vùng dân tộc thiểu số có điều kiện tiếp cận giáo dục từ sớm.',
+    sourceIds: ['baochinhphu2024dtts']
   },
   {
     value: '99,3%',
     label: 'xã có trạm y tế',
     detail: 'Y tế cơ sở là điều kiện thiết yếu để bảo đảm an sinh và chăm sóc sức khỏe ban đầu.',
-    sourceIds: ['bdttg2025']
+    sourceIds: ['baochinhphu2024dtts']
+  },
+  {
+    value: 'trên 3%',
+    label: 'mức giảm nghèo bình quân hằng năm ở nhiều tỉnh',
+    detail: 'Giảm nghèo bền vững gắn với sinh kế, việc làm và khả năng tự phát triển của đồng bào.',
+    sourceIds: ['baochinhphu2024dtts']
   }
 ];
 
 export const achievementAreas: InfoCard[] = [
   {
     eyebrow: 'Hạ tầng',
-    title: 'Diện mạo vùng khó khăn từng bước thay đổi',
-    body: 'Đường giao thông, điện, nước, trường học, trạm y tế và viễn thông được đầu tư, giúp đồng bào kết nối tốt hơn với dịch vụ xã hội và thị trường.',
-    points: ['Kết nối trung tâm xã - huyện - vùng', 'Mở rộng tiếp cận dịch vụ công', 'Tạo nền cho sinh kế và du lịch cộng đồng'],
-    sourceIds: ['bdttg2025']
+    title: 'Hạ tầng cơ sở ngày càng được cải thiện',
+    body: 'Đường giao thông nông thôn, đường đến trung tâm xã, đường liên thôn, liên bản cùng điện, nước, trường học, trạm y tế và viễn thông được đầu tư, nâng cấp.',
+    points: ['98,4% xã vùng DTTS&MN có đường ô tô đến trung tâm', '96,7% hộ dân tộc thiểu số được sử dụng điện lưới quốc gia', '100% xã có hạ tầng viễn thông và được phủ sóng di động'],
+    sourceIds: ['baochinhphu2024dtts']
   },
   {
-    eyebrow: 'Giáo dục - y tế',
-    title: 'Cơ hội phát triển con người được mở rộng',
-    body: 'Mạng lưới trường lớp, trường dân tộc nội trú/bán trú, trạm y tế và chính sách bảo hiểm giúp người dân vùng sâu, vùng xa tiếp cận quyền học tập và chăm sóc sức khỏe tốt hơn.',
-    points: ['Nâng cao dân trí', 'Đào tạo nguồn nhân lực tại chỗ', 'Không để ai bị bỏ lại phía sau'],
-    sourceIds: ['qd1719', 'bdttg2025']
+    eyebrow: 'Giáo dục',
+    title: 'Giáo dục có nhiều chuyển biến tích cực',
+    body: 'Mạng lưới trường lớp ở vùng dân tộc thiểu số và miền núi ngày càng mở rộng, tạo cơ hội học tập bình đẳng hơn cho trẻ em vùng sâu, vùng xa.',
+    points: ['100% xã có trường lớp mầm non, tiểu học và trung học cơ sở', 'Trường dân tộc nội trú, bán trú hỗ trợ học sinh về học tập và chỗ ở', 'Giáo dục góp phần nâng dân trí và đào tạo nguồn nhân lực tại chỗ'],
+    sourceIds: ['baochinhphu2024dtts', 'qd1719']
   },
   {
-    eyebrow: 'Sinh kế',
-    title: 'Giảm nghèo gắn với tự lực phát triển',
-    body: 'Các mô hình sản xuất, vay vốn, đào tạo nghề, chuyển đổi cây trồng vật nuôi và sản phẩm địa phương giúp người dân chủ động vươn lên.',
-    points: ['Phát triển chuỗi giá trị', 'Tận dụng lợi thế bản địa', 'Giảm phụ thuộc vào hỗ trợ ngắn hạn'],
-    sourceIds: ['qd1719', 'bdttg2025']
+    eyebrow: 'Y tế - an sinh',
+    title: 'Chăm sóc sức khỏe và an sinh được quan tâm',
+    body: 'Người dân vùng dân tộc thiểu số và miền núi có điều kiện tiếp cận tốt hơn với dịch vụ chăm sóc sức khỏe ban đầu, bảo hiểm y tế, tiêm chủng và hỗ trợ hộ khó khăn.',
+    points: ['99,3% xã có trạm y tế', '83,5% xã có trạm y tế đạt chuẩn', '69,1% số trạm y tế có bác sĩ, y tá khám chữa bệnh cho người dân'],
+    sourceIds: ['baochinhphu2024dtts', 'qd1719']
+  },
+  {
+    eyebrow: 'Kinh tế - giảm nghèo',
+    title: 'Sinh kế đa dạng, giảm nghèo đạt kết quả tích cực',
+    body: 'Các chính sách hỗ trợ sản xuất, đào tạo nghề, vay vốn và chuyển đổi cơ cấu cây trồng vật nuôi giúp đồng bào dân tộc thiểu số cải thiện thu nhập.',
+    points: ['Nhiều mô hình trồng cây dược liệu, cây ăn quả, chăn nuôi và du lịch cộng đồng', 'Tây Bắc tăng bình quân 8,0%/năm, Tây Nguyên 7,5%/năm, Tây Nam Bộ 7,0%/năm', 'Nhiều tỉnh có tỷ lệ giảm nghèo bình quân hằng năm trên 3%'],
+    sourceIds: ['baochinhphu2024dtts', 'qd1719']
   },
   {
     eyebrow: 'Văn hóa',
-    title: 'Bản sắc trở thành nguồn lực phát triển',
-    body: 'Việc phục dựng lễ hội, truyền dạy nghệ thuật dân gian, bảo tồn tiếng nói và phát triển du lịch cộng đồng vừa giữ bản sắc, vừa tạo sinh kế.',
-    points: ['Tự hào văn hóa', 'Tôn vinh nghệ nhân', 'Giao lưu trong thống nhất'],
+    title: 'Bản sắc văn hóa được bảo tồn và phát huy',
+    body: 'Việc giữ gìn tiếng nói, chữ viết, trang phục, lễ hội, phong tục, kiến trúc, âm nhạc, ẩm thực và tri thức dân gian luôn được quan tâm trong quá trình phát triển.',
+    points: ['Nghị quyết 88/2019/QH14 nhấn mạnh giữ gìn, phát huy bản sắc văn hóa tốt đẹp', 'Lễ hội, nghề thủ công, dân ca, điệu múa và nhạc cụ dân tộc được phục dựng, giới thiệu rộng rãi', 'Du lịch cộng đồng giúp quảng bá văn hóa, tạo sinh kế và nuôi dưỡng niềm tự hào thế hệ trẻ'],
     sourceIds: ['nq88', 'bvhttdl2021']
   }
 ];
@@ -287,30 +362,30 @@ export const achievementAreas: InfoCard[] = [
 export const antiDiscriminationActions: InfoCard[] = [
   {
     eyebrow: 'Phê phán',
-    title: 'Không chế giễu tiếng nói, trang phục, phong tục',
-    body: 'Kỳ thị văn hóa làm tổn thương cá nhân và cộng đồng, đi ngược truyền thống đoàn kết của dân tộc Việt Nam.',
-    points: ['Không dùng ngôn từ miệt thị', 'Không biến khác biệt thành trò cười', 'Không đánh đồng một cá nhân với cả cộng đồng']
+    title: 'Không kỳ thị, định kiến hoặc coi thường khác biệt',
+    body: 'Kỳ thị dân tộc, định kiến vùng miền, coi thường tiếng nói, trang phục, phong tục hoặc tập quán của dân tộc khác đều đi ngược tinh thần bình đẳng, đoàn kết, tương trợ.',
+    points: ['Không chế giễu sự khác biệt văn hóa', 'Không xem văn hóa của mình cao hơn văn hóa khác', 'Không đánh đồng một cá nhân với cả cộng đồng']
   },
   {
     eyebrow: 'Phê phán',
     title: 'Không tiếp tay thông tin chia rẽ trên mạng',
-    body: 'Nội dung sai lệch, kích động hoặc định kiến có thể lan truyền nhanh và làm suy yếu khối đại đoàn kết toàn dân tộc.',
-    points: ['Kiểm chứng trước khi chia sẻ', 'Báo cáo nội dung kích động', 'Tranh luận văn minh, có căn cứ']
+    body: 'Lời nói miệt thị, thông tin sai lệch hoặc nội dung kích động chia rẽ có thể lan truyền nhanh, làm tổn thương cộng đồng và suy yếu khối đại đoàn kết toàn dân tộc.',
+    points: ['Kiểm chứng trước khi chia sẻ', 'Sử dụng ngôn từ văn minh', 'Không tham gia hoặc lan truyền nội dung gây mất đoàn kết']
   },
   {
     eyebrow: 'Kêu gọi',
     title: 'Bắt đầu từ hành động nhỏ của sinh viên',
-    body: 'Đoàn kết không chỉ là khẩu hiệu. Đó là thái độ lắng nghe, tôn trọng, giúp đỡ và học hỏi từ bạn bè khác vùng, khác dân tộc.',
-    points: ['Tôn trọng tên gọi và bản sắc', 'Sẵn sàng hỗ trợ trong học tập', 'Lan tỏa câu chuyện tích cực']
+    body: 'Bình đẳng, đoàn kết, tương trợ không chỉ là chủ trương chính sách mà còn là trách nhiệm của mỗi công dân, đặc biệt là thế hệ trẻ.',
+    points: ['Tôn trọng văn hóa, ngôn ngữ, phong tục, trang phục và lối sống', 'Sẵn sàng giúp đỡ bạn bè trong học tập và đời sống', 'Chủ động tìm hiểu, học hỏi và lan tỏa giá trị tốt đẹp của các dân tộc']
   }
 ];
 
 export const solidarityCommitments = [
   'Tôn trọng khác biệt văn hóa, ngôn ngữ, phong tục và lối sống.',
-  'Không chia sẻ thông tin sai lệch hoặc nội dung kích động chia rẽ dân tộc.',
+  'Không sử dụng ngôn từ kỳ thị hoặc chia sẻ nội dung kích động chia rẽ dân tộc.',
   'Chủ động tìm hiểu các giá trị tốt đẹp của 54 dân tộc Việt Nam.',
-  'Tương trợ trong học tập, đời sống và không gian mạng.',
-  'Gắn bảo tồn bản sắc với phát triển bền vững.'
+  'Cởi mở, lắng nghe và giúp đỡ bạn bè trong học tập, đời sống và không gian mạng.',
+  'Gìn giữ thông điệp: 54 dân tộc - 1 đại gia đình Việt Nam.'
 ];
 
 export const gameQuestions: Question[] = [
@@ -323,17 +398,17 @@ export const gameQuestions: Question[] = [
   },
   {
     id: 2,
-    question: 'Vì sao chính sách dân tộc cần ưu tiên vùng dân tộc thiểu số và miền núi?',
-    options: ['Vì các vùng này thường còn khó khăn về hạ tầng, sinh kế, giáo dục và y tế', 'Vì cần tách vùng dân tộc khỏi cộng đồng quốc gia', 'Vì chỉ có miền núi mới có văn hóa', 'Vì mọi vùng đã phát triển ngang nhau'],
+    question: 'Theo phần thành tựu, chỉ số nào thể hiện hạ tầng giao thông vùng dân tộc thiểu số và miền núi được cải thiện?',
+    options: ['98,4% xã có đường ô tô đến trung tâm', '10% xã có trường học', '54% hộ có điện lưới', '3% xã có hạ tầng viễn thông'],
     correctAnswer: 0,
-    explanation: 'Ưu tiên nguồn lực nhằm thu hẹp khoảng cách phát triển và tạo cơ hội công bằng hơn cho đồng bào.'
+    explanation: 'Số liệu 98,4% xã có đường ô tô đến trung tâm cho thấy giao thông đã giúp vùng khó khăn kết nối thuận lợi hơn.'
   },
   {
     id: 3,
-    question: 'Hành vi nào thể hiện tinh thần đoàn kết, tương trợ giữa các dân tộc?',
-    options: ['Tôn trọng phong tục khác biệt và giúp đỡ nhau trong học tập, đời sống', 'Chế giễu giọng nói của bạn khác dân tộc', 'Chia sẻ nội dung kích động chia rẽ', 'Coi văn hóa của mình cao hơn văn hóa khác'],
+    question: 'Hành vi nào cần phê phán vì làm suy yếu khối đại đoàn kết dân tộc?',
+    options: ['Chế giễu tiếng nói, trang phục hoặc phong tục của dân tộc khác', 'Tôn trọng phong tục khác biệt', 'Kiểm chứng thông tin trước khi chia sẻ', 'Giúp đỡ bạn bè trong học tập, đời sống'],
     correctAnswer: 0,
-    explanation: 'Đoàn kết bắt đầu từ thái độ tôn trọng, lắng nghe và hỗ trợ thực chất.'
+    explanation: 'Kỳ thị, chế giễu hoặc lan truyền định kiến làm tổn thương cộng đồng và đi ngược tinh thần bình đẳng, đoàn kết, tương trợ.'
   },
   {
     id: 4,

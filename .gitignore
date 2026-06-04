@@ -31,3 +31,5 @@ coverage
 .turbo
 .cache
 .understand-anything/
+.ui-review/
+tsconfig.tsbuildinfo
