@@ -30,3 +30,4 @@ lerna-debug.log*
 coverage
 .turbo
 .cache
+.understand-anything/

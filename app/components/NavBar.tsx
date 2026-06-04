@@ -1,60 +1,61 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-export type NavKey = 'presentation' | 'theory' | 'regions' | 'library' | 'game' | 'ai-usage' | 'about';
+export type NavKey =
+  | 'home'
+  | 'policy'
+  | 'achievements'
+  | 'ai-usage';
 
-const navLinks: { key: NavKey; label: string; href: string }[] = [
-  { key: 'presentation', label: '🏠 Trang chủ', href: '/' },
-  { key: 'regions', label: '🗺️ Ba miền', href: '/regions' },
-  { key: 'game', label: '🎮 Game', href: '/game' },
-  { key: 'ai-usage', label: '🤖 AI Usage', href: '/ai-usage' },
-  { key: 'about', label: '👥 About us', href: '/about' }
-];
+const navLinks = [
+  { key: 'home', label: 'Trang chủ', href: '/' },
+  { key: 'policy', label: 'Quan điểm & Chính sách', href: '/policy' },
+  { key: 'achievements', label: 'Thành tựu & Đoàn kết', href: '/achievements' },
+  { key: 'ai-usage', label: 'Nguồn & AI Usage', href: '/ai-usage' }
+] as const;
 
 type Props = {
-  current: NavKey;
-  onNavigate: (key: NavKey) => void;
+  current?: NavKey;
+  onNavigate?: (key: NavKey) => void;
 };
 
+function normalizePath(pathname: string | null) {
+  if (!pathname || pathname === '/') return '/';
+  return pathname.replace(/\/$/, '');
+}
+
 export function NavBar({ current, onNavigate }: Props) {
+  const pathname = normalizePath(usePathname());
 
   return (
-    <header className="header">
-      {/* Santa sleigh flying animation */}
-      <div className="santa-sleigh">🦌🦌🛷🎅</div>
-      
-      <nav className="nav">
-        <div className="brand">
-          <span>P</span>
-          <div>
-            <strong>Phenomenon</strong>
-          </div>
-        </div>
-        <div className="links">
-          {navLinks.map(link => (
-            <Link
-              key={link.key}
-              href={link.href}
-              className={current === link.key ? 'active' : ''}
-            >
-              {link.label}
-            </Link>
-          ))}
+    <header className="site-header">
+      <nav className="site-nav container" aria-label="Điều hướng chính">
+        <Link href="/" className="brand-mark" onClick={() => onNavigate?.('home')}>
+          <span className="brand-symbol">54</span>
+          <span>
+            <strong>Dân tộc Việt Nam</strong>
+            <small>Một Việt Nam đoàn kết</small>
+          </span>
+        </Link>
+
+        <div className="nav-links">
+          {navLinks.map(link => {
+            const isActive = current === link.key || pathname === link.href;
+            return (
+              <Link
+                key={link.key}
+                href={link.href}
+                className={isActive ? 'active' : ''}
+                onClick={() => onNavigate?.(link.key)}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
       </nav>
-      
-      {/* Christmas lights */}
-      <div className="christmas-lights">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
     </header>
   );
 }
