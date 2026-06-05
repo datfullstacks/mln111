@@ -251,48 +251,40 @@ export const policyPillars: PolicyPillar[] = [
   {
     id: 'economy',
     title: 'Kinh tế: ưu tiên phát triển vùng dân tộc và miền núi, thu hẹp khoảng cách',
-    summary: 'Chính sách dân tộc tập trung phát triển kinh tế - xã hội ở miền núi, vùng đồng bào dân tộc thiểu số, nơi còn khó khăn về giao thông, việc làm, thu nhập, hạ tầng và dịch vụ công.',
+    summary: 'Về kinh tế, chính sách dân tộc tập trung vào các chủ trương, chính sách phát triển kinh tế - xã hội ở miền núi, vùng đồng bào dân tộc thiểu số.',
     plain: 'Tương trợ trong kinh tế không chỉ là hỗ trợ tiền, mà là tạo điều kiện để đồng bào tự phát triển: có đường đi lại, điện, nước sạch, đất sản xuất, vốn vay, kỹ thuật, thị trường tiêu thụ, du lịch cộng đồng và sản phẩm nông - lâm nghiệp phù hợp địa phương.',
     examples: [
-      'Chương trình mục tiêu quốc gia 1719 phát triển kinh tế - xã hội vùng dân tộc thiểu số và miền núi giai đoạn 2021-2030, giai đoạn I 2021-2025.',
-      'Chương trình hướng tới khai thác tiềm năng địa phương, bảo đảm an sinh, giảm nghèo bền vững và thu hẹp khoảng cách mức sống.',
-      'Các mô hình sinh kế như nuôi hươu ở Trà My và hỗ trợ bò sinh sản ở Đăk Rve giúp hộ dân tộc thiểu số tăng khả năng tự lực.'
+      'Chương trình mục tiêu quốc gia 1719 được Thủ tướng Chính phủ phê duyệt nhằm phát triển kinh tế - xã hội vùng đồng bào dân tộc thiểu số và miền núi giai đoạn 2021-2030, giai đoạn I từ 2021 đến 2025. (Chinh Phu Document System)'
     ],
     sourceIds: ['qd1719', 'baochinhphu1719', 'bdttg2025']
   },
   {
     id: 'culture',
     title: 'Văn hóa: giữ gìn bản sắc riêng, làm giàu văn hóa Việt Nam thống nhất',
-    summary: 'Chính sách văn hóa hướng tới xây dựng nền văn hóa Việt Nam tiên tiến, đậm đà bản sắc dân tộc và thống nhất trong đa dạng.',
+    summary: 'Về văn hóa, chính sách dân tộc hướng tới xây dựng nền văn hóa Việt Nam tiên tiến, đậm đà bản sắc dân tộc.',
     plain: 'Bình đẳng văn hóa nghĩa là không xem văn hóa của dân tộc nào cao hơn hay thấp hơn. Giữ gìn văn hóa dân tộc là chọn lọc giá trị tốt đẹp, loại bỏ hủ tục lạc hậu và biến văn hóa thành nguồn lực phát triển.',
     examples: [
-      'Giữ gìn tiếng nói, chữ viết, lễ hội, trang phục, nhạc cụ, phong tục, tri thức dân gian và nghệ thuật truyền thống.',
-      'Nghệ thuật Xòe Thái được UNESCO ghi danh ngày 15/12/2021 trong Danh sách Di sản văn hóa phi vật thể đại diện của nhân loại.',
-      'Bảo tồn văn hóa gắn với truyền dạy trong gia đình, đội văn nghệ, trường học, tôn vinh nghệ nhân và phát triển du lịch cộng đồng.'
+      'Nghệ thuật Xòe Thái của người Thái được UNESCO ghi danh vào Danh sách Di sản văn hóa phi vật thể đại diện của nhân loại vào ngày 15/12/2021. Xòe Thái được thực hành trong nghi lễ, lễ hội, đám cưới, sinh hoạt cộng đồng và trở thành dấu ấn văn hóa quan trọng của người Thái ở Tây Bắc Việt Nam. (Bộ Văn hóa, Thể thao và Du lịch)'
     ],
     sourceIds: ['bvhttdl2021', 'nq88']
   },
   {
     id: 'society',
     title: 'Xã hội: bảo đảm an sinh, giáo dục, y tế và cơ hội phát triển',
-    summary: 'Chính sách xã hội bảo đảm an sinh trong vùng đồng bào dân tộc thiểu số, từ giáo dục, y tế, giảm nghèo đến nhà ở, nước sạch, bình đẳng giới và bảo vệ phụ nữ, trẻ em.',
+    summary: 'Về xã hội, chính sách dân tộc chú trọng thực hiện các chính sách xã hội, bảo đảm an sinh xã hội trong vùng đồng bào dân tộc thiểu số.',
     plain: 'Bình đẳng xã hội không chỉ là mọi người đều có quyền đi học, khám bệnh và làm việc; người dân vùng sâu, vùng xa cũng cần có điều kiện thực tế để thực hiện các quyền đó.',
     examples: [
-      'Chương trình 1719 có các nội dung về giáo dục - đào tạo, nâng cao chất lượng nguồn nhân lực, chăm sóc sức khỏe và phòng chống suy dinh dưỡng trẻ em.',
-      'Thông tư 04/2023/TT-BGDĐT quy định tổ chức và hoạt động của trường phổ thông dân tộc nội trú.',
-      'Dự án 8 trong Chương trình 1719 thúc đẩy bình đẳng giới và giải quyết vấn đề cấp thiết đối với phụ nữ, trẻ em vùng dân tộc thiểu số và miền núi.'
+      'Trong Chương trình 1719, các dự án thành phần có nội dung liên quan trực tiếp đến xã hội như phát triển giáo dục - đào tạo, nâng cao chất lượng nguồn nhân lực; chăm sóc sức khỏe nhân dân; phòng chống suy dinh dưỡng trẻ em; thực hiện bình đẳng giới và giải quyết vấn đề cấp thiết đối với phụ nữ, trẻ em. (baochinhphu.vn)'
     ],
     sourceIds: ['qd1719', 'baochinhphu1719', 'tt04dtnt']
   },
   {
     id: 'security',
     title: 'An ninh - quốc phòng: ổn định vùng dân tộc, bảo vệ Tổ quốc từ cơ sở',
-    summary: 'Chính sách dân tộc gắn với tăng cường sức mạnh bảo vệ Tổ quốc, ổn định chính trị, trật tự an toàn xã hội và an ninh biên giới.',
+    summary: 'Về an ninh - quốc phòng, chính sách dân tộc nhấn mạnh việc tăng cường sức mạnh bảo vệ Tổ quốc trên cơ sở bảo đảm ổn định chính trị, thực hiện tốt an ninh chính trị, trật tự an toàn xã hội.',
     plain: 'An ninh - quốc phòng ở vùng dân tộc không chỉ là chuyện quân sự. Khi người dân có đời sống ổn định, có việc làm, có niềm tin vào chính quyền và không bị phân biệt đối xử, các âm mưu chia rẽ khó tác động.',
     examples: [
-      'Nhiều vùng đồng bào dân tộc thiểu số nằm ở miền núi, biên giới, vùng sâu, vùng xa và có vị trí chiến lược về quốc phòng, an ninh.',
-      'Chương trình 1719 đặt mục tiêu xây dựng hệ thống chính trị cơ sở vững mạnh, giữ vững an ninh chính trị, trật tự an toàn xã hội và an ninh biên giới.',
-      'Chính quyền địa phương, biên phòng, công an xã, già làng, trưởng bản và người có uy tín phối hợp tuyên truyền pháp luật, bảo vệ đường biên, cột mốc.'
+      'Mục tiêu của Chương trình 1719 cũng bao gồm việc xây dựng hệ thống chính trị cơ sở vững mạnh, giữ vững an ninh chính trị, trật tự an toàn xã hội, bảo đảm an ninh biên giới quốc gia và củng cố khối đại đoàn kết các dân tộc. (baochinhphu.vn)'
     ],
     sourceIds: ['nq88', 'qd1719', 'baochinhphu1719']
   }

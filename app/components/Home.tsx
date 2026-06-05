@@ -752,60 +752,40 @@ const partyDevelopmentCards: InfoCard[] = [
   }
 ];
 
-const policyCorePoints: Record<string, string[]> = {
-  politics: [
-    'Bầu cử, ứng cử, góp ý và giám sát chính quyền',
-    'Lắng nghe nhu cầu của người dân địa phương',
-    'Chống kỳ thị, chia rẽ và lợi dụng khó khăn để gây mất đoàn kết'
-  ],
-  economy: [
-    'Đường, điện, nước sạch, đất sản xuất và hạ tầng thiết yếu',
-    'Vốn vay, kỹ thuật, thị trường tiêu thụ và sản phẩm địa phương',
-    'Sinh kế phù hợp để giảm nghèo bền vững, không phụ thuộc trợ cấp'
-  ],
-  culture: [
-    'Giữ tiếng nói, chữ viết, lễ hội, trang phục và nghệ thuật truyền thống',
-    'Chọn lọc giá trị tốt đẹp, loại bỏ hủ tục lạc hậu',
-    'Gắn bảo tồn văn hóa với du lịch cộng đồng và sinh kế'
-  ],
-  society: [
-    'Giáo dục, y tế, giảm nghèo, nhà ở và nước sạch',
-    'Bình đẳng giới, bảo vệ phụ nữ và trẻ em',
-    'Nâng cao nguồn nhân lực và đời sống vật chất, tinh thần'
-  ],
-  security: [
-    'Ổn định chính trị, trật tự an toàn xã hội ở cơ sở',
-    'Bảo đảm an ninh biên giới và địa bàn chiến lược',
-    'Phối hợp chính quyền, biên phòng, công an, già làng và người có uy tín'
-  ]
-};
-
 function policySlide(pillar: (typeof policyPillars)[number], index: number): HomeSlide {
-  const isPoliticalPolicy = pillar.id === 'politics';
+  const items: InfoCard[] = [
+    {
+      eyebrow: 'Mục tiêu',
+      title: 'Nội dung chính sách',
+      body: pillar.summary,
+      points: [],
+      sourceIds: pillar.sourceIds
+    },
+    {
+      eyebrow: 'Ví dụ',
+      title: 'Ví dụ thực tiễn',
+      body: pillar.examples[0],
+      points: [],
+      sourceIds: pillar.sourceIds
+    }
+  ];
+
+  if (pillar.id === 'security') {
+    items.push({
+      eyebrow: 'Tóm lại',
+      title: 'Mục tiêu chung',
+      body: 'Chính sách dân tộc của Đảng và Nhà nước Việt Nam hướng đến mục tiêu bảo đảm các dân tộc đều bình đẳng, đoàn kết, tương trợ và cùng phát triển. Thông qua các chính sách về chính trị, kinh tế, văn hóa, xã hội và an ninh - quốc phòng, Nhà nước không chỉ hỗ trợ vùng dân tộc thiểu số vượt qua khó khăn mà còn củng cố khối đại đoàn kết toàn dân tộc, góp phần xây dựng đất nước ổn định, giàu bản sắc và phát triển bền vững.',
+      points: [],
+      sourceIds: pillar.sourceIds
+    });
+  }
 
   return {
     member: 'Thỏ',
     eyebrow: `Chính sách ${index + 1}/5`,
     title: pillar.title,
     subtitle: pillar.plain,
-    items: [
-      {
-        eyebrow: 'Mục tiêu',
-        title: isPoliticalPolicy ? 'Nội dung chính sách' : 'Trọng tâm chính sách',
-        body: pillar.summary,
-        points: isPoliticalPolicy
-          ? []
-          : policyCorePoints[pillar.id] ?? ['Bảo đảm bình đẳng thực chất', 'Gắn hỗ trợ với tự lực phát triển', 'Phù hợp từng địa bàn và cộng đồng'],
-        sourceIds: pillar.sourceIds
-      },
-      {
-        eyebrow: 'Ví dụ',
-        title: isPoliticalPolicy ? 'Ví dụ thực tiễn' : 'Minh họa triển khai',
-        body: isPoliticalPolicy ? pillar.examples[0] : 'Các ví dụ giúp phần chính sách dễ hiểu hơn khi trình bày trên slide.',
-        points: isPoliticalPolicy ? [] : pillar.examples,
-        sourceIds: pillar.sourceIds
-      }
-    ]
+    items
   };
 }
 
