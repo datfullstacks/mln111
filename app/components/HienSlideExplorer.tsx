@@ -101,10 +101,7 @@ function shortenTitle(title: string, kind: HienSlideKind) {
     return title
       .replace('Vấn đề dân tộc và đoàn kết dân tộc là chiến lược cơ bản, lâu dài, đồng thời cấp bách', 'Tổng quan')
       .replace('Cơ bản, lâu dài', 'Lâu dài')
-      .replace('Yêu cầu hiện nay', 'Cấp bách')
-      .replace('Yêu cầu ổn định an sinh xã hội', 'An sinh xã hội')
-      .replace('Ngăn chặn lợi dụng vấn đề dân tộc', 'QP-AN')
-      .replace('Cảnh giác với kích động ly khai', 'Ví dụ');
+      .replace('Yêu cầu hiện nay', 'Cấp bách');
   }
 
   if (kind === 'equality') {
