@@ -2049,8 +2049,13 @@ select {
 
 .linh-media-grid {
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: 1.15fr 0.85fr;
+  gap: 8px;
   min-height: 410px;
   overflow: hidden;
+  padding: 8px;
   border-radius: 8px;
   background:
     radial-gradient(circle at center, rgba(255, 254, 248, 0.82), rgba(220, 226, 210, 0.66)),
@@ -2058,29 +2063,28 @@ select {
 }
 
 .linh-media-grid img {
-  position: absolute;
-  inset: 0;
+  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.84;
+  opacity: 0.92;
   filter: saturate(1.06) contrast(1.02);
+  border-radius: 8px;
+  box-shadow: 0 16px 32px rgba(16, 31, 27, 0.13);
+}
+
+.linh-media-grid img[data-image-index='0'] {
+  grid-column: 1 / -1;
 }
 
 .linh-media-grid img[data-image-index='1'] {
-  inset: auto 12px 12px auto;
-  width: 42%;
-  height: 36%;
-  border-radius: 8px;
-  box-shadow: 0 18px 34px rgba(16, 31, 27, 0.18);
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .linh-media-grid img[data-image-index='2'] {
-  inset: 12px auto auto 12px;
-  width: 34%;
-  height: 28%;
-  border-radius: 8px;
-  box-shadow: 0 18px 34px rgba(16, 31, 27, 0.18);
+  grid-column: 2;
+  grid-row: 2;
 }
 
 .linh-image-label {
