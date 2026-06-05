@@ -231,6 +231,11 @@ const visualImages = {
     alt: 'Người dân vùng dân tộc thiểu số sử dụng bồn nước sạch phục vụ sinh hoạt',
     label: 'Nước sạch'
   },
+  tienInfrastructureChildrenReading: {
+    src: '/images/mln131/tien/infrastructure-children-reading.jpg',
+    alt: 'Trẻ em dân tộc thiểu số đọc sách và vui chơi cùng nhau',
+    label: 'Trẻ em vùng cao'
+  },
   tienEducationClassroom: {
     src: '/images/mln131/tien/education-classroom.gif',
     alt: 'Học sinh dân tộc thiểu số học tập trong lớp học',
@@ -1174,7 +1179,7 @@ const slideImageGroups: VisualImage[][] = [
   [visualImages.thoCultureUnity, visualImages.thoUnityHoChiMinh],
   [visualImages.thoSocialCommunityProduction, visualImages.docClassroom, visualImages.docHealth],
   [visualImages.thoSecurityDefense],
-  [visualImages.tienInfrastructureRoad, visualImages.tienInfrastructureElectricity, visualImages.tienCleanWater],
+  [visualImages.tienInfrastructureRoad, visualImages.tienInfrastructureChildrenReading, visualImages.tienInfrastructureElectricity, visualImages.tienCleanWater],
   [visualImages.tienEducationClassroom, visualImages.docSchoolRoad],
   [visualImages.tienHealthStation, visualImages.tienHealthCommunityCheckup, visualImages.tienHealthCheckup],
   [visualImages.tienEconomyTea, visualImages.tienEconomyTerraces],
