@@ -2285,8 +2285,7 @@ select {
 }
 
 .tho-slide .slide-intro p {
-  font-size: 1rem;
-  line-height: 1.58;
+  display: none;
 }
 
 .tho-slide .slide-visual.gallery {
