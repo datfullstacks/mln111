@@ -2318,6 +2318,10 @@ select {
   background: rgba(255, 254, 248, 0.93);
 }
 
+.tho-slide .slide-info-card .eyebrow {
+  display: none;
+}
+
 .tho-slide .slide-info-card:nth-child(2) {
   background:
     linear-gradient(135deg, rgba(255, 254, 248, 0.95), rgba(196, 76, 55, 0.07)),
