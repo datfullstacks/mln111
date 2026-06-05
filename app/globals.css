@@ -1892,10 +1892,10 @@ select {
 }
 
 .nation-factor-media .visual-backdrop {
-  opacity: 0.78;
+  opacity: 1;
   object-fit: contain;
   object-position: center;
-  filter: saturate(0.98) contrast(0.94);
+  filter: none;
   background:
     radial-gradient(circle at 52% 44%, rgba(255, 254, 248, 0.92), rgba(240, 235, 218, 0.78) 58%, rgba(211, 226, 218, 0.64)),
     #efe8d7;
@@ -1928,8 +1928,8 @@ select {
 
 .nation-factor-media .visual-overlay {
   background:
-    linear-gradient(180deg, rgba(255, 254, 248, 0.18), rgba(16, 31, 27, 0.62)),
-    radial-gradient(circle at 20% 18%, rgba(255, 254, 248, 0.62), transparent 38%);
+    linear-gradient(180deg, rgba(255, 254, 248, 0.02), rgba(16, 31, 27, 0.12)),
+    radial-gradient(circle at 20% 18%, rgba(255, 254, 248, 0.16), transparent 34%);
 }
 
 .nation-factor-tabs {
