@@ -45,7 +45,7 @@ export function LinhSlideExplorer({ kind, items, visual }: LinhSlideExplorerProp
   return (
     <>
       <aside className={`slide-visual linh-explorer-visual linh-${kind}-visual`}>
-        <div className="linh-media-grid">
+        <div className={`linh-media-grid count-${Math.min(images.length, 3)}`}>
           {images.slice(0, 3).map((image, index) => (
             <img key={image.src} src={image.src} alt={index === 0 ? image.alt : ''} data-image-index={index} />
           ))}

@@ -2077,6 +2077,28 @@ select {
   grid-column: 1 / -1;
 }
 
+.linh-media-grid.count-2 {
+  grid-template-rows: 1fr;
+}
+
+.linh-media-grid.count-2 img[data-image-index='0'] {
+  grid-column: 1;
+}
+
+.linh-media-grid.count-2 img[data-image-index='1'] {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.linh-media-grid.count-1 {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.linh-media-grid.count-1 img[data-image-index='0'] {
+  grid-column: 1;
+}
+
 .linh-media-grid img[data-image-index='1'] {
   grid-column: 1;
   grid-row: 2;
