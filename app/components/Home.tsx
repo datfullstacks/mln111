@@ -781,6 +781,8 @@ const policyCorePoints: Record<string, string[]> = {
 };
 
 function policySlide(pillar: (typeof policyPillars)[number], index: number): HomeSlide {
+  const isPoliticalPolicy = pillar.id === 'politics';
+
   return {
     member: 'Thỏ',
     eyebrow: `Chính sách ${index + 1}/5`,
@@ -789,16 +791,18 @@ function policySlide(pillar: (typeof policyPillars)[number], index: number): Hom
     items: [
       {
         eyebrow: 'Mục tiêu',
-        title: 'Trọng tâm chính sách',
+        title: isPoliticalPolicy ? 'Nội dung chính sách' : 'Trọng tâm chính sách',
         body: pillar.summary,
-        points: policyCorePoints[pillar.id] ?? ['Bảo đảm bình đẳng thực chất', 'Gắn hỗ trợ với tự lực phát triển', 'Phù hợp từng địa bàn và cộng đồng'],
+        points: isPoliticalPolicy
+          ? []
+          : policyCorePoints[pillar.id] ?? ['Bảo đảm bình đẳng thực chất', 'Gắn hỗ trợ với tự lực phát triển', 'Phù hợp từng địa bàn và cộng đồng'],
         sourceIds: pillar.sourceIds
       },
       {
         eyebrow: 'Ví dụ',
-        title: 'Minh họa triển khai',
-        body: 'Các ví dụ giúp phần chính sách dễ hiểu hơn khi trình bày trên slide.',
-        points: pillar.examples,
+        title: isPoliticalPolicy ? 'Ví dụ thực tiễn' : 'Minh họa triển khai',
+        body: isPoliticalPolicy ? pillar.examples[0] : 'Các ví dụ giúp phần chính sách dễ hiểu hơn khi trình bày trên slide.',
+        points: isPoliticalPolicy ? [] : pillar.examples,
         sourceIds: pillar.sourceIds
       }
     ]
@@ -1569,11 +1573,13 @@ function SlideCards({ items }: { items: InfoCard[] }) {
           <span className="eyebrow">{item.eyebrow}</span>
           <h3>{item.title}</h3>
           <p>{item.body}</p>
-          <ul>
-            {item.points.map(point => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
+          {item.points.length ? (
+            <ul>
+              {item.points.map(point => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          ) : null}
         </article>
       ))}
     </div>

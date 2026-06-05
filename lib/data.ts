@@ -241,12 +241,10 @@ export const policyPillars: PolicyPillar[] = [
   {
     id: 'politics',
     title: 'Chính trị: bình đẳng trong quyền làm chủ và tham gia quản lý đất nước',
-    summary: 'Mọi dân tộc, dù đông người hay ít người, đều là thành viên bình đẳng trong cộng đồng Việt Nam và có quyền tham gia đời sống chính trị.',
+    summary: 'Về chính trị, chính sách dân tộc của Đảng và Nhà nước hướng tới việc thực hiện bình đẳng, đoàn kết, tôn trọng, giúp nhau cùng phát triển giữa các dân tộc.',
     plain: 'Bình đẳng chính trị không chỉ là quyền trên giấy tờ; điều quan trọng là đồng bào dân tộc thiểu số có cơ hội thực sự để tiếng nói của mình được lắng nghe khi địa phương xây dựng đường, trường học, trạm y tế hoặc chính sách cộng đồng.',
     examples: [
-      'Đồng bào có quyền bầu cử, ứng cử, góp ý, giám sát chính quyền và tham gia xây dựng đất nước.',
-      'Bầu cử Quốc hội khóa XVI và HĐND các cấp nhiệm kỳ 2026-2031 có cơ cấu ứng cử viên đại biểu Quốc hội là người dân tộc thiểu số chiếm 21,76%.',
-      'Chống kỳ thị, chia rẽ dân tộc và không để khó khăn kinh tế hoặc khác biệt văn hóa bị lợi dụng để gây mất đoàn kết.'
+      'Trong bầu cử Quốc hội khóa XVI và HĐND các cấp nhiệm kỳ 2026-2031, gần 79 triệu cử tri cả nước tham gia bỏ phiếu tại 72.195 khu vực bỏ phiếu; danh sách ứng cử viên đại biểu Quốc hội có cơ cấu người dân tộc thiểu số chiếm 21,76%. Đây là ví dụ cho thấy người dân, trong đó có đồng bào dân tộc thiểu số, có kênh tham gia vào đời sống chính trị thông qua bầu cử và cơ quan dân cử. (xaydungchinhsach.chinhphu.vn)'
     ],
     sourceIds: ['election2026', 'nq88']
   },
