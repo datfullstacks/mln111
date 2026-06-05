@@ -1107,17 +1107,17 @@ const homeSlides: HomeSlide[] = [
   {
     member: 'Hiển',
     eyebrow: 'Quan điểm 2/3',
-    title: 'Bình đẳng, đoàn kết, tương trợ, giúp nhau cùng phát triển',
+    title: 'Mối quan hệ biện chứng trong đại gia đình Việt Nam',
     subtitle:
-      'Bình đẳng, đoàn kết và tương trợ có quan hệ biện chứng: bình đẳng là nền tảng, đoàn kết là sức mạnh, tương trợ là hành động để cùng phát triển.',
+      'Bình đẳng, đoàn kết, tương trợ và giúp nhau cùng phát triển không đứng độc lập mà tác động qua lại lẫn nhau, chuyển hóa từ cơ sở pháp lý thành sức mạnh thực tiễn.',
     items: partyEqualityCards
   },
   {
     member: 'Hiển',
     eyebrow: 'Quan điểm 3/3',
-    title: 'Phát triển toàn diện vùng dân tộc và miền núi',
+    title: 'Phương thức đồng bộ hóa chính sách dân tộc',
     subtitle:
-      'Phát triển vùng dân tộc và miền núi phải đồng bộ trên kinh tế, chính trị, quốc phòng - an ninh, văn hóa và xã hội.',
+      'Chính sách phát triển không thực hiện một cách phiến diện mà tác động đa chiều, đồng thời chuyển hóa các nguồn lực nhà nước thành nội lực phát triển tự thân cho toàn vùng.',
     items: partyDevelopmentCards
   },
   ...policyPillars.map(policySlide),

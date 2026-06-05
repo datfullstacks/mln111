@@ -106,12 +106,14 @@ function shortenTitle(title: string, kind: HienSlideKind) {
 
   if (kind === 'equality') {
     return title
+      .replace('Mối quan hệ biện chứng trong đại gia đình Việt Nam', 'Quan hệ biện chứng')
       .replace('Bình đẳng, đoàn kết, tương trợ, giúp nhau cùng phát triển', 'Bình đẳng - đoàn kết')
       .replace('Cơ sở pháp lý và đạo lý', 'Bình đẳng')
       .replace('Sức mạnh và hành động thực tiễn', 'Đoàn kết - tương trợ');
   }
 
   return title
+    .replace('Phương thức đồng bộ hóa chính sách dân tộc', 'Đồng bộ chính sách')
     .replace('Phát triển toàn diện vùng dân tộc và miền núi', 'Phát triển toàn diện')
     .replace('Toàn diện về kinh tế', 'Kinh tế')
     .replace('Toàn diện về chính trị và quốc phòng - an ninh', 'Chính trị - QP-AN')
