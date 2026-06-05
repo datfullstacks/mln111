@@ -2063,15 +2063,14 @@ select {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.6;
-  filter: saturate(0.92) contrast(0.94);
+  opacity: 0.84;
+  filter: saturate(1.06) contrast(1.02);
 }
 
 .linh-media-grid img[data-image-index='1'] {
   inset: auto 12px 12px auto;
   width: 42%;
   height: 36%;
-  border: 1px solid rgba(255, 254, 248, 0.54);
   border-radius: 8px;
   box-shadow: 0 18px 34px rgba(16, 31, 27, 0.18);
 }
@@ -2080,9 +2079,24 @@ select {
   inset: 12px auto auto 12px;
   width: 34%;
   height: 28%;
-  border: 1px solid rgba(255, 254, 248, 0.54);
   border-radius: 8px;
   box-shadow: 0 18px 34px rgba(16, 31, 27, 0.18);
+}
+
+.linh-image-label {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  z-index: 2;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(255, 254, 248, 0.86);
+  color: var(--green-strong);
+  font-size: 0.7rem;
+  font-weight: 950;
+  line-height: 1;
+  box-shadow: 0 12px 24px rgba(16, 31, 27, 0.14);
+  backdrop-filter: blur(6px);
 }
 
 .linh-visual-overlay {
@@ -2139,8 +2153,12 @@ select {
 }
 
 .linh-trends-visual .linh-selector {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
   align-items: end;
+  overflow-x: auto;
+  padding: 2px 2px 10px;
+  scrollbar-color: rgba(255, 254, 248, 0.46) transparent;
+  scrollbar-width: thin;
 }
 
 .linh-selector-item {
@@ -2148,6 +2166,10 @@ select {
   align-content: end;
   gap: 6px;
   min-width: 0;
+}
+
+.linh-trends-visual .linh-selector-item {
+  flex: 0 0 148px;
 }
 
 .linh-selector .linh-selector-group {
@@ -2238,7 +2260,7 @@ select {
   align-self: start;
   min-height: 360px;
   padding: 28px;
-  border: 1px solid rgba(27, 94, 75, 0.16);
+  border: 0;
   border-radius: 8px;
   background: rgba(255, 254, 248, 0.9);
   box-shadow: 0 20px 46px rgba(26, 51, 43, 0.1);

@@ -1227,7 +1227,7 @@ const slideImageGroups: VisualImage[][] = [
   [visualImages.commonsHmongDress, visualImages.commonsHmongBatik, visualImages.ethnicPortraits],
   [visualImages.docUnity, visualImages.docGirls],
   [visualImages.linhInternationalIntegration, visualImages.linhAsean, visualImages.linhFlagCrowd],
-  [visualImages.linhLenin, visualImages.linhInternationalIntegration, visualImages.linhAsean],
+  [visualImages.linhLenin, visualImages.linhEthnicUnity, visualImages.linhEthnicMosaic],
   [visualImages.linhEthnicMosaic, visualImages.linhCommunityCircle, visualImages.linhParade],
   [visualImages.linhEthnicUnity, visualImages.linhThaiCommunity, visualImages.linhVietnamCulture],
   [visualImages.docEconomyEvidence],

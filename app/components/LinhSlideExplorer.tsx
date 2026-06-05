@@ -45,10 +45,11 @@ export function LinhSlideExplorer({ kind, items, visual }: LinhSlideExplorerProp
   return (
     <>
       <aside className={`slide-visual linh-explorer-visual linh-${kind}-visual`}>
-        <div className="linh-media-grid" aria-hidden="true">
+        <div className="linh-media-grid">
           {images.slice(0, 3).map((image, index) => (
-            <img key={image.src} src={image.src} alt="" data-image-index={index} />
+            <img key={image.src} src={image.src} alt={index === 0 ? image.alt : ''} data-image-index={index} />
           ))}
+          {images[0] ? <span className="linh-image-label">{images[0].label}</span> : null}
         </div>
         <div className="linh-visual-overlay" />
         <div className="linh-visual-copy">
