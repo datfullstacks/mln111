@@ -53,8 +53,7 @@ select {
 }
 
 .site-header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 20;
   border-bottom: 1px solid var(--line);
   background: rgba(246, 242, 232, 0.92);
