@@ -498,6 +498,11 @@ const visualImages = {
     alt: 'Đoàn người trong trang phục truyền thống các dân tộc Việt Nam',
     label: 'Văn hóa Việt Nam'
   },
+  hienEthnicSecurityExample: {
+    src: '/images/mln131/hien/ethnic-security-example.png',
+    alt: 'Lực lượng chức năng áp giải bị cáo trong một vụ án liên quan an ninh trật tự',
+    label: 'Quốc phòng - an ninh'
+  },
   daoThiToc: {
     src: '/images/mln131/dao/thi-toc.jpg',
     alt: 'Minh hoa cong dong thi toc thoi so khai trong hang da',
@@ -795,6 +800,30 @@ const partyStrategyCards: InfoCard[] = [
   }
 ];
 
+const partyUrgencyCards: InfoCard[] = [
+  {
+    eyebrow: 'Tính cấp bách hiện nay',
+    title: 'Yêu cầu ổn định an sinh xã hội',
+    body:
+      'Trong giai đoạn hiện tại, sự phân hóa giàu nghèo và khoảng cách phát triển kinh tế giữa miền núi, biên giới và vùng xuôi có nguy cơ gia tăng; nếu không giải quyết kịp thời sẽ làm suy giảm niềm tin và tạo bất ổn an sinh tại địa bàn chiến lược.',
+    points: ['Thu hẹp khoảng cách phát triển', 'Củng cố niềm tin của đồng bào', 'Ổn định đời sống ở miền núi, biên giới']
+  },
+  {
+    eyebrow: 'Quốc phòng - an ninh',
+    title: 'Ngăn chặn lợi dụng vấn đề dân tộc',
+    body:
+      'Vấn đề dân tộc có thể bị các thế lực thù địch lợi dụng trong chiến lược "diễn biến hòa bình", kích động ly khai, kỳ thị dân tộc và phá hoại khối đại đoàn kết quốc gia tại các địa bàn như Tây Nguyên, Tây Bắc, Tây Nam Bộ.',
+    points: ['Bảo vệ chủ quyền quốc gia', 'Giữ vững đại đoàn kết dân tộc', 'Không để khó khăn đời sống bị lợi dụng']
+  },
+  {
+    eyebrow: 'Ví dụ thực tế',
+    title: 'Cảnh giác với kích động ly khai',
+    body:
+      'Trong quá khứ đã có các vụ việc kích động bạo loạn nhằm thành lập "Nhà nước Đề Ga" ở Tây Nguyên hoặc "Vương quốc Mông" ở Tây Bắc do các tổ chức phản động lưu vong móc nối, lợi dụng vấn đề dân tộc.',
+    points: ['Bài học về giữ ổn định địa bàn chiến lược', 'Cần xử lý kịp thời thông tin kích động', 'Giải quyết tốt vấn đề dân tộc là nhiệm vụ chính trị trọng yếu']
+  }
+];
+
 const partyEqualityCards: InfoCard[] = [
   partyViewpoints[1],
   {
@@ -1075,6 +1104,14 @@ const homeSlides: HomeSlide[] = [
   },
   {
     member: 'Hiển',
+    eyebrow: 'Quan điểm 1.1/3',
+    title: 'Tại sao vấn đề dân tộc quyết định vận mệnh quốc gia?',
+    subtitle:
+      'Khám phá hệ thống quan điểm cốt lõi của Đảng và Nhà nước trong việc gắn kết 54 dân tộc, định hình chiến lược phát triển bền vững và bảo vệ biên cương vững chắc.',
+    items: partyUrgencyCards
+  },
+  {
+    member: 'Hiển',
     eyebrow: 'Quan điểm 2/3',
     title: 'Bình đẳng, đoàn kết, tương trợ, giúp nhau cùng phát triển',
     subtitle:
@@ -1228,6 +1265,12 @@ const slideVisuals: SlideVisual[] = ([
     chips: ['Lâu dài', 'Cấp bách', 'Đoàn kết']
   },
   {
+    variant: 'image',
+    title: 'Vận mệnh quốc gia',
+    caption: 'Ổn định an sinh, giữ vững quốc phòng - an ninh và bảo vệ khối đại đoàn kết là yêu cầu cấp bách trong công tác dân tộc.',
+    chips: ['An sinh', 'Biên cương', 'Đoàn kết', 'Chủ quyền']
+  },
+  {
     variant: 'gallery',
     title: 'Bình đẳng và tương trợ',
     caption: 'Bình đẳng là nền tảng, đoàn kết là sức mạnh, tương trợ là hành động thực tiễn để cùng phát triển.',
@@ -1332,6 +1375,7 @@ const slideImageGroups: VisualImage[][] = [
   [visualImages.linhParade, visualImages.linhVietnamCulture],
   [visualImages.commonsEthnicDistribution, visualImages.linhEthnicMosaic, visualImages.docCommunity],
   [visualImages.docEconomyEvidence],
+  [visualImages.hienEthnicSecurityExample],
   [visualImages.docEconomySlide],
   [visualImages.thoPolicyOverview],
   [visualImages.thoPoliticalElection, visualImages.thoPoliticalParticipation],
@@ -1766,7 +1810,7 @@ function getHienSlideKind(slide: HomeSlide) {
     return 'reality' as const;
   }
 
-  if (slide.eyebrow === 'Quan điểm 1/3') {
+  if (slide.eyebrow === 'Quan điểm 1/3' || slide.eyebrow === 'Quan điểm 1.1/3') {
     return 'strategy' as const;
   }
 
