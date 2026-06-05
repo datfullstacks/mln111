@@ -1,4 +1,4 @@
-import { aiTools, sourceRefs, teamAssignments, verificationSteps } from '@/lib/data';
+import { academicIntegrity, aiTools, aiUsageGoals, creativeAiUses, sourceRefs, teamAssignments, verificationSteps } from '@/lib/data';
 
 export function AIUsage() {
   return (
@@ -7,9 +7,19 @@ export function AIUsage() {
         <span className="eyebrow">Tài liệu tham khảo + AI Usage</span>
         <h1>Nguồn, công cụ hỗ trợ và quy trình kiểm chứng</h1>
         <p>
-          AI được dùng như công cụ hỗ trợ tổ chức ý tưởng, không thay thế trách nhiệm nghiên cứu và
-          kiểm chứng của nhóm sinh viên.
+          AI được dùng như công cụ hỗ trợ học tập, tổ chức ý tưởng và trình bày sản phẩm sáng tạo;
+          không thay thế trách nhiệm nghiên cứu, phân tích và kiểm chứng của nhóm sinh viên.
         </p>
+      </div>
+
+      <div className="ai-goal-grid">
+        {aiUsageGoals.map(goal => (
+          <article key={goal.title} className="info-card">
+            <span className="eyebrow">AI Usage</span>
+            <h2>{goal.title}</h2>
+            <p>{goal.body}</p>
+          </article>
+        ))}
       </div>
 
       <div className="two-column">
@@ -60,6 +70,29 @@ export function AIUsage() {
                 ))}
               </div>
             ) : null}
+          </article>
+        ))}
+      </div>
+
+      <div className="section-head compact">
+        <span className="eyebrow">Ứng dụng sáng tạo</span>
+        <h2>AI hỗ trợ quy trình học tập và thiết kế</h2>
+      </div>
+      <div className="ai-compact-grid">
+        {creativeAiUses.map(use => (
+          <article key={use.title} className="mini-card">
+            <strong>{use.title}</strong>
+            <p>{use.body}</p>
+          </article>
+        ))}
+      </div>
+
+      <div className="two-column integrity-grid">
+        {academicIntegrity.map(item => (
+          <article key={item.title} className="info-card">
+            <span className="eyebrow">Liêm chính</span>
+            <h2>{item.title}</h2>
+            <p>{item.body}</p>
           </article>
         ))}
       </div>

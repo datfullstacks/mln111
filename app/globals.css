@@ -3392,6 +3392,35 @@ select {
   margin-bottom: 48px;
 }
 
+.ai-goal-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1.2fr 1fr;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.ai-goal-grid .info-card,
+.integrity-grid .info-card {
+  background:
+    linear-gradient(135deg, rgba(255, 254, 248, 0.96), rgba(231, 243, 236, 0.74)),
+    #fffef8;
+}
+
+.ai-compact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.ai-compact-grid .mini-card {
+  min-height: 100%;
+}
+
+.integrity-grid {
+  margin-top: 8px;
+}
+
 .assignment-list {
   display: grid;
   gap: 12px;
@@ -3533,6 +3562,8 @@ select {
   }
 
   .card-grid,
+  .ai-goal-grid,
+  .ai-compact-grid,
   .metric-grid,
   .slide-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3930,6 +3961,8 @@ select {
   }
 
   .card-grid,
+  .ai-goal-grid,
+  .ai-compact-grid,
   .metric-grid,
   .slide-card-grid {
     grid-template-columns: 1fr;

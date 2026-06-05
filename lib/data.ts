@@ -37,6 +37,11 @@ export type AiTool = {
   links?: { label: string; url: string }[];
 };
 
+export type TextBlock = {
+  title: string;
+  body: string;
+};
+
 export type Question = {
   id: number;
   question: string;
@@ -99,6 +104,36 @@ export const sourceRefs: SourceRef[] = [
     title: 'Thông tư 04/2023/TT-BGDĐT về quy chế tổ chức và hoạt động của trường phổ thông dân tộc nội trú',
     publisher: 'Cổng Thông tin điện tử Chính phủ',
     url: 'https://chinhphu.vn/?docid=207528&pageid=27160'
+  },
+  {
+    id: 'daibieu88',
+    title: 'Bài 1: Nghị quyết số 88 - Cơ sở pháp lý quan trọng',
+    publisher: 'Báo Đại biểu Nhân dân',
+    url: 'https://daibieunhandan.vn/bai-1-nghi-quyet-so-88-co-so-phap-ly-quan-trong-10303672.html'
+  },
+  {
+    id: 'nhandan2025dtts',
+    title: 'Phát triển vùng đồng bào dân tộc thiểu số và miền núi',
+    publisher: 'Báo Nhân Dân',
+    url: 'https://nhandan.vn/phat-trien-vung-dong-bao-dan-toc-thieu-so-va-mien-nui-post856437.html'
+  },
+  {
+    id: 'triethoc2023cnxh',
+    title: 'Giáo trình chủ nghĩa xã hội khoa học 2021 pdf download',
+    publisher: 'Triết học Nhân Văn',
+    url: 'https://www.triethoc.net/2023/09/giao-trinh-chu-nghia-xa-hoi-khoa-hoc.html'
+  },
+  {
+    id: 'cema2025dtts',
+    title: 'Chương trình mục tiêu quốc gia: Hành trình đổi thay diện mạo vùng dân tộc thiểu số và miền núi giai đoạn 2021-2025',
+    publisher: 'Ủy ban Dân tộc',
+    url: 'https://www.cema.gov.vn/trang-chu-backup/hanh-trinh-thay-doi-dien-mao-vung-dan-toc-thieu-so-va-mien-nui-giai-doan-2021-2025.htm'
+  },
+  {
+    id: 'dantocmiennui2025',
+    title: 'Đổi thay ở vùng đồng bào dân tộc thiểu số và miền núi nhờ Chương trình mục tiêu quốc gia',
+    publisher: 'Báo ảnh Dân tộc và Miền núi',
+    url: 'https://dantocmiennui.baotintuc.vn/doi-thay-o-vung-dong-bao-dan-toc-thieu-so-va-mien-nui-nho-chuong-trinh-muc-tieu-quoc-gia-post360802.html'
   }
 ];
 
@@ -441,18 +476,42 @@ export const gameQuestions: Question[] = [
   }
 ];
 
+export const aiUsageGoals: TextBlock[] = [
+  {
+    title: 'Mục tiêu sử dụng trí tuệ nhân tạo',
+    body:
+      'Nhóm sử dụng trí tuệ nhân tạo như một công cụ hỗ trợ trong quá trình thực hiện sản phẩm sáng tạo của học phần MLN131 - Chủ nghĩa xã hội khoa học với chủ đề “Bình đẳng, đoàn kết, tương trợ giữa các dân tộc Việt Nam”.'
+  },
+  {
+    title: 'Phạm vi hỗ trợ',
+    body:
+      'Các công cụ AI hỗ trợ lập dàn ý tổng thể, chọn lọc nội dung trọng tâm, tra cứu và hệ thống hóa lý thuyết Chương 6, gợi ý cấu trúc website, soạn nháp nội dung thuyết trình, hỗ trợ trình bày trực quan và kiểm tra tính mạch lạc của nội dung.'
+  },
+  {
+    title: 'Trách nhiệm học thuật',
+    body:
+      'Trí tuệ nhân tạo không thay thế toàn bộ quá trình nghiên cứu, phân tích và biên soạn nội dung học thuật. Nhóm chịu trách nhiệm hoàn toàn đối với nội dung cuối cùng được công bố trên website và trong phần thuyết trình.'
+  }
+];
+
 export const aiTools: AiTool[] = [
   {
     name: 'NotebookLM',
-    purpose: 'Tổng hợp và đối chiếu nội dung lý thuyết Chương 6 về vấn đề dân tộc trong thời kỳ quá độ lên chủ nghĩa xã hội.',
-    result: 'Xác định các ý trọng tâm: khái niệm dân tộc, cương lĩnh dân tộc, đặc điểm dân tộc Việt Nam, quan điểm và chính sách dân tộc.',
-    verification: 'Đối chiếu lại với giáo trình, slide bài học và tài liệu chính thống trước khi đưa lên website.'
+    purpose:
+      'Hỗ trợ trích dẫn, tổng hợp và đối chiếu nội dung lý thuyết từ giáo trình Chủ nghĩa xã hội khoa học, tập trung vào Chương 6: Vấn đề dân tộc và tôn giáo trong thời kỳ quá độ lên chủ nghĩa xã hội.',
+    result:
+      'Hỗ trợ tạo các đoạn tóm tắt, ý chính và gợi ý liên kết giữa các nội dung lý luận như khái niệm dân tộc, cương lĩnh dân tộc của chủ nghĩa Mác - Lênin, đặc điểm dân tộc ở Việt Nam, quan điểm và chính sách dân tộc.',
+    verification:
+      'Nhóm đối chiếu lại toàn bộ nội dung với giáo trình gốc và tài liệu học tập MLN131; nội dung không xác minh được, chưa đúng trọng tâm hoặc chưa phù hợp chủ đề được loại bỏ hoặc viết lại theo nguồn chính thống.'
   },
   {
     name: 'ChatGPT',
-    purpose: 'Hỗ trợ lập dàn ý, chọn lọc nội dung, soạn nháp câu chữ và gợi ý cấu trúc website.',
-    result: 'Tạo bản nháp nội dung, câu hỏi quiz, lời dẫn thuyết trình và cách trình bày dễ theo dõi.',
-    verification: 'Sinh viên rút gọn, sửa văn phong, loại bỏ ý chưa có căn cứ và gắn nguồn chính thống.',
+    purpose:
+      'Hỗ trợ lập dàn ý tổng thể, chọn lọc nội dung, phân chia nhiệm vụ cho các thành viên, soạn nháp nội dung website và gợi ý script thuyết trình ngắn gọn, dễ truyền đạt.',
+    result:
+      'Hỗ trợ tạo bản nháp dàn ý, nội dung website, lời dẫn thuyết trình, câu hỏi phản biện và gợi ý cách trình bày để nội dung rõ ràng, mạch lạc, dễ theo dõi.',
+    verification:
+      'Nhóm rút gọn, chỉnh sửa văn phong theo hướng phù hợp học phần MLN131; loại bỏ nhận định chưa có nguồn rõ ràng và bổ sung trích dẫn từ giáo trình, slide Chương 6, Nghị quyết 88/2019/QH14 và Quyết định 1719/QĐ-TTg.',
     links: [
       { label: 'Prompt/log 1', url: 'https://chatgpt.com/share/6a1eb625-8f44-839d-98a3-7c3d53f5ca9d' },
       { label: 'Prompt/log 2', url: 'https://chatgpt.com/share/6a1fe51b-aafc-83ec-8c78-40f2a36a80da' },
@@ -461,23 +520,61 @@ export const aiTools: AiTool[] = [
   },
   {
     name: 'Lovable',
-    purpose: 'Tham khảo bố cục web, cách chia section và trình bày nội dung học thuật trực quan.',
-    result: 'Gợi ý khung bố cục card, hero, phần chính sách, thành tựu và lời kêu gọi hành động.',
-    verification: 'Chỉ giữ ý tưởng bố cục phù hợp; toàn bộ nội dung học thuật được kiểm chứng lại.'
+    purpose:
+      'Hỗ trợ dàn trang nội dung dự án lên website, bao gồm bố cục các phần, cách trình bày trực quan, màu sắc, kiểu chữ và khả năng hiển thị trên nhiều thiết bị.',
+    result:
+      'Hỗ trợ tạo khung bố cục website và gợi ý cách trình bày các phần như trang chủ, lý thuyết, chính sách dân tộc, thành tựu phát triển, phê phán kỳ thị và lời kêu gọi hành động.',
+    verification:
+      'Nhóm điều chỉnh lại bố cục, kiểu chữ, màu sắc và nội dung hiển thị để phù hợp với chủ đề MLN131; nội dung học thuật đều được kiểm chứng trước khi công bố.'
   },
   {
     name: 'Pinterest',
-    purpose: 'Tham khảo ý tưởng hình minh họa, poster, màu sắc và infographic về đoàn kết dân tộc.',
-    result: 'Gợi ý hướng thị giác cho thẻ nội dung, poster thông điệp và cách dùng hình ảnh văn hóa.',
-    verification: 'Chỉ dùng hình hợp lệ, có nguồn rõ ràng hoặc tài sản sẵn có/tự tạo.'
+    purpose:
+      'Tham khảo ý tưởng hình minh họa, bố cục poster, màu sắc và cách trực quan hóa nội dung liên quan đến đoàn kết dân tộc, bản sắc văn hóa và phát triển vùng dân tộc thiểu số, miền núi.',
+    result:
+      'Gợi ý cách trình bày hình ảnh, infographic, thẻ nội dung, poster thông điệp và bố cục trực quan cho website.',
+    verification:
+      'Nhóm chỉ sử dụng hình ảnh hợp lệ, có nguồn rõ ràng, có giấy phép sử dụng hoặc hình ảnh do nhóm tự tạo; các tư liệu trực quan dùng trong website đều được ghi nguồn đầy đủ.'
   }
 ];
 
 export const verificationSteps = [
-  'Đánh dấu nội dung do AI gợi ý: nhận định, số liệu, ví dụ, trích dẫn.',
-  'Đối chiếu với giáo trình, slide bài học, nghị quyết và văn bản chính thức.',
-  'Phân loại kết quả: hợp lệ, cần chỉnh sửa, chưa đủ căn cứ hoặc sai.',
-  'Chỉ giữ nội dung đã xác minh; nhóm chịu trách nhiệm với bản cuối cùng.'
+  'Đánh dấu nội dung do công cụ trí tuệ nhân tạo đề xuất, bao gồm nhận định lý thuyết, số liệu, ví dụ thực tiễn, trích dẫn và gợi ý nội dung.',
+  'Đối chiếu với nguồn chính thống như giáo trình Chủ nghĩa xã hội khoa học, slide bài học Chương 6, nghị quyết và văn bản chính thức của Nhà nước.',
+  'Phân loại kết quả kiểm chứng thành: hợp lệ, cần chỉnh sửa, chưa đủ căn cứ hoặc sai.',
+  'Chỉnh sửa hoặc loại bỏ nội dung chưa đủ căn cứ; chỉ giữ lại nội dung đã xác minh và nhóm chịu trách nhiệm hoàn toàn với bản cuối cùng.'
+];
+
+export const creativeAiUses: TextBlock[] = [
+  {
+    title: 'NotebookLM',
+    body: 'Hỗ trợ trích dẫn, tóm tắt và đối chiếu nhanh nội dung giáo trình Chủ nghĩa xã hội khoa học.'
+  },
+  {
+    title: 'ChatGPT',
+    body: 'Hỗ trợ lập dàn ý, chọn lọc nội dung, soạn nháp phần website và script thuyết trình.'
+  },
+  {
+    title: 'Lovable',
+    body: 'Hỗ trợ dàn trang website theo hướng trực quan, dễ đọc, dễ tương tác.'
+  },
+  {
+    title: 'Pinterest',
+    body: 'Hỗ trợ tham khảo ý tưởng hình ảnh, poster, infographic và bố cục trình bày.'
+  }
+];
+
+export const academicIntegrity: TextBlock[] = [
+  {
+    title: 'Cam kết liêm chính học thuật',
+    body:
+      'Nhóm cam kết không sử dụng trí tuệ nhân tạo để làm thay toàn bộ bài tập. Mọi nội dung học thuật, số liệu, nhận định và kết luận trong sản phẩm đều đã được kiểm chứng bằng giáo trình Chủ nghĩa xã hội khoa học, tài liệu học tập của môn MLN131 và các văn bản chính thống.'
+  },
+  {
+    title: 'Trách nhiệm cuối cùng',
+    body:
+      'Nhóm chịu trách nhiệm hoàn toàn về tính chính xác, minh bạch và liêm chính học thuật của sản phẩm cuối cùng. AI được sử dụng đúng mục đích: hỗ trợ học tập, tổ chức ý tưởng, trình bày nội dung và nâng cao chất lượng sản phẩm sáng tạo.'
+  }
 ];
 
 export const teamAssignments = [
