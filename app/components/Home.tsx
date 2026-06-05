@@ -779,7 +779,8 @@ const partyStrategyCards: InfoCard[] = [
     points: [
       'Xu hướng phát triển quan hệ dân tộc diễn ra lâu dài',
       'Đại đoàn kết dân tộc là nguồn lực và động lực chủ yếu',
-      'Cần chính sách bền bỉ qua nhiều giai đoạn cách mạng'
+      'Cần chính sách bền bỉ qua nhiều giai đoạn cách mạng',
+      'Ví dụ: Chương trình mục tiêu quốc gia phát triển kinh tế - xã hội vùng đồng bào dân tộc thiểu số và miền núi giai đoạn 2021-2030 là chương trình vĩ mô kéo dài qua nhiều nhiệm kỳ, huy động nguồn lực lớn để thay đổi căn bản diện mạo hạ tầng miền núi'
     ]
   },
   {
