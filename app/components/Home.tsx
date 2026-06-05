@@ -1180,7 +1180,7 @@ const slideImageGroups: VisualImage[][] = [
   [visualImages.thoSocialCommunityProduction, visualImages.docClassroom, visualImages.docHealth],
   [visualImages.thoSecurityDefense],
   [visualImages.tienInfrastructureRoad, visualImages.tienInfrastructureChildrenReading, visualImages.tienInfrastructureElectricity, visualImages.tienCleanWater],
-  [visualImages.tienEducationClassroom, visualImages.docSchoolRoad],
+  [visualImages.tienInfrastructureChildrenReading, visualImages.tienEducationClassroom, visualImages.docSchoolRoad],
   [visualImages.tienHealthStation, visualImages.tienHealthCommunityCheckup, visualImages.tienHealthCheckup],
   [visualImages.tienEconomyTea, visualImages.tienEconomyTerraces],
   [visualImages.tienCultureCostume, visualImages.tienCultureFestival],
