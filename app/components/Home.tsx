@@ -795,7 +795,8 @@ const partyStrategyCards: InfoCard[] = [
     points: [
       'Ổn định đời sống vùng miền núi, biên giới và vùng khó khăn',
       'Củng cố niềm tin của đồng bào',
-      'Ngăn chặn kích động ly khai, kỳ thị và chia rẽ dân tộc'
+      'Ngăn chặn kích động ly khai, kỳ thị và chia rẽ dân tộc',
+      'Ví dụ thực tế: các vụ việc kích động bạo loạn nhằm thành lập "Nhà nước Đề Ga" ở Tây Nguyên hay "Vương quốc Mông" ở Tây Bắc của các tổ chức phản động lưu vong trong quá khứ'
     ]
   }
 ];
