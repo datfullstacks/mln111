@@ -47,7 +47,7 @@ export function HienSlideExplorer({ kind, items, visual }: HienSlideExplorerProp
     <>
       <aside className={`slide-visual hien-explorer-visual hien-${kind}-visual`}>
         <div className="hien-media">
-          {images.slice(0, 2).map((image, index) => (
+          {images.slice(0, kind === 'equality' ? 3 : 2).map((image, index) => (
             <img key={image.src} src={image.src} alt="" data-image-index={index} />
           ))}
           <div className="hien-visual-overlay" />

@@ -825,25 +825,38 @@ const partyUrgencyCards: InfoCard[] = [
 ];
 
 const partyEqualityCards: InfoCard[] = [
-  partyViewpoints[1],
   {
     eyebrow: 'Bình đẳng dân tộc',
     title: 'Cơ sở pháp lý và đạo lý',
-    body: 'Mọi dân tộc, không phân biệt đa số hay thiểu số, đều có vị thế chính trị ngang nhau, quyền lợi và nghĩa vụ ngang nhau trước pháp luật.',
+    body:
+      'Bình đẳng dân tộc là quyền tối cao, là cơ sở pháp lý và đạo lý của chính sách dân tộc. Mọi dân tộc, không phân biệt đa số hay thiểu số, trình độ phát triển cao hay thấp, đều có vị thế chính trị ngang nhau, quyền lợi và nghĩa vụ ngang nhau trước pháp luật.',
     points: [
       'Có quyền tham gia hệ thống chính trị, quản lý nhà nước và xã hội',
-      'Hiến pháp và pháp luật bảo vệ quyền bình đẳng',
-      'Nghiêm cấm kỳ thị, chia rẽ tộc người'
+      'Hiến pháp và pháp luật bảo đảm, bảo vệ quyền bình đẳng; nghiêm cấm kỳ thị, chia rẽ tộc người',
+      'Kiên quyết đấu tranh chống tư tưởng "dân tộc lớn" hoặc "dân tộc hẹp hòi"',
+      'Ví dụ: Quốc hội khóa XV có 17,84% đại biểu là người dân tộc thiểu số; các đại biểu có quyền ngang nhau trong thảo luận và biểu quyết'
     ]
   },
   {
-    eyebrow: 'Đoàn kết - tương trợ',
-    title: 'Sức mạnh và hành động thực tiễn',
-    body: 'Đoàn kết tạo sức mạnh tổng hợp; tương trợ biến bình đẳng pháp lý thành bình đẳng thực tế trong đời sống.',
+    eyebrow: 'Đoàn kết dân tộc',
+    title: 'Sức mạnh hệ thống',
+    body:
+      'Đoàn kết là truyền thống quý báu được hình thành qua hàng ngàn năm dựng nước và giữ nước. Trong thời đại mới, đoàn kết dân tộc dựa trên nền tảng liên minh công nhân - nông dân - trí thức, đặt dưới sự lãnh đạo của Đảng Cộng sản Việt Nam.',
     points: [
-      'Đoàn kết dựa trên liên minh công nhân - nông dân - trí thức',
-      'Chia sẻ nguồn lực, kỹ thuật và tri thức cho vùng khó khăn',
-      'Phát huy tự lực của đồng bào dân tộc thiểu số'
+      'Tạo sức mạnh tổng hợp để chống mọi âm mưu chia rẽ',
+      'Gắn kết các tộc người trong một cộng đồng quốc gia thống nhất',
+      'Ví dụ: khi bão Yagi gây lũ quét, sạt lở ở miền núi phía Bắc, nhiều chuyến xe cứu trợ từ miền xuôi và miền Nam đã hỗ trợ đồng bào vùng cao'
+    ]
+  },
+  {
+    eyebrow: 'Tương trợ, giúp nhau cùng phát triển',
+    title: 'Hành động thực tiễn',
+    body:
+      'Quyền bình đẳng trên pháp lý sẽ trở thành hình thức nếu không được hiện thực hóa bằng bình đẳng trong đời sống. Tương trợ là hành động cụ thể để biến bình đẳng pháp lý thành điều kiện phát triển thực tế.',
+    points: [
+      'Dân tộc có điều kiện phát triển hơn chia sẻ nguồn lực, kỹ thuật và tri thức cho vùng khó khăn',
+      'Đồng bào dân tộc thiểu số phát huy tinh thần tự lực, vượt qua tư tưởng ỷ lại',
+      'Ví dụ: thanh niên tình nguyện miền xuôi lên núi dạy học; doanh nghiệp viễn thông phủ sóng Internet, đưa tri thức số đến vùng sâu, vùng xa'
     ]
   }
 ];
@@ -1272,9 +1285,9 @@ const slideVisuals: SlideVisual[] = ([
   },
   {
     variant: 'gallery',
-    title: 'Bình đẳng và tương trợ',
-    caption: 'Bình đẳng là nền tảng, đoàn kết là sức mạnh, tương trợ là hành động thực tiễn để cùng phát triển.',
-    chips: ['Bình đẳng', 'Đoàn kết', 'Tương trợ']
+    title: 'Phương thức đồng bộ hóa chính sách dân tộc',
+    caption: 'Chính sách phát triển không thực hiện phiến diện mà tác động đa chiều, chuyển hóa nguồn lực nhà nước thành nội lực phát triển tự thân cho toàn vùng.',
+    chips: ['Bình đẳng pháp lý', 'Đoàn kết hệ thống', 'Tương trợ thực chất']
   },
   {
     variant: 'image',
@@ -1376,7 +1389,7 @@ const slideImageGroups: VisualImage[][] = [
   [visualImages.commonsEthnicDistribution, visualImages.linhEthnicMosaic, visualImages.docCommunity],
   [visualImages.docEconomyEvidence],
   [visualImages.hienEthnicSecurityExample],
-  [visualImages.docEconomySlide],
+  [visualImages.thoPoliticalElection, visualImages.tienActionVolunteerGifts, visualImages.tienInfrastructureChildrenReading],
   [visualImages.thoPolicyOverview],
   [visualImages.thoPoliticalElection, visualImages.thoPoliticalParticipation],
   [visualImages.thoEconomyLivelihood, visualImages.thoEconomyLocalProducts],
