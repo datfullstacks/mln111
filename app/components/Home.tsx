@@ -503,6 +503,11 @@ const visualImages = {
     alt: 'Lực lượng chức năng áp giải bị cáo trong một vụ án liên quan an ninh trật tự',
     label: 'Quốc phòng - an ninh'
   },
+  hienNationalProgramMeeting: {
+    src: '/images/mln131/hien/national-program-meeting.png',
+    alt: 'Cuộc họp Ban Chỉ đạo Trung ương Chương trình mục tiêu quốc gia phát triển kinh tế - xã hội vùng đồng bào dân tộc thiểu số và miền núi',
+    label: 'Chương trình mục tiêu quốc gia'
+  },
   daoThiToc: {
     src: '/images/mln131/dao/thi-toc.jpg',
     alt: 'Minh hoa cong dong thi toc thoi so khai trong hang da',
@@ -1400,7 +1405,7 @@ const slideImageGroups: VisualImage[][] = [
   [visualImages.linhCommunityCircle, visualImages.linhThaiCommunity],
   [visualImages.linhParade, visualImages.linhVietnamCulture],
   [visualImages.commonsEthnicDistribution, visualImages.linhEthnicMosaic, visualImages.docCommunity],
-  [visualImages.docEconomyEvidence],
+  [visualImages.hienNationalProgramMeeting],
   [visualImages.hienEthnicSecurityExample],
   [visualImages.thoPoliticalElection, visualImages.tienActionVolunteerGifts, visualImages.tienInfrastructureChildrenReading],
   [visualImages.tienEconomyTea, visualImages.thoSecurityDefense, visualImages.thoCultureUnity],
