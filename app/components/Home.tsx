@@ -842,6 +842,45 @@ const partyDevelopmentCards: InfoCard[] = [
   }
 ];
 
+const objectiveRealityCards: InfoCard[] = [
+  {
+    eyebrow: 'Thực tiễn khách quan',
+    title: 'Chênh lệch lớn về số dân',
+    body: 'Dân tộc Kinh chiếm đa số, trong khi 53 dân tộc thiểu số chiếm tỷ lệ nhỏ hơn trong cơ cấu dân cư.',
+    points: ['Không thể dùng một chính sách chung cho mọi cộng đồng', 'Cần chính sách đặc thù theo quy mô và nhu cầu', 'Bình đẳng phải gắn với hỗ trợ thực chất']
+  },
+  {
+    eyebrow: 'Thực tiễn khách quan',
+    title: 'Cư trú xen kẽ, không có lãnh thổ tộc người biệt lập',
+    body: 'Các dân tộc ở Việt Nam sinh sống đan xen trên nhiều địa bàn, không hình thành các vùng tộc người riêng biệt, ngăn cách.',
+    points: ['Quy định tính đan xen xã hội', 'Không có vùng tự trị biệt lập', 'Đòi hỏi chính sách đoàn kết và quản trị thống nhất']
+  },
+  {
+    eyebrow: 'Thực tiễn khách quan',
+    title: 'Địa bàn chiến lược về chính trị, kinh tế, quốc phòng, an ninh',
+    body: 'Nhiều dân tộc thiểu số phân bố ở miền núi, biên giới, Tây Nguyên và các khu vực có vị trí đặc biệt quan trọng.',
+    points: ['Gắn phát triển với bảo vệ chủ quyền', 'Ổn định đời sống gắn với ổn định chính trị', 'Địa bàn dân tộc là không gian chiến lược của quốc gia']
+  },
+  {
+    eyebrow: 'Thực tiễn khách quan',
+    title: 'Trình độ phát triển kinh tế - xã hội không đồng đều',
+    body: 'Do điều kiện lịch sử và địa lý, mức sống, hạ tầng, giáo dục, y tế và sinh kế giữa các vùng, các tộc người còn khác nhau.',
+    points: ['Cần thu hẹp khoảng cách phát triển', 'Ưu tiên vùng khó khăn, vùng sâu, vùng xa', 'Hỗ trợ phải đi cùng phát huy nội lực']
+  },
+  {
+    eyebrow: 'Thực tiễn khách quan',
+    title: 'Truyền thống đoàn kết trong cộng đồng quốc gia thống nhất',
+    body: 'Các dân tộc Việt Nam có truyền thống gắn bó lâu đời trong quá trình dựng nước, giữ nước và xây dựng đất nước.',
+    points: ['Đoàn kết là nguồn lực chính trị - xã hội', 'Củng cố niềm tin vào cộng đồng quốc gia', 'Chống chia rẽ, kỳ thị và ly khai']
+  },
+  {
+    eyebrow: 'Thực tiễn khách quan',
+    title: 'Bản sắc văn hóa riêng trong nền văn hóa Việt Nam thống nhất',
+    body: 'Mỗi dân tộc có ngôn ngữ, phong tục, lễ hội, trang phục và giá trị văn hóa riêng, cùng làm nên sự phong phú của văn hóa Việt Nam.',
+    points: ['Tôn trọng khác biệt văn hóa', 'Bảo tồn bản sắc từng tộc người', 'Thống nhất trong đa dạng']
+  }
+];
+
 function policySlide(pillar: (typeof policyPillars)[number], index: number): HomeSlide {
   const items: InfoCard[] = [
     {
@@ -1019,6 +1058,14 @@ const homeSlides: HomeSlide[] = [
   },
   {
     member: 'Hiển',
+    eyebrow: 'Thực tiễn 1/1',
+    title: 'Thực tiễn khách quan: 6 đặc điểm dân tộc ở Việt Nam',
+    subtitle:
+      'Hệ thống quan điểm và chính sách dân tộc của Đảng và Nhà nước Việt Nam không xuất phát từ ý chí chủ quan, mà được xây dựng trên cơ sở phân tích cấu trúc thực tiễn của quốc gia đa tộc người gồm 54 dân tộc.',
+    items: objectiveRealityCards
+  },
+  {
+    member: 'Hiển',
     eyebrow: 'Quan điểm 1/3',
     title: 'Vấn đề dân tộc và đoàn kết dân tộc là chiến lược lâu dài, đồng thời cấp bách',
     subtitle:
@@ -1168,6 +1215,12 @@ const slideVisuals: SlideVisual[] = ([
     chips: ['Phát triển', 'Đoàn kết', 'Bản sắc']
   },
   {
+    variant: 'gallery',
+    title: '6 đặc điểm thực tiễn',
+    caption: 'Quan điểm và chính sách dân tộc được xây dựng từ đặc điểm dân số, cư trú, địa bàn, phát triển, đoàn kết và bản sắc văn hóa.',
+    chips: ['Dân số', 'Cư trú', 'Địa bàn', 'Phát triển', 'Đoàn kết', 'Bản sắc']
+  },
+  {
     variant: 'statement',
     title: 'Chiến lược lâu dài, cấp bách hiện nay',
     caption: 'Vấn đề dân tộc phải được nhìn trong tiến trình lâu dài, đồng thời xử lý kịp thời các nguy cơ an sinh và chia rẽ.',
@@ -1276,6 +1329,7 @@ const slideImageGroups: VisualImage[][] = [
   [visualImages.linhEthnicMosaic, visualImages.linhFlagCrowd, visualImages.linhEthnicUnity],
   [visualImages.linhCommunityCircle, visualImages.linhThaiCommunity],
   [visualImages.linhParade, visualImages.linhVietnamCulture],
+  [visualImages.commonsEthnicDistribution, visualImages.linhEthnicMosaic, visualImages.docCommunity],
   [visualImages.docEconomyEvidence],
   [visualImages.docEconomySlide],
   [visualImages.thoPolicyOverview],
@@ -1707,6 +1761,10 @@ function getLinhSlideKind(slide: HomeSlide) {
 }
 
 function getHienSlideKind(slide: HomeSlide) {
+  if (slide.eyebrow === 'Thực tiễn 1/1') {
+    return 'reality' as const;
+  }
+
   if (slide.eyebrow === 'Quan điểm 1/3') {
     return 'strategy' as const;
   }

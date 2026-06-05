@@ -23,7 +23,7 @@ type SlideVisual = {
   chips?: string[];
 };
 
-type HienSlideKind = 'strategy' | 'equality' | 'development';
+type HienSlideKind = 'reality' | 'strategy' | 'equality' | 'development';
 
 type HienSlideExplorerProps = {
   kind: HienSlideKind;
@@ -32,6 +32,7 @@ type HienSlideExplorerProps = {
 };
 
 const kindLabels: Record<HienSlideKind, string> = {
+  reality: 'Thực tiễn khách quan',
   strategy: 'Quan điểm chiến lược',
   equality: 'Quan điểm bình đẳng',
   development: 'Phát triển toàn diện'
@@ -86,6 +87,16 @@ export function HienSlideExplorer({ kind, items, visual }: HienSlideExplorerProp
 }
 
 function shortenTitle(title: string, kind: HienSlideKind) {
+  if (kind === 'reality') {
+    return title
+      .replace('Chênh lệch lớn về số dân', 'Số dân')
+      .replace('Cư trú xen kẽ, không có lãnh thổ tộc người biệt lập', 'Cư trú xen kẽ')
+      .replace('Địa bàn chiến lược về chính trị, kinh tế, quốc phòng, an ninh', 'Địa bàn chiến lược')
+      .replace('Trình độ phát triển kinh tế - xã hội không đồng đều', 'Không đồng đều')
+      .replace('Truyền thống đoàn kết trong cộng đồng quốc gia thống nhất', 'Đoàn kết lâu đời')
+      .replace('Bản sắc văn hóa riêng trong nền văn hóa Việt Nam thống nhất', 'Bản sắc riêng');
+  }
+
   if (kind === 'strategy') {
     return title
       .replace('Vấn đề dân tộc và đoàn kết dân tộc là chiến lược cơ bản, lâu dài, đồng thời cấp bách', 'Tổng quan')
