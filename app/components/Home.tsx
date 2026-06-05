@@ -1130,7 +1130,7 @@ const homeSlides: HomeSlide[] = [
     eyebrow: 'Quan điểm 1/3',
     title: 'Vấn đề dân tộc và đoàn kết dân tộc là chiến lược lâu dài, đồng thời cấp bách',
     subtitle:
-      'Quan điểm này đặt vấn đề dân tộc trong tầm nhìn chiến lược lâu dài, đồng thời nhấn mạnh yêu cầu xử lý kịp thời các vấn đề an sinh, quốc phòng - an ninh hiện nay.',
+      'Đảng ta khẳng định vấn đề dân tộc không phải là hiện tượng nhất thời, mà là một hệ thống mang tính quy luật khách quan, đòi hỏi sự kết hợp chặt chẽ giữa tầm nhìn vĩ mô và hành động thời sự.',
     items: partyStrategyCards
   },
   {
