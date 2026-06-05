@@ -583,14 +583,44 @@ const marxLeninTrendCards: InfoCard[] = [
   {
     eyebrow: 'Xu hướng 1',
     title: 'Tách ra để hình thành cộng đồng dân tộc độc lập',
-    body: 'Khi ý thức dân tộc phát triển, các cộng đồng có nhu cầu khẳng định quyền tồn tại, quyền phát triển và bản sắc của mình.',
-    points: ['Gắn với quyền dân tộc chính đáng', 'Phản ánh nhu cầu tự chủ', 'Cần đặt trong quan hệ lịch sử cụ thể']
+    body: 'Khi ý thức dân tộc phát triển, các cộng đồng nhận thức rõ hơn quyền được sống độc lập, quyền tự quyết và nhu cầu thoát khỏi áp bức để làm chủ vận mệnh của mình.',
+    points: ['Thức tỉnh ý thức dân tộc', 'Mong muốn làm chủ vận mệnh', 'Chống áp bức, bóc lột của chủ nghĩa thực dân và đế quốc']
   },
   {
     eyebrow: 'Xu hướng 2',
     title: 'Liên hiệp lại với nhau',
-    body: 'Sự phát triển kinh tế, giao lưu văn hóa và lợi ích chung thúc đẩy các dân tộc hợp tác, liên kết, tương trợ.',
-    points: ['Tăng giao lưu và phụ thuộc lẫn nhau', 'Cùng giải quyết vấn đề chung', 'Là cơ sở cho đoàn kết quốc gia']
+    body: 'Sự phát triển của lực lượng sản xuất, khoa học - công nghệ và giao lưu kinh tế, văn hóa làm các dân tộc có nhu cầu hợp tác, liên kết để cùng phát triển.',
+    points: ['Liên kết để phát triển kinh tế', 'Bảo đảm hòa bình', 'Cùng giải quyết các vấn đề chung']
+  },
+  {
+    eyebrow: 'Ví dụ',
+    title: 'Việt Nam và hai xu hướng',
+    body: 'Trước năm 1945, nhân dân Việt Nam đấu tranh giành độc lập trong Cách mạng Tháng Tám. Hiện nay, Việt Nam tham gia ASEAN, Liên Hợp Quốc và nhiều tổ chức quốc tế.',
+    points: ['Cách mạng Tháng Tám: xu hướng độc lập dân tộc', 'ASEAN, Liên Hợp Quốc: xu hướng hợp tác', 'Độc lập và hợp tác cùng phục vụ phát triển']
+  },
+  {
+    eyebrow: 'Biểu hiện',
+    title: 'Trong phạm vi một quốc gia',
+    body: 'Hai xu hướng thể hiện trong đời sống quốc gia: mỗi dân tộc nỗ lực phát triển tự do, bình đẳng, đồng thời các dân tộc tăng cường đoàn kết, giao lưu và hợp tác.',
+    points: ['Phát triển để đạt tự do, bình đẳng, phồn vinh', 'Giao lưu, hợp tác trên nhiều lĩnh vực', 'Củng cố đoàn kết trong một quốc gia thống nhất']
+  },
+  {
+    eyebrow: 'Biểu hiện',
+    title: 'Trong phạm vi quốc tế',
+    body: 'Trên thế giới, các dân tộc vừa đấu tranh bảo vệ độc lập, chủ quyền, vừa mở rộng hợp tác khu vực và quốc tế để cùng phát triển.',
+    points: ['Bảo vệ độc lập, chủ quyền', 'Chống áp bức và can thiệp từ bên ngoài', 'Liên kết quốc tế trên cơ sở bình đẳng']
+  },
+  {
+    eyebrow: 'Mối quan hệ',
+    title: 'Thống nhất biện chứng',
+    body: 'Hai xu hướng không đối lập tuyệt đối mà bổ sung cho nhau: độc lập dân tộc là cơ sở để hợp tác bình đẳng, còn hợp tác tạo điều kiện để dân tộc phát triển.',
+    points: ['Tồn tại song song', 'Tác động qua lại', 'Không tách rời nhau trong thực tiễn']
+  },
+  {
+    eyebrow: 'Ý nghĩa hiện nay',
+    title: 'Nhận thức đúng để đoàn kết và cảnh giác',
+    body: 'Hai xu hướng vẫn diễn ra mạnh mẽ, phức tạp trên thế giới; cần phát huy đoàn kết, hợp tác và cảnh giác với âm mưu lợi dụng vấn đề dân tộc để gây chia rẽ, mất ổn định.',
+    points: ['Phát huy đoàn kết dân tộc', 'Mở rộng hợp tác bình đẳng', 'Chống lợi dụng vấn đề dân tộc để chia rẽ']
   }
 ];
 
@@ -598,20 +628,20 @@ const vietnamMoreCharacteristics: InfoCard[] = [
   {
     eyebrow: 'Đặc điểm Việt Nam',
     title: 'Chênh lệch về số dân giữa các tộc người',
-    body: 'Các dân tộc ở Việt Nam có quy mô dân số khác nhau, vì vậy chính sách cần quan tâm đến đặc điểm cụ thể của từng cộng đồng.',
-    points: ['Không đồng nhất nhu cầu phát triển', 'Cần tiếng nói đại diện phù hợp', 'Bình đẳng đi cùng chính sách đặc thù']
+    body: 'Dân tộc Kinh chiếm đa số, trong khi nhiều dân tộc thiểu số có dân số rất ít; sự chênh lệch này ảnh hưởng đến bảo tồn ngôn ngữ, văn hóa và phát triển kinh tế - xã hội.',
+    points: ['Nhu cầu phát triển không giống nhau', 'Cần chính sách hỗ trợ phù hợp', 'Bình đẳng phải đi cùng chính sách đặc thù']
   },
   {
     eyebrow: 'Đặc điểm Việt Nam',
     title: 'Phân bố ở địa bàn chiến lược',
-    body: 'Nhiều vùng dân tộc thiểu số nằm ở miền núi, biên giới, nơi có ý nghĩa quan trọng về kinh tế, môi trường, quốc phòng và an ninh.',
-    points: ['Gắn phát triển với bảo vệ biên giới', 'Cần đầu tư hạ tầng thiết yếu', 'Ổn định đời sống là nền tảng ổn định xã hội']
+    body: 'Các dân tộc thiểu số chủ yếu sinh sống ở miền núi, vùng biên giới, Tây Nguyên và hải đảo - những khu vực có ý nghĩa quan trọng về kinh tế, quốc phòng, an ninh và chủ quyền lãnh thổ.',
+    points: ['Gắn phát triển với bảo vệ chủ quyền', 'Cần đầu tư hạ tầng thiết yếu', 'Ổn định đời sống là nền tảng ổn định xã hội']
   },
   {
     eyebrow: 'Đặc điểm Việt Nam',
     title: 'Đa dạng bản sắc nhưng cùng một cộng đồng quốc gia',
-    body: 'Mỗi dân tộc có bản sắc riêng, đồng thời cùng gắn bó trong cộng đồng Việt Nam thống nhất.',
-    points: ['Giữ bản sắc riêng', 'Giao lưu văn hóa', 'Cùng xây dựng đất nước']
+    body: 'Mỗi dân tộc có ngôn ngữ, trang phục, lễ hội, phong tục riêng; sự đa dạng đó góp phần tạo nên nền văn hóa Việt Nam thống nhất trong đa dạng.',
+    points: ['Giữ gìn bản sắc riêng', 'Làm giàu văn hóa chung', 'Củng cố khối đại đoàn kết toàn dân tộc']
   }
 ];
 
@@ -851,7 +881,7 @@ const homeSlides: HomeSlide[] = [
     eyebrow: 'Mác - Lênin 1/4',
     title: 'Hai xu hướng khách quan của quan hệ dân tộc',
     subtitle:
-      'Chủ nghĩa Mác - Lênin chỉ ra quan hệ dân tộc vừa có xu hướng khẳng định cộng đồng độc lập, vừa có xu hướng liên hiệp, hợp tác.',
+      'Theo V.I. Lênin, trong quá trình phát triển của lịch sử nhân loại, quan hệ dân tộc luôn vận động theo hai xu hướng khách quan. "Khách quan" ở đây có nghĩa là những xu hướng này xuất hiện do quy luật phát triển của xã hội chứ không phụ thuộc vào ý muốn của bất kỳ cá nhân hay tổ chức nào. Hai xu hướng này vừa tồn tại song song vừa tác động qua lại lẫn nhau.',
     items: marxLeninTrendCards
   },
   {
@@ -1124,7 +1154,7 @@ const slideImageGroups: VisualImage[][] = [
   [visualImages.commonsEthnicDistribution, visualImages.docCommunity],
   [visualImages.daoThiToc, visualImages.daoBoLac, visualImages.daoBoToc, visualImages.daoDanToc],
   [visualImages.daoPhuongTay, visualImages.daoPhuongDong],
-  [visualImages.unityMap],
+  [visualImages.unityMap, visualImages.thoUnityHoChiMinh, visualImages.thoCultureUnity],
   [visualImages.commonsHmongDress, visualImages.commonsHmongBatik, visualImages.ethnicPortraits],
   [visualImages.docUnity, visualImages.docGirls],
   [visualImages.commonsBlackHmongWomen, visualImages.bridge],
@@ -1200,12 +1230,64 @@ function SlideVisualPanel({ visual }: { visual: SlideVisual }) {
 
   if (visual.variant === 'comparison') {
     const isEastWestComparison = visual.title === 'Hai bối cảnh hình thành';
+    const isMeaningContrast = visual.title === 'Thống nhất trong đa dạng';
     const comparisonKeywords = isEastWestComparison
       ? [
           ['Tư bản chủ nghĩa', 'Thị trường', 'Nhà nước hiện đại'],
           ['Văn hóa cộng đồng', 'Tâm lý dân tộc', 'Lịch sử lâu dài']
         ]
       : [];
+
+    if (isMeaningContrast) {
+      const contrastSides = [
+        {
+          label: 'Nghĩa thứ nhất',
+          title: 'Quốc gia dân tộc',
+          tag: 'Nation',
+          image: images[0],
+          points: ['Lãnh thổ - nhà nước - kinh tế', 'Ngôn ngữ chung của quốc gia', 'Cộng đồng chính trị - xã hội thống nhất']
+        },
+        {
+          label: 'Nghĩa thứ hai',
+          title: 'Dân tộc - tộc người',
+          tag: 'Ethnic group',
+          image: images[1] ?? images[0],
+          points: ['Ngôn ngữ, văn hóa riêng', 'Ý thức tự giác tộc người', 'Một thành viên trong đại gia đình Việt Nam']
+        }
+      ];
+
+      return (
+        <aside className="slide-visual comparison meaning-contrast-visual">
+          <div className="meaning-contrast-grid" aria-label="Phân biệt hai nghĩa của dân tộc">
+            {contrastSides.map((side, index) => (
+              <figure className={`meaning-side meaning-side-${index + 1}`} key={side.title}>
+                {side.image ? <img src={side.image.src} alt={side.image.alt} /> : null}
+                <div className="meaning-side-overlay" />
+                <figcaption>
+                  <span>{side.label}</span>
+                  <strong>{side.title}</strong>
+                  <small>{side.tag}</small>
+                </figcaption>
+                <ul>
+                  {side.points.map(point => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </figure>
+            ))}
+            <div className="meaning-vs" aria-hidden="true">
+              Phân biệt
+            </div>
+          </div>
+          <div className="meaning-contrast-footer">
+            <span>Liên hệ Việt Nam</span>
+            <strong>Thống nhất trong đa dạng</strong>
+            <p>{visual.caption}</p>
+          </div>
+          <VisualCredits images={images} />
+        </aside>
+      );
+    }
 
     return (
       <aside className={`slide-visual comparison ${isEastWestComparison ? 'east-west-comparison' : ''}`}>
@@ -1578,7 +1660,7 @@ export function Home() {
                     <p>{slide.subtitle}</p>
                   </div>
                   {slide.eyebrow === 'Khái niệm 4/6' ? (
-                    <NationFactorExplorer image={visibleSlideVisuals[index]?.image} items={slide.items} />
+                    <NationFactorExplorer image={visibleSlideVisuals[index]?.image} images={visibleSlideVisuals[index]?.images} items={slide.items} />
                   ) : getLinhSlideKind(slide) ? (
                     <LinhSlideExplorer kind={getLinhSlideKind(slide)!} visual={visibleSlideVisuals[index]} items={slide.items} />
                   ) : getHienSlideKind(slide) ? (

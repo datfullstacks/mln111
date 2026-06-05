@@ -146,43 +146,61 @@ export const conceptCards: InfoCard[] = [
 
 export const marxLeninPrinciples: InfoCard[] = [
   {
+    eyebrow: 'Cơ sở hình thành',
+    title: 'Cương lĩnh được xây dựng từ lý luận và thực tiễn cách mạng',
+    body: 'Cương lĩnh dân tộc của V.I. Lênin dựa trên quan điểm Mác về quan hệ dân tộc - giai cấp, hai xu hướng khách quan của sự phát triển dân tộc và kinh nghiệm phong trào cách mạng thế giới, cách mạng Nga.',
+    points: ['Quan hệ giữa dân tộc và giai cấp', 'Hai xu hướng khách quan của phát triển dân tộc', 'Kinh nghiệm cách mạng thế giới và cách mạng Nga']
+  },
+  {
     eyebrow: 'Cương lĩnh',
     title: 'Các dân tộc hoàn toàn bình đẳng',
-    body: 'Không dân tộc nào có đặc quyền, đặc lợi; mọi dân tộc đều có quyền và nghĩa vụ ngang nhau trong đời sống xã hội.',
-    points: ['Bình đẳng pháp lý', 'Bình đẳng cơ hội', 'Chống kỳ thị và áp bức dân tộc']
+    body: 'Theo Lênin, không có dân tộc nào cao hơn hay thấp hơn dân tộc nào; mọi dân tộc, dù lớn hay nhỏ, đều có quyền và nghĩa vụ ngang nhau.',
+    points: ['Không áp bức, bóc lột dân tộc khác', 'Không đặc quyền, đặc lợi dân tộc', 'Chống kỳ thị, xung đột và chia rẽ dân tộc']
   },
   {
     eyebrow: 'Cương lĩnh',
     title: 'Các dân tộc được quyền tự quyết',
-    body: 'Mỗi dân tộc có quyền quyết định con đường phát triển phù hợp, đồng thời gắn với lợi ích chung và sự thống nhất quốc gia.',
-    points: ['Tôn trọng nguyện vọng chính đáng', 'Không áp đặt', 'Bảo vệ đoàn kết quốc gia']
+    body: 'Quyền tự quyết là quyền của mỗi dân tộc được tự quyết định vận mệnh, lựa chọn chế độ chính trị, con đường phát triển và hình thức liên hiệp phù hợp.',
+    points: ['Có quyền thành lập quốc gia độc lập', 'Có quyền tự nguyện liên hiệp với dân tộc khác', 'Không lợi dụng để ly khai, chia rẽ hoặc can thiệp']
   },
   {
     eyebrow: 'Cương lĩnh',
     title: 'Liên hiệp công nhân tất cả các dân tộc',
-    body: 'Tinh thần đoàn kết của người lao động các dân tộc là cơ sở để chống chia rẽ, áp bức và xây dựng xã hội tiến bộ.',
-    points: ['Đoàn kết giai cấp và dân tộc', 'Tương trợ trong phát triển', 'Chống tư tưởng ly khai, hẹp hòi']
+    body: 'Công nhân các dân tộc có cùng lợi ích căn bản, vì vậy cần đoàn kết để chống áp bức, bảo vệ quyền lợi người lao động và xây dựng xã hội tiến bộ.',
+    points: ['Chống áp bức, bóc lột', 'Bảo vệ quyền lợi người lao động', 'Là nội dung trung tâm liên kết bình đẳng và tự quyết']
+  },
+  {
+    eyebrow: 'Liên hệ Việt Nam',
+    title: 'Bình đẳng, tự quyết và bảo vệ chủ quyền',
+    body: 'Việt Nam có 54 dân tộc bình đẳng trước pháp luật; Tuyên ngôn Độc lập năm 1945 khẳng định quyền tự quyết của dân tộc Việt Nam, còn hiện nay đất nước tiếp tục bảo vệ độc lập, chủ quyền và toàn vẹn lãnh thổ.',
+    points: ['Chính sách giáo dục, y tế, hạ tầng, giảm nghèo', 'Bảo đảm bình đẳng thực chất', 'Giữ vững độc lập và toàn vẹn lãnh thổ']
+  },
+  {
+    eyebrow: 'Ý nghĩa chung',
+    title: 'Cơ sở lý luận cho chính sách dân tộc',
+    body: 'Cương lĩnh dân tộc là cơ sở quan trọng để các Đảng Cộng sản xây dựng chính sách dân tộc, giải quyết đúng đắn vấn đề dân tộc trong đấu tranh giành độc lập và xây dựng chủ nghĩa xã hội.',
+    points: ['Định hướng chính sách dân tộc', 'Gắn độc lập dân tộc với chủ nghĩa xã hội', 'Củng cố đoàn kết giữa các dân tộc']
   }
 ];
 
 export const vietnamCharacteristics: InfoCard[] = [
   {
     eyebrow: 'Đặc điểm Việt Nam',
-    title: 'Cư trú xen kẽ, địa bàn chiến lược',
-    body: 'Các dân tộc Việt Nam cư trú đan xen trên nhiều vùng, trong đó nhiều địa bàn miền núi, biên giới có ý nghĩa quan trọng về kinh tế, quốc phòng và an ninh.',
-    points: ['Tăng nhu cầu giao lưu, hợp tác', 'Cần chính sách phù hợp từng địa bàn', 'Đoàn kết gắn với ổn định quốc gia']
+    title: 'Các dân tộc cư trú xen kẽ nhau',
+    body: 'Các dân tộc Việt Nam cư trú phân tán, xen kẽ, không có lãnh thổ tộc người riêng; không có dân tộc nào cư trú tập trung và duy nhất trên một địa bàn.',
+    points: ['Tạo điều kiện giao lưu văn hóa', 'Hỗ trợ nhau phát triển', 'Cần giải quyết tốt mâu thuẫn phát sinh']
   },
   {
     eyebrow: 'Đặc điểm Việt Nam',
     title: 'Trình độ phát triển còn không đồng đều',
-    body: 'Một số vùng dân tộc thiểu số và miền núi còn khó khăn về hạ tầng, giáo dục, y tế, sinh kế; vì vậy chính sách hỗ trợ đặc thù là cần thiết.',
-    points: ['Thu hẹp khoảng cách phát triển', 'Tạo cơ hội công bằng', 'Giảm nghèo bền vững']
+    body: 'Giữa các dân tộc vẫn còn khoảng cách về kinh tế, giáo dục, y tế, hạ tầng, văn hóa và đời sống xã hội; thu hẹp khoảng cách là điều kiện để bình đẳng trở thành thực chất.',
+    points: ['Giảm khoảng cách vùng và dân tộc', 'Bảo đảm cơ hội phát triển công bằng', 'Gắn hỗ trợ đặc thù với phát triển bền vững']
   },
   {
     eyebrow: 'Đặc điểm Việt Nam',
     title: 'Truyền thống đoàn kết lâu đời',
-    body: 'Trong lịch sử dựng nước và giữ nước, các dân tộc Việt Nam luôn gắn bó, tương trợ và cùng bảo vệ cộng đồng quốc gia.',
-    points: ['Đại đoàn kết toàn dân tộc', 'Tôn trọng văn hóa riêng', 'Cùng hướng tới phát triển bền vững']
+    body: 'Các dân tộc Việt Nam cùng lao động sản xuất và đấu tranh chống ngoại xâm trong suốt lịch sử; đoàn kết dân tộc là nguồn sức mạnh của công cuộc dựng nước và giữ nước.',
+    points: ['Nền tảng của đại đoàn kết toàn dân tộc', 'Gắn bó trong lịch sử chung', 'Tiếp tục là sức mạnh phát triển đất nước']
   }
 ];
 

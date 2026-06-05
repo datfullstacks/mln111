@@ -57,18 +57,25 @@ export function LinhSlideExplorer({ kind, items, visual }: LinhSlideExplorerProp
           <p>{visual?.caption}</p>
         </div>
         <div className="linh-selector" aria-label={`Chọn nội dung ${kindLabels[kind]}`}>
-          {items.map((item, index) => (
-            <button
-              className={index === activeIndex ? 'active' : ''}
-              key={item.title}
-              type="button"
-              onClick={() => setActiveIndex(index)}
-              aria-pressed={index === activeIndex}
-            >
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <strong>{shortenTitle(item.title, kind)}</strong>
-            </button>
-          ))}
+          {items.map((item, index) => {
+            const groupLabel = getGroupLabel(item, kind);
+            const previousGroupLabel = index > 0 ? getGroupLabel(items[index - 1], kind) : '';
+
+            return (
+              <div className="linh-selector-item" key={item.title}>
+                {groupLabel && groupLabel !== previousGroupLabel ? <span className="linh-selector-group">{groupLabel}</span> : null}
+                <button
+                  className={`${index === activeIndex ? 'active' : ''} ${getButtonClass(item, kind)}`}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  aria-pressed={index === activeIndex}
+                >
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <strong>{shortenTitle(item.title, kind)}</strong>
+                </button>
+              </div>
+            );
+          })}
         </div>
       </aside>
       <div className="linh-detail-panel" aria-live="polite">
@@ -85,13 +92,68 @@ export function LinhSlideExplorer({ kind, items, visual }: LinhSlideExplorerProp
   );
 }
 
+function getGroupLabel(item: InfoCard, kind: LinhSlideKind) {
+  if (kind !== 'trends') {
+    return '';
+  }
+
+  if (item.eyebrow === 'Biểu hiện') {
+    return 'Biểu hiện của hai xu hướng';
+  }
+
+  if (item.eyebrow === 'Ví dụ') {
+    return 'Ví dụ';
+  }
+
+  if (item.eyebrow === 'Mối quan hệ') {
+    return 'Quan hệ';
+  }
+
+  if (item.eyebrow === 'Ý nghĩa hiện nay') {
+    return 'Ý nghĩa';
+  }
+
+  return 'Hai xu hướng khách quan';
+}
+
+function getButtonClass(item: InfoCard, kind: LinhSlideKind) {
+  if (kind !== 'trends') {
+    return '';
+  }
+
+  if (item.eyebrow === 'Biểu hiện') {
+    return 'is-manifestation';
+  }
+
+  if (item.eyebrow === 'Mối quan hệ') {
+    return 'is-relation';
+  }
+
+  if (item.eyebrow === 'Ví dụ' || item.eyebrow === 'Ý nghĩa hiện nay') {
+    return 'is-relation';
+  }
+
+  return 'is-trend';
+}
+
 function shortenTitle(title: string, kind: LinhSlideKind) {
   if (kind === 'trends') {
-    return title.replace('Tách ra để hình thành ', '').replace('Liên hiệp lại với nhau', 'Liên hiệp lại');
+    return title
+      .replace('Tách ra để hình thành cộng đồng dân tộc độc lập', 'Dân tộc độc lập')
+      .replace('Liên hiệp lại với nhau', 'Liên hiệp')
+      .replace('Trong phạm vi một quốc gia', 'Trong quốc gia')
+      .replace('Trong phạm vi quốc tế', 'Quốc tế')
+      .replace('Thống nhất biện chứng', 'Quan hệ hai xu hướng');
   }
 
   if (kind === 'principles') {
-    return title.replace('Các dân tộc ', '').replace('Liên hiệp công nhân tất cả các dân tộc', 'Liên hiệp công nhân');
+    return title
+      .replace('Cương lĩnh được xây dựng từ lý luận và thực tiễn cách mạng', 'Cơ sở hình thành')
+      .replace('Các dân tộc hoàn toàn bình đẳng', 'Bình đẳng')
+      .replace('Các dân tộc được quyền tự quyết', 'Tự quyết')
+      .replace('Liên hiệp công nhân tất cả các dân tộc', 'Liên hiệp công nhân')
+      .replace('Bình đẳng, tự quyết và bảo vệ chủ quyền', 'Liên hệ Việt Nam')
+      .replace('Cơ sở lý luận cho chính sách dân tộc', 'Ý nghĩa chung');
   }
 
   return title

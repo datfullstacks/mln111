@@ -17,18 +17,30 @@ type VisualImage = {
 
 type NationFactorExplorerProps = {
   image?: VisualImage;
+  images?: VisualImage[];
   items: InfoCard[];
 };
 
-export function NationFactorExplorer({ image, items }: NationFactorExplorerProps) {
+export function NationFactorExplorer({ image, images, items }: NationFactorExplorerProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeItem = items[activeIndex] ?? items[0];
+  const visualImages = images?.length ? images : image ? [image] : [];
 
   return (
     <>
       <aside className="slide-visual statement nation-factor-visual">
         <div className="nation-factor-media">
-          {image ? <img className="visual-backdrop" src={image.src} alt={image.alt} /> : null}
+          {visualImages[0] ? <img className="visual-backdrop" src={visualImages[0].src} alt={visualImages[0].alt} /> : null}
+          {visualImages.length > 1 ? (
+            <div className="nation-factor-photo-stack" aria-label="Hình ảnh minh họa quốc gia dân tộc">
+              {visualImages.slice(1, 3).map((visualImage, index) => (
+                <figure key={visualImage.src}>
+                  <img src={visualImage.src} alt={visualImage.alt} />
+                  <figcaption>{visualImage.label}</figcaption>
+                </figure>
+              ))}
+            </div>
+          ) : null}
           <div className="visual-overlay" />
           <div className="nation-factor-caption">
             <span>Nation</span>
