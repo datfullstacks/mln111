@@ -862,25 +862,37 @@ const partyEqualityCards: InfoCard[] = [
 ];
 
 const partyDevelopmentCards: InfoCard[] = [
-  partyViewpoints[2],
   {
-    eyebrow: 'Kinh tế',
-    title: 'Hạ tầng và sinh kế bền vững',
-    body: 'Ưu tiên nguồn vốn và huy động nguồn lực xã hội để đầu tư giao thông, điện, thủy lợi, trường học, trạm y tế và hạ tầng số.',
+    eyebrow: 'Phát triển toàn diện',
+    title: 'Toàn diện về kinh tế',
+    body:
+      'Ưu tiên nguồn vốn ngân sách và huy động nguồn lực xã hội để đầu tư đồng bộ hạ tầng kỹ thuật như giao thông, lưới điện quốc gia, thủy lợi, trường học, trạm y tế và hạ tầng số; đồng thời chuyển dịch cơ cấu kinh tế theo tiềm năng riêng của từng địa phương.',
     points: [
-      'Phát triển lâm nghiệp bền vững, cây công nghiệp và cây dược liệu',
-      'Thúc đẩy chăn nuôi đại gia súc và du lịch sinh thái',
-      'Giảm nghèo nhanh và bền vững dựa trên tiềm năng địa phương'
+      'Phát triển kinh tế lâm nghiệp bền vững, kinh tế dưới tán rừng, cây công nghiệp và cây dược liệu giá trị cao',
+      'Thúc đẩy chăn nuôi đại gia súc, du lịch sinh thái gắn với văn hóa bản địa để giảm nghèo bền vững',
+      'Ví dụ: sâm Ngọc Linh ở Quảng Nam, tam thất ở Hà Giang; homestay cộng đồng tại Sa Pa, Mai Châu'
     ]
   },
   {
-    eyebrow: 'Chính trị - xã hội',
-    title: 'Cơ sở vững, đời sống nâng lên',
-    body: 'Củng cố hệ thống chính trị cơ sở, đào tạo cán bộ dân tộc thiểu số, đồng thời nâng cao giáo dục, y tế và bảo tồn bản sắc văn hóa.',
+    eyebrow: 'Phát triển toàn diện',
+    title: 'Toàn diện về chính trị và quốc phòng - an ninh',
+    body:
+      'Tập trung xây dựng hệ thống chính trị cơ sở vùng biên giới, vùng đồng bào dân tộc thiểu số vững mạnh; chú trọng quy hoạch, đào tạo, bố trí đội ngũ cán bộ là người dân tộc thiểu số tại địa phương.',
     points: [
-      'Gắn phát triển kinh tế - xã hội với quốc phòng - an ninh',
-      'Nâng cao chất lượng trường dân tộc nội trú, bán trú và y tế cơ sở',
-      'Bảo tồn tiếng nói, chữ viết, trang phục, lễ hội và xóa bỏ hủ tục lạc hậu'
+      'Gắn phát triển kinh tế - xã hội với quốc phòng - an ninh, xây dựng thế trận an ninh nhân dân và quốc phòng toàn dân',
+      'Bảo vệ chủ quyền, an ninh biên giới quốc gia',
+      'Ví dụ: đồn biên phòng tham gia sinh hoạt chi bộ thôn, bản; bồi dưỡng con em DTTS giữ chức vụ Bí thư, Chủ tịch xã'
+    ]
+  },
+  {
+    eyebrow: 'Phát triển toàn diện',
+    title: 'Toàn diện về văn hóa - xã hội',
+    body:
+      'Nâng cao dân trí, chất lượng nguồn nhân lực, y tế cơ sở và bảo tồn văn hóa trong nguyên tắc thống nhất trong đa dạng; đồng thời vận động xóa bỏ hủ tục lạc hậu, mê tín dị đoan làm kìm hãm tiến bộ xã hội.',
+    points: [
+      'Củng cố trường phổ thông dân tộc nội trú, bán trú; miễn giảm học phí và hỗ trợ chi phí học tập cho học sinh, sinh viên vùng cao',
+      'Tăng cường y tế cơ sở, bảo hiểm y tế cho đồng bào vùng đặc biệt khó khăn; bảo tồn tiếng nói, chữ viết, trang phục, lễ hội truyền thống',
+      'Ví dụ: trường dân tộc nội trú nuôi dạy con em vùng cao; VTV5 phát sóng bằng nhiều tiếng dân tộc; vận động bỏ tảo hôn, thách cưới nặng nề, mê tín dị đoan'
     ]
   }
 ];
@@ -1290,10 +1302,10 @@ const slideVisuals: SlideVisual[] = ([
     chips: ['Bình đẳng pháp lý', 'Đoàn kết hệ thống', 'Tương trợ thực chất']
   },
   {
-    variant: 'image',
+    variant: 'gallery',
     title: 'Phát triển toàn diện',
-    caption: 'Kinh tế, chính trị, quốc phòng - an ninh, văn hóa và xã hội phải được đặt trong một chỉnh thể.',
-    chips: ['Kinh tế', 'Chính trị', 'Văn hóa - xã hội', 'QP-AN']
+    caption: 'Chính sách dân tộc là phương thức nội lực hóa nguồn lực của Đảng và Nhà nước, tác động đồng bộ lên kinh tế, chính trị, quốc phòng - an ninh, văn hóa và xã hội.',
+    chips: ['Kinh tế', 'Chính trị - QP-AN', 'Văn hóa - xã hội']
   },
   {
     variant: 'gallery',
@@ -1390,7 +1402,7 @@ const slideImageGroups: VisualImage[][] = [
   [visualImages.docEconomyEvidence],
   [visualImages.hienEthnicSecurityExample],
   [visualImages.thoPoliticalElection, visualImages.tienActionVolunteerGifts, visualImages.tienInfrastructureChildrenReading],
-  [visualImages.thoPolicyOverview],
+  [visualImages.tienEconomyTea, visualImages.thoSecurityDefense, visualImages.thoCultureUnity],
   [visualImages.thoPoliticalElection, visualImages.thoPoliticalParticipation],
   [visualImages.thoEconomyLivelihood, visualImages.thoEconomyLocalProducts],
   [visualImages.thoCultureUnity, visualImages.thoUnityHoChiMinh],

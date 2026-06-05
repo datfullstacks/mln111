@@ -116,6 +116,9 @@ function shortenTitle(title: string, kind: HienSlideKind) {
 
   return title
     .replace('Phát triển toàn diện vùng dân tộc và miền núi', 'Phát triển toàn diện')
+    .replace('Toàn diện về kinh tế', 'Kinh tế')
+    .replace('Toàn diện về chính trị và quốc phòng - an ninh', 'Chính trị - QP-AN')
+    .replace('Toàn diện về văn hóa - xã hội', 'Văn hóa - xã hội')
     .replace('Hạ tầng và sinh kế bền vững', 'Kinh tế - hạ tầng')
     .replace('Cơ sở vững, đời sống nâng lên', 'Chính trị - xã hội');
 }
