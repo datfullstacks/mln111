@@ -29,7 +29,8 @@ export function AIUsage() {
           <ul className="assignment-list">
             {teamAssignments.map(member => (
               <li key={member.name}>
-                <strong>{member.name}</strong>
+                <strong>{member.name} - {member.studentId}</strong>
+                <em>{member.shortName}</em>
                 <span>{member.task}</span>
               </li>
             ))}

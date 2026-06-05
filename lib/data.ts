@@ -578,9 +578,9 @@ export const academicIntegrity: TextBlock[] = [
 ];
 
 export const teamAssignments = [
-  { name: 'Đào', task: 'Khái niệm, đặc trưng cơ bản của dân tộc' },
-  { name: 'Linh', task: 'Cương lĩnh dân tộc của chủ nghĩa Mác - Lênin, đặc điểm dân tộc ở Việt Nam' },
-  { name: 'Hiển', task: 'Quan điểm của Đảng, Nhà nước Việt Nam về vấn đề dân tộc' },
-  { name: 'Thỏ', task: 'Chính sách dân tộc của Đảng, Nhà nước Việt Nam' },
-  { name: 'Tiên', task: 'Thành tựu phát triển, phê phán chia rẽ và kêu gọi đoàn kết' }
+  { name: 'Đào Phương Thảo', studentId: 'SS170172', shortName: 'Đào', task: 'Khái niệm, đặc trưng cơ bản của dân tộc' },
+  { name: 'Đỗ Phương Linh', studentId: 'SS180018', shortName: 'Linh', task: 'Cương lĩnh dân tộc của chủ nghĩa Mác - Lênin, đặc điểm dân tộc ở Việt Nam' },
+  { name: 'Cai Xuân Hiển', studentId: 'QE180114', shortName: 'Hiển', task: 'Quan điểm của Đảng, Nhà nước Việt Nam về vấn đề dân tộc' },
+  { name: 'Trần Lê Thanh Thảo', studentId: 'SS181084', shortName: 'Thỏ', task: 'Chính sách dân tộc của Đảng, Nhà nước Việt Nam' },
+  { name: 'Lê Thị Kiều Tiên', studentId: 'SS180860', shortName: 'Tiên', task: 'Thành tựu phát triển, phê phán chia rẽ và kêu gọi đoàn kết' }
 ];

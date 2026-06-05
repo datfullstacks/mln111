@@ -323,7 +323,7 @@ select {
   top: 50%;
   z-index: 12;
   width: 88px;
-  display: grid;
+  display: none;
   gap: 9px;
   padding: 10px;
   border: 1px solid rgba(27, 94, 75, 0.18);
@@ -3398,6 +3398,13 @@ select {
 
 .assignment-list span {
   color: var(--muted);
+}
+
+.assignment-list em {
+  color: var(--green-strong);
+  font-size: 0.82rem;
+  font-style: normal;
+  font-weight: 800;
 }
 
 .ordered-list {

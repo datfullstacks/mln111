@@ -1859,8 +1859,6 @@ export function Home() {
               <div className="slide-content-wrapper container">
                 <div className="slide-frame-head">
                   <span className="slide-counter">{String(index + 1).padStart(2, '0')}</span>
-                  <span className="slide-owner">{slide.member}</span>
-                  <span className="eyebrow">{slide.eyebrow}</span>
                 </div>
                 <div className="slide-layout">
                   <div className="slide-intro">
