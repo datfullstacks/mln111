@@ -266,15 +266,40 @@ const visualImages = {
     alt: 'Ruộng bậc thang và cảnh quan sản xuất ở vùng miền núi',
     label: 'Sản xuất vùng cao'
   },
+  tienEconomyGreenhouse: {
+    src: '/images/mln131/tien/economy-greenhouse.jpg',
+    alt: 'Người dân và cán bộ tham quan mô hình trồng rau trong nhà kính ở vùng dân tộc',
+    label: 'Mô hình sản xuất'
+  },
   tienCultureCostume: {
     src: '/images/mln131/tien/culture-costume.jpg',
     alt: 'Các cô gái trong trang phục truyền thống dân tộc',
     label: 'Trang phục'
   },
+  tienCultureMinorityCostume: {
+    src: '/images/mln131/tien/culture-minority-costume.jpg',
+    alt: 'Phụ nữ dân tộc thiểu số trong trang phục truyền thống rực rỡ',
+    label: 'Trang phục dân tộc'
+  },
   tienCultureFestival: {
     src: '/images/mln131/tien/culture-festival.jpg',
     alt: 'Người dân biểu diễn múa truyền thống trong sinh hoạt văn hóa cộng đồng',
     label: 'Lễ hội'
+  },
+  tienUnityFestivalFlowers: {
+    src: '/images/mln131/tien/unity-festival-flowers.jpg',
+    alt: 'Đồng bào nhiều dân tộc tham gia sự kiện cộng đồng và giơ hoa đỏ',
+    label: 'Đoàn kết cộng đồng'
+  },
+  tienActionVolunteerGifts: {
+    src: '/images/mln131/tien/action-volunteer-gifts.webp',
+    alt: 'Thanh niên tình nguyện trao quà cho trẻ em vùng dân tộc thiểu số',
+    label: 'Tương trợ'
+  },
+  tienActionEthnicStudents: {
+    src: '/images/mln131/tien/action-ethnic-students.jpeg',
+    alt: 'Học sinh dân tộc thiểu số trong trang phục truyền thống tham gia hoạt động cộng đồng',
+    label: 'Học sinh dân tộc'
   },
   docCommunity: {
     src: '/images/mln131/image26.jpg',
@@ -1182,10 +1207,10 @@ const slideImageGroups: VisualImage[][] = [
   [visualImages.tienInfrastructureRoad, visualImages.tienInfrastructureChildrenReading, visualImages.tienInfrastructureElectricity, visualImages.tienCleanWater],
   [visualImages.tienInfrastructureChildrenReading, visualImages.tienEducationClassroom, visualImages.docSchoolRoad],
   [visualImages.tienHealthStation, visualImages.tienHealthCommunityCheckup, visualImages.tienHealthCheckup],
-  [visualImages.tienEconomyTea, visualImages.tienEconomyTerraces],
-  [visualImages.tienCultureCostume, visualImages.tienCultureFestival],
-  [visualImages.terraces, visualImages.festival],
-  [visualImages.docSchoolRoad, visualImages.populationMap]
+  [visualImages.tienEconomyGreenhouse, visualImages.tienEconomyTea, visualImages.tienEconomyTerraces],
+  [visualImages.tienCultureMinorityCostume, visualImages.tienCultureCostume, visualImages.tienCultureFestival],
+  [visualImages.tienUnityFestivalFlowers, visualImages.terraces, visualImages.festival],
+  [visualImages.tienActionVolunteerGifts, visualImages.tienActionEthnicStudents]
 ].slice(1);
 
 const visibleSlideVisuals: SlideVisual[] = slideVisuals.map((visual, index) => {
