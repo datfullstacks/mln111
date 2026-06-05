@@ -448,6 +448,56 @@ const visualImages = {
     license: 'CC BY-SA 2.0',
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Inside_a_H'Mong_house,_Vietnam.jpg"
   },
+  linhFlagCrowd: {
+    src: '/images/mln131/linh/10.5.jpg',
+    alt: 'Đông đảo đồng bào các dân tộc cầm cờ Việt Nam trong sự kiện cộng đồng',
+    label: 'Sắc cờ đoàn kết'
+  },
+  linhInternationalIntegration: {
+    src: '/images/mln131/linh/24-09-2025-nang-cao-vi-the-cua-viet-nam-tren-truong-quoc-te-1B3D7946.png',
+    alt: 'Minh họa Việt Nam tham gia Liên Hợp Quốc, hợp tác quốc tế và hoạt động gìn giữ hòa bình',
+    label: 'Hợp tác quốc tế'
+  },
+  linhAsean: {
+    src: '/images/mln131/linh/2bc0ce21561dd7438e0c.jpg',
+    alt: 'Đại diện Việt Nam trong không gian hội nghị ASEAN',
+    label: 'ASEAN'
+  },
+  linhLenin: {
+    src: '/images/mln131/linh/468891715306900.jpg',
+    alt: 'V.I. Lênin phát biểu trước quần chúng trong bối cảnh cách mạng',
+    label: 'Lênin'
+  },
+  linhEthnicMosaic: {
+    src: '/images/mln131/linh/54-dan-toc-vn.jpg',
+    alt: 'Bộ sưu tập hình ảnh 54 dân tộc Việt Nam',
+    label: '54 dân tộc'
+  },
+  linhCommunityCircle: {
+    src: '/images/mln131/linh/dac-trung-cua-dan-toc-la-gi_0108174114.jpg',
+    alt: 'Sinh hoạt cộng đồng của đồng bào dân tộc trong không gian nhà truyền thống',
+    label: 'Cộng đồng'
+  },
+  linhEthnicUnity: {
+    src: '/images/mln131/linh/dt-1740632213853374599276-0-0-590-944-crop-1740632219225493771900.png',
+    alt: 'Đồng bào dân tộc thiểu số cầm cờ Việt Nam trong ngày hội đoàn kết',
+    label: 'Đại đoàn kết'
+  },
+  linhParade: {
+    src: '/images/mln131/linh/images1476393_anh_duyet_binh.jpg',
+    alt: 'Đoàn người trong trang phục nhiều dân tộc tham gia sự kiện cộng đồng',
+    label: 'Ngày hội dân tộc'
+  },
+  linhThaiCommunity: {
+    src: '/images/mln131/linh/nguoi-thai.jpg',
+    alt: 'Người Thái sinh hoạt văn hóa cộng đồng trong không gian truyền thống',
+    label: 'Người Thái'
+  },
+  linhVietnamCulture: {
+    src: '/images/mln131/linh/vanhoavietnam.jpg',
+    alt: 'Đoàn người trong trang phục truyền thống các dân tộc Việt Nam',
+    label: 'Văn hóa Việt Nam'
+  },
   daoThiToc: {
     src: '/images/mln131/dao/thi-toc.jpg',
     alt: 'Minh hoa cong dong thi toc thoi so khai trong hang da',
@@ -1176,10 +1226,10 @@ const slideImageGroups: VisualImage[][] = [
   [visualImages.unityMap, visualImages.thoUnityHoChiMinh, visualImages.thoCultureUnity],
   [visualImages.commonsHmongDress, visualImages.commonsHmongBatik, visualImages.ethnicPortraits],
   [visualImages.docUnity, visualImages.docGirls],
-  [visualImages.commonsBlackHmongWomen, visualImages.bridge],
-  [visualImages.docPoliticalSlide],
-  [visualImages.docDecision1719, visualImages.docTerraces],
-  [visualImages.docViewpointSlide, visualImages.docMeeting],
+  [visualImages.linhInternationalIntegration, visualImages.linhAsean, visualImages.linhFlagCrowd],
+  [visualImages.linhLenin, visualImages.linhInternationalIntegration, visualImages.linhAsean],
+  [visualImages.linhEthnicMosaic, visualImages.linhCommunityCircle, visualImages.linhParade],
+  [visualImages.linhEthnicUnity, visualImages.linhThaiCommunity, visualImages.linhVietnamCulture],
   [visualImages.docEconomyEvidence],
   [visualImages.docEconomySlide],
   [visualImages.thoPolicyOverview],
