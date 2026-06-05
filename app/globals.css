@@ -501,13 +501,12 @@ select {
 
 .slide-section {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   isolation: isolate;
   z-index: 1;
-  height: var(--slide-panel-height);
-  min-height: 0;
+  min-height: var(--slide-panel-height);
   display: flex;
-  align-items: stretch;
+  align-items: center;
   padding: clamp(20px, 4.4vh, 46px) 0 clamp(18px, 3.2vh, 34px);
   border-bottom: 1px solid var(--line);
   scroll-snap-align: start;
@@ -526,11 +525,9 @@ select {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  gap: 18px;
-  min-height: 0;
-  height: 100%;
-  align-content: start;
+  gap: clamp(18px, 3vh, 28px);
+  min-height: min(680px, calc(var(--slide-panel-height) - 84px));
+  align-content: center;
 }
 
 .slide-frame-head {
@@ -573,8 +570,6 @@ select {
   grid-template-columns: minmax(230px, 0.72fr) minmax(300px, 0.9fr) minmax(320px, 1fr);
   gap: 22px;
   align-items: stretch;
-  height: 100%;
-  min-height: 0;
 }
 
 .slide-intro {
@@ -600,8 +595,7 @@ select {
 
 .slide-visual {
   position: relative;
-  min-height: 0;
-  height: 100%;
+  min-height: min(560px, calc(var(--slide-panel-height) - 260px));
   overflow: hidden;
   border: 1px solid rgba(27, 94, 75, 0.14);
   border-radius: 8px;
@@ -735,8 +729,7 @@ select {
 .visual-gallery-grid,
 .visual-comparison-grid {
   display: grid;
-  min-height: 0;
-  height: 100%;
+  min-height: 390px;
   gap: 8px;
   padding: 8px;
 }
@@ -777,12 +770,11 @@ select {
 }
 
 .dao-slide .slide-visual {
-  align-self: stretch;
+  align-self: start;
 }
 
 .dao-slide-2 .slide-visual.timeline {
-  min-height: 0;
-  height: 100%;
+  min-height: 560px;
 }
 
 .dao-slide-2 .slide-layout {
@@ -816,18 +808,17 @@ select {
 
 .dao-slide-3 .visual-comparison-grid,
 .dao-slide-6 .visual-comparison-grid {
-  min-height: min(430px, 100%);
+  min-height: 430px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .dao-slide-3 .slide-layout {
   grid-template-columns: minmax(230px, 0.64fr) minmax(520px, 1.34fr) minmax(360px, 1fr);
-  align-items: stretch;
+  align-items: start;
 }
 
 .dao-slide-3 .slide-visual.comparison {
-  min-height: 0;
-  height: 100%;
+  min-height: 560px;
 }
 
 .dao-slide-3 .slide-visual.east-west-comparison {
@@ -838,8 +829,7 @@ select {
 
 .dao-slide-3 .east-west-comparison .visual-comparison-grid {
   position: relative;
-  min-height: 0;
-  height: 100%;
+  min-height: 470px;
   gap: 12px;
   padding: 12px 12px 0;
 }
@@ -866,12 +856,12 @@ select {
 
 .dao-slide-3 .visual-comparison-grid figure,
 .dao-slide-6 .visual-comparison-grid figure {
-  min-height: 0;
+  min-height: 430px;
 }
 
 .dao-slide-3 .east-west-comparison .visual-comparison-grid figure {
   position: relative;
-  min-height: 0;
+  min-height: 470px;
   border: 1px solid rgba(255, 254, 248, 0.24);
   box-shadow: inset 0 -130px 80px rgba(16, 31, 27, 0.42);
 }
@@ -949,8 +939,7 @@ select {
 }
 
 .meaning-contrast-visual {
-  min-height: 0;
-  height: 100%;
+  min-height: 560px;
   background:
     linear-gradient(90deg, rgba(27, 94, 75, 0.1), rgba(255, 254, 248, 0.72) 50%, rgba(196, 76, 55, 0.1)),
     rgba(255, 254, 248, 0.86);
@@ -1243,15 +1232,13 @@ select {
 }
 
 .dao-slide-5 .visual-gallery-grid {
-  min-height: 0;
-  height: 100%;
+  min-height: 430px;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   grid-template-rows: repeat(2, minmax(0, 1fr));
 }
 
 .dao-slide-5 .ethnic-identity-visual {
-  min-height: 0;
-  height: 100%;
+  min-height: 540px;
   background:
     radial-gradient(circle at 48% 42%, rgba(255, 254, 248, 0.82), rgba(255, 254, 248, 0.24) 42%, rgba(27, 94, 75, 0.18)),
     #f4f0e7;
@@ -1545,9 +1532,7 @@ select {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 14px;
-  max-height: none;
-  height: 100%;
-  min-height: 0;
+  max-height: min(560px, calc(var(--slide-panel-height) - 260px));
   overflow-y: auto;
   padding: 2px 6px 2px 2px;
   scrollbar-color: rgba(27, 94, 75, 0.35) transparent;
@@ -1564,24 +1549,23 @@ select {
 
 .concept-open-slide .slide-layout {
   grid-template-columns: minmax(260px, 0.72fr) minmax(320px, 0.88fr) minmax(460px, 1.4fr);
-  align-items: stretch;
+  align-items: start;
 }
 
 .concept-open-slide .slide-visual {
-  min-height: 0;
-  height: 100%;
-  align-self: stretch;
+  min-height: 560px;
+  align-self: start;
 }
 
 .concept-open-slide .visual-gallery-grid {
-  height: min(402px, 72%);
-  min-height: min(320px, 72%);
+  height: 402px;
+  min-height: 402px;
 }
 
 .concept-open-slide .slide-card-grid {
   gap: 12px;
   max-height: none;
-  overflow-y: auto;
+  overflow: visible;
 }
 
 .concept-open-slide .slide-info-card {
@@ -1617,12 +1601,11 @@ select {
 
 .nation-slide .slide-layout {
   grid-template-columns: minmax(250px, 0.78fr) minmax(380px, 1fr) minmax(420px, 1.2fr);
-  align-items: stretch;
+  align-items: start;
 }
 
 .nation-slide .nation-structure-visual {
-  min-height: 0;
-  height: 100%;
+  min-height: 560px;
   background:
     radial-gradient(circle at center, rgba(255, 254, 248, 0.84), rgba(255, 254, 248, 0.56) 46%, rgba(27, 94, 75, 0.12)),
     #f4f0e7;
@@ -2315,12 +2298,11 @@ select {
 }
 
 .tho-slide .slide-visual.gallery {
-  min-height: 0;
-  height: 100%;
+  min-height: 520px;
 }
 
 .tho-slide .visual-gallery-grid {
-  min-height: 0;
+  min-height: 350px;
 }
 
 .tho-slide .visual-copy.compact {

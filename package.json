@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "test:layout": "node scripts/check-slide-layout.js",
     "start": "next start",
     "lint": "next lint"
   },
