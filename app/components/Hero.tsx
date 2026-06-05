@@ -17,11 +17,11 @@ export function Hero() {
             dân tộc trong chủ nghĩa Mác - Lênin đến chính sách, thành tựu và trách nhiệm của sinh viên.
           </p>
           <div className="hero-actions">
-            <Link href="/policy" className="btn primary">
-              Xem chính sách
+            <Link href="#slides" className="btn primary">
+              Xem slide
             </Link>
-            <Link href="/achievements" className="btn secondary">
-              Thành tựu & quiz
+            <Link href="/ai-usage" className="btn secondary">
+              Nguồn & AI Usage
             </Link>
           </div>
         </div>

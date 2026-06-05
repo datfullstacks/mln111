@@ -528,6 +528,46 @@ const visualImages = {
     alt: 'Minh hoa khong gian van hoa cong dong phuong Dong',
     label: 'Phuong Dong'
   },
+  daoNationEconomy: {
+    src: '/images/mln131/dao/unnamed.jpg',
+    alt: 'Ruộng bậc thang và sinh kế nông nghiệp vùng núi Việt Nam',
+    label: 'Kinh tế'
+  },
+  daoNationTerritory: {
+    src: '/images/mln131/dao/unnamed%20(1).jpg',
+    alt: 'Bản đồ Việt Nam ghép chân dung đại diện các dân tộc',
+    label: 'Lãnh thổ'
+  },
+  daoNationState: {
+    src: '/images/mln131/dao/unnamed%20(2).jpg',
+    alt: 'Không gian lễ nghi nhà nước tại Quảng trường Ba Đình',
+    label: 'Nhà nước'
+  },
+  daoNationLanguage: {
+    src: '/images/mln131/dao/unnamed%20(3).jpg',
+    alt: 'Bảng chữ cái tiếng Việt minh họa ngôn ngữ chung',
+    label: 'Ngôn ngữ'
+  },
+  daoNationCulture: {
+    src: '/images/mln131/dao/unnamed%20(4).jpg',
+    alt: 'Minh họa 54 dân tộc Việt Nam với trang phục và bản sắc riêng',
+    label: 'Văn hóa'
+  },
+  daoEthnicCostumes: {
+    src: '/images/mln131/dao/unnamed%20(5).jpg',
+    alt: 'Minh họa trang phục và bản sắc của nhiều tộc người Việt Nam',
+    label: 'Trang phục'
+  },
+  daoEthnicFestival: {
+    src: '/images/mln131/dao/unnamed%20(6).jpg',
+    alt: 'Minh họa lễ hội Gióng với đoàn rước và sinh hoạt cộng đồng',
+    label: 'Lễ hội'
+  },
+  daoEthnicHeritage: {
+    src: '/images/mln131/dao/unnamed%20(7).jpg',
+    alt: 'Trưng bày văn hóa truyền thống dân tộc Mông và hoa văn thổ cẩm',
+    label: 'Di sản'
+  },
   commonsDanMoi: {
     src: '/images/mln131/external/danMoi.jpg',
     alt: 'Phụ nữ Hmong chơi đàn môi ở Việt Nam',
@@ -1223,8 +1263,14 @@ const slideImageGroups: VisualImage[][] = [
   [visualImages.commonsEthnicDistribution, visualImages.docCommunity],
   [visualImages.daoThiToc, visualImages.daoBoLac, visualImages.daoBoToc, visualImages.daoDanToc],
   [visualImages.daoPhuongTay, visualImages.daoPhuongDong],
-  [visualImages.unityMap, visualImages.thoUnityHoChiMinh, visualImages.thoCultureUnity],
-  [visualImages.commonsHmongDress, visualImages.commonsHmongBatik, visualImages.ethnicPortraits],
+  [
+    visualImages.daoNationEconomy,
+    visualImages.daoNationTerritory,
+    visualImages.daoNationState,
+    visualImages.daoNationLanguage,
+    visualImages.daoNationCulture
+  ],
+  [visualImages.daoEthnicCostumes, visualImages.daoEthnicFestival, visualImages.daoEthnicHeritage],
   [visualImages.docUnity, visualImages.docGirls],
   [visualImages.linhLenin, visualImages.linhInternationalIntegration, visualImages.linhAsean],
   [visualImages.linhEthnicMosaic, visualImages.linhFlagCrowd, visualImages.linhEthnicUnity],
@@ -1699,7 +1745,7 @@ export function Home() {
       <main className="home-page">
         <Hero />
 
-        <section className="home-deck" aria-label="Nội dung trình bày trang chủ">
+        <section id="slides" className="home-deck" aria-label="Nội dung trình bày trang chủ">
           <div className="home-dongson-shell" aria-hidden="true" dangerouslySetInnerHTML={{ __html: dongSonDrumMarkup }} />
           <SlideDeckControls slides={slideControlItems} />
           {homeSlides.map((slide, index) => (

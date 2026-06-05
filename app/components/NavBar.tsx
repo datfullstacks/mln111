@@ -5,14 +5,10 @@ import { usePathname } from 'next/navigation';
 
 export type NavKey =
   | 'home'
-  | 'policy'
-  | 'achievements'
   | 'ai-usage';
 
 const navLinks = [
   { key: 'home', label: 'Trang chủ', href: '/' },
-  { key: 'policy', label: 'Quan điểm & Chính sách', href: '/policy' },
-  { key: 'achievements', label: 'Thành tựu & Đoàn kết', href: '/achievements' },
   { key: 'ai-usage', label: 'Nguồn & AI Usage', href: '/ai-usage' }
 ] as const;
 

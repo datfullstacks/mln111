@@ -13,6 +13,9 @@ type VisualImage = {
   src: string;
   alt: string;
   label: string;
+  credit?: string;
+  license?: string;
+  sourceUrl?: string;
 };
 
 type NationFactorExplorerProps = {
@@ -25,23 +28,16 @@ export function NationFactorExplorer({ image, images, items }: NationFactorExplo
   const [activeIndex, setActiveIndex] = useState(0);
   const activeItem = items[activeIndex] ?? items[0];
   const visualImages = images?.length ? images : image ? [image] : [];
+  const activeImage = visualImages[activeIndex] ?? visualImages[0];
 
   return (
     <>
       <aside className="slide-visual statement nation-factor-visual">
         <div className="nation-factor-media">
-          {visualImages[0] ? <img className="visual-backdrop" src={visualImages[0].src} alt={visualImages[0].alt} /> : null}
-          {visualImages.length > 1 ? (
-            <div className="nation-factor-photo-stack" aria-label="Hình ảnh minh họa quốc gia dân tộc">
-              {visualImages.slice(1, 3).map((visualImage, index) => (
-                <figure key={visualImage.src}>
-                  <img src={visualImage.src} alt={visualImage.alt} />
-                  <figcaption>{visualImage.label}</figcaption>
-                </figure>
-              ))}
-            </div>
-          ) : null}
+          {activeImage ? <img key={activeImage.src} className="visual-backdrop" src={activeImage.src} alt={activeImage.alt} /> : null}
           <div className="visual-overlay" />
+          <VisualCredits images={visualImages} />
+          {activeImage ? <span className="nation-factor-image-label">{activeImage.label}</span> : null}
           <div className="nation-factor-caption">
             <span>Nation</span>
             <strong>Quốc gia dân tộc</strong>
@@ -74,5 +70,28 @@ export function NationFactorExplorer({ image, images, items }: NationFactorExplo
         </ul>
       </div>
     </>
+  );
+}
+
+function VisualCredits({ images }: { images: VisualImage[] }) {
+  const creditedImages = images.filter(image => image.sourceUrl);
+
+  if (!creditedImages.length) {
+    return null;
+  }
+
+  return (
+    <div className="visual-credit" aria-label="Nguồn ảnh">
+      <span>Nguồn</span>
+      {creditedImages.map((image, index) => {
+        const credit = [image.credit, image.license].filter(Boolean).join(' / ');
+
+        return (
+          <a key={image.src} href={image.sourceUrl} target="_blank" rel="noreferrer" title={credit || image.label}>
+            {index + 1}
+          </a>
+        );
+      })}
+    </div>
   );
 }
