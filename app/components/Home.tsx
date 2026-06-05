@@ -246,6 +246,11 @@ const visualImages = {
     alt: 'Nhân viên y tế khám sức khỏe cho người dân vùng dân tộc thiểu số',
     label: 'Khám sức khỏe'
   },
+  tienHealthCommunityCheckup: {
+    src: '/images/mln131/tien/health-community-checkup.webp',
+    alt: 'Nhân viên y tế đo huyết áp cho phụ nữ dân tộc thiểu số tại điểm khám cộng đồng',
+    label: 'Khám cộng đồng'
+  },
   tienEconomyTea: {
     src: '/images/mln131/tien/economy-tea.jpg',
     alt: 'Cán bộ và người dân kiểm tra vùng trồng chè ở miền núi',
@@ -1171,7 +1176,7 @@ const slideImageGroups: VisualImage[][] = [
   [visualImages.thoSecurityDefense],
   [visualImages.tienInfrastructureRoad, visualImages.tienInfrastructureElectricity, visualImages.tienCleanWater],
   [visualImages.tienEducationClassroom, visualImages.docSchoolRoad],
-  [visualImages.tienHealthStation, visualImages.tienHealthCheckup],
+  [visualImages.tienHealthStation, visualImages.tienHealthCommunityCheckup, visualImages.tienHealthCheckup],
   [visualImages.tienEconomyTea, visualImages.tienEconomyTerraces],
   [visualImages.tienCultureCostume, visualImages.tienCultureFestival],
   [visualImages.terraces, visualImages.festival],
