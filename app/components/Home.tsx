@@ -1096,7 +1096,7 @@ const slideVisuals: SlideVisual[] = ([
     chips: ['Kinh tế', 'Chính trị', 'Văn hóa - xã hội', 'QP-AN']
   },
   {
-    variant: 'policy',
+    variant: 'gallery',
     title: 'Chính trị',
     caption: 'Bảo đảm tiếng nói, quyền tham gia và vai trò của cộng đồng ở cơ sở.',
     chips: ['Quyền làm chủ', 'Đại diện', 'Cơ sở']
@@ -1120,7 +1120,7 @@ const slideVisuals: SlideVisual[] = ([
     chips: ['Giáo dục', 'Y tế', 'An sinh']
   },
   {
-    variant: 'image',
+    variant: 'gallery',
     title: 'An ninh - quốc phòng',
     caption: 'Dân yên, biên giới vững và hệ thống chính trị cơ sở mạnh là nền tảng ổn định lâu dài.',
     chips: ['Ổn định', 'Biên giới', 'Cơ sở']
@@ -1662,6 +1662,7 @@ export function Home() {
                 getDaoSlideClass(slide),
                 slide.member === 'Linh' ? 'linh-slide' : '',
                 slide.member === 'Hiển' ? 'hien-slide' : '',
+                slide.member === 'Thỏ' ? 'tho-slide' : '',
                 slide.member === 'Tiên' ? 'tien-slide' : '',
                 slide.eyebrow === 'Khái niệm 1/6' ? 'concept-open-slide' : '',
                 slide.eyebrow === 'Khái niệm 4/6' || slide.eyebrow.startsWith('Khái niệm 4.') ? 'nation-slide' : ''
