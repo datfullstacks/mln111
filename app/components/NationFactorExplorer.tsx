@@ -38,11 +38,6 @@ export function NationFactorExplorer({ image, images, items }: NationFactorExplo
           <div className="visual-overlay" />
           <VisualCredits images={visualImages} />
           {activeImage ? <span className="nation-factor-image-label">{activeImage.label}</span> : null}
-          <div className="nation-factor-caption">
-            <span>Nation</span>
-            <strong>Quốc gia dân tộc</strong>
-            <p>Cộng đồng chính trị - xã hội thống nhất, nơi các thành viên cùng chung sống, lao động, sáng tạo và bảo vệ Tổ quốc.</p>
-          </div>
         </div>
         <div className="nation-factor-tabs" aria-label="Chọn đặc trưng quốc gia dân tộc">
           {items.map((item, index) => (
